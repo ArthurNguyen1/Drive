@@ -61,6 +61,12 @@
     <Compile Include="uctHome.Designer.cs">
       <DependentUpon>uctHome.cs</DependentUpon>
     </Compile>
+    <Compile Include="uctItemList.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="uctItemList.Designer.cs">
+      <DependentUpon>uctItemList.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="FormMain.resx">
       <DependentUpon>FormMain.cs</DependentUpon>
     </EmbeddedResource>
@@ -76,6 +82,9 @@
     </Compile>
     <EmbeddedResource Include="uctHome.resx">
       <DependentUpon>uctHome.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="uctItemList.resx">
+      <DependentUpon>uctItemList.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -170,6 +179,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\upload %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\three-dots.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\three-dots %281%29.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -405,6 +405,7 @@
             this.pnUploadFile.Name = "pnUploadFile";
             this.pnUploadFile.Size = new System.Drawing.Size(254, 42);
             this.pnUploadFile.TabIndex = 8;
+            this.pnUploadFile.Click += new System.EventHandler(this.pnUploadFile_Click);
             // 
             // lblUploadFile
             // 
