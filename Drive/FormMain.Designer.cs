@@ -36,7 +36,7 @@
             this.lblMyDrive = new System.Windows.Forms.Label();
             this.pnHome = new System.Windows.Forms.Panel();
             this.lblHome = new System.Windows.Forms.Label();
-            this.btnNew = new System.Windows.Forms.Button();
+            this.btnAdd = new System.Windows.Forms.Button();
             this.lblDrive = new System.Windows.Forms.Label();
             this.pnIndividual = new System.Windows.Forms.Panel();
             this.pnSearching = new System.Windows.Forms.Panel();
@@ -53,6 +53,13 @@
             this.lblTrash = new System.Windows.Forms.Label();
             this.pnSpam = new System.Windows.Forms.Panel();
             this.lblSpam = new System.Windows.Forms.Label();
+            this.pnNew = new System.Windows.Forms.Panel();
+            this.pnNewFolder = new System.Windows.Forms.Panel();
+            this.lblNewFolder = new System.Windows.Forms.Label();
+            this.pnUploadFile = new System.Windows.Forms.Panel();
+            this.lblUploadFile = new System.Windows.Forms.Label();
+            this.pnUploadFolder = new System.Windows.Forms.Panel();
+            this.lblUploadFolder = new System.Windows.Forms.Label();
             this.picSearching = new System.Windows.Forms.PictureBox();
             this.picAdvancedSetting = new System.Windows.Forms.PictureBox();
             this.picExternal = new System.Windows.Forms.PictureBox();
@@ -60,6 +67,9 @@
             this.picSetting = new System.Windows.Forms.PictureBox();
             this.picGGApps = new System.Windows.Forms.PictureBox();
             this.picUser = new System.Windows.Forms.PictureBox();
+            this.picUploadFolder = new System.Windows.Forms.PictureBox();
+            this.picUploadFile = new System.Windows.Forms.PictureBox();
+            this.picNewFolder = new System.Windows.Forms.PictureBox();
             this.picMemory = new System.Windows.Forms.PictureBox();
             this.picStart = new System.Windows.Forms.PictureBox();
             this.picTrash = new System.Windows.Forms.PictureBox();
@@ -69,7 +79,7 @@
             this.picMyDrive = new System.Windows.Forms.PictureBox();
             this.picShared = new System.Windows.Forms.PictureBox();
             this.picHome = new System.Windows.Forms.PictureBox();
-            this.picNew = new System.Windows.Forms.PictureBox();
+            this.picAdd = new System.Windows.Forms.PictureBox();
             this.picIcon = new System.Windows.Forms.PictureBox();
             this.pnFunction.SuspendLayout();
             this.pnLaptop.SuspendLayout();
@@ -83,6 +93,10 @@
             this.pnMemory.SuspendLayout();
             this.pnTrash.SuspendLayout();
             this.pnSpam.SuspendLayout();
+            this.pnNew.SuspendLayout();
+            this.pnNewFolder.SuspendLayout();
+            this.pnUploadFile.SuspendLayout();
+            this.pnUploadFolder.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picSearching)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picAdvancedSetting)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picExternal)).BeginInit();
@@ -90,6 +104,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.picSetting)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picGGApps)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picUser)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picUploadFolder)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picUploadFile)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picNewFolder)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picMemory)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picStart)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picTrash)).BeginInit();
@@ -99,13 +116,14 @@
             ((System.ComponentModel.ISupportInitialize)(this.picMyDrive)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picShared)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picHome)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picNew)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picAdd)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picIcon)).BeginInit();
             this.SuspendLayout();
             // 
             // pnFunction
             // 
             this.pnFunction.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.pnFunction.Controls.Add(this.pnNew);
             this.pnFunction.Controls.Add(this.pnMemory);
             this.pnFunction.Controls.Add(this.pnStart);
             this.pnFunction.Controls.Add(this.pnTrash);
@@ -115,14 +133,15 @@
             this.pnFunction.Controls.Add(this.pnMyDrive);
             this.pnFunction.Controls.Add(this.pnShared);
             this.pnFunction.Controls.Add(this.pnHome);
-            this.pnFunction.Controls.Add(this.picNew);
-            this.pnFunction.Controls.Add(this.btnNew);
+            this.pnFunction.Controls.Add(this.picAdd);
+            this.pnFunction.Controls.Add(this.btnAdd);
             this.pnFunction.Controls.Add(this.lblDrive);
             this.pnFunction.Controls.Add(this.picIcon);
             this.pnFunction.Location = new System.Drawing.Point(0, 0);
             this.pnFunction.Name = "pnFunction";
             this.pnFunction.Size = new System.Drawing.Size(280, 720);
             this.pnFunction.TabIndex = 0;
+            this.pnFunction.Click += new System.EventHandler(this.pnFunction_Click);
             // 
             // pnLaptop
             // 
@@ -181,17 +200,17 @@
             this.lblHome.Text = "Trang chủ";
             this.lblHome.Click += new System.EventHandler(this.lblHome_Click);
             // 
-            // btnNew
+            // btnAdd
             // 
-            this.btnNew.BackColor = System.Drawing.Color.White;
-            this.btnNew.Location = new System.Drawing.Point(12, 90);
-            this.btnNew.Name = "btnNew";
-            this.btnNew.Size = new System.Drawing.Size(111, 65);
-            this.btnNew.TabIndex = 2;
-            this.btnNew.Text = "Mới    ";
-            this.btnNew.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnNew.UseVisualStyleBackColor = false;
-            this.btnNew.Click += new System.EventHandler(this.btnNew_Click);
+            this.btnAdd.BackColor = System.Drawing.Color.White;
+            this.btnAdd.Location = new System.Drawing.Point(12, 90);
+            this.btnAdd.Name = "btnAdd";
+            this.btnAdd.Size = new System.Drawing.Size(111, 65);
+            this.btnAdd.TabIndex = 2;
+            this.btnAdd.Text = "Mới    ";
+            this.btnAdd.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnAdd.UseVisualStyleBackColor = false;
+            this.btnAdd.Click += new System.EventHandler(this.btnNew_Click);
             // 
             // lblDrive
             // 
@@ -346,6 +365,75 @@
             this.lblSpam.TabIndex = 6;
             this.lblSpam.Text = "Nội dung rác";
             // 
+            // pnNew
+            // 
+            this.pnNew.BackColor = System.Drawing.Color.White;
+            this.pnNew.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pnNew.Controls.Add(this.pnUploadFolder);
+            this.pnNew.Controls.Add(this.pnUploadFile);
+            this.pnNew.Controls.Add(this.pnNewFolder);
+            this.pnNew.Location = new System.Drawing.Point(12, 81);
+            this.pnNew.Name = "pnNew";
+            this.pnNew.Size = new System.Drawing.Size(254, 140);
+            this.pnNew.TabIndex = 15;
+            // 
+            // pnNewFolder
+            // 
+            this.pnNewFolder.BackColor = System.Drawing.Color.White;
+            this.pnNewFolder.Controls.Add(this.lblNewFolder);
+            this.pnNewFolder.Controls.Add(this.picNewFolder);
+            this.pnNewFolder.Location = new System.Drawing.Point(0, 0);
+            this.pnNewFolder.Name = "pnNewFolder";
+            this.pnNewFolder.Size = new System.Drawing.Size(254, 42);
+            this.pnNewFolder.TabIndex = 7;
+            // 
+            // lblNewFolder
+            // 
+            this.lblNewFolder.AutoSize = true;
+            this.lblNewFolder.Location = new System.Drawing.Point(53, 11);
+            this.lblNewFolder.Name = "lblNewFolder";
+            this.lblNewFolder.Size = new System.Drawing.Size(99, 20);
+            this.lblNewFolder.TabIndex = 6;
+            this.lblNewFolder.Text = "Thư mục mới";
+            // 
+            // pnUploadFile
+            // 
+            this.pnUploadFile.BackColor = System.Drawing.Color.White;
+            this.pnUploadFile.Controls.Add(this.lblUploadFile);
+            this.pnUploadFile.Controls.Add(this.picUploadFile);
+            this.pnUploadFile.Location = new System.Drawing.Point(0, 42);
+            this.pnUploadFile.Name = "pnUploadFile";
+            this.pnUploadFile.Size = new System.Drawing.Size(254, 42);
+            this.pnUploadFile.TabIndex = 8;
+            // 
+            // lblUploadFile
+            // 
+            this.lblUploadFile.AutoSize = true;
+            this.lblUploadFile.Location = new System.Drawing.Point(53, 11);
+            this.lblUploadFile.Name = "lblUploadFile";
+            this.lblUploadFile.Size = new System.Drawing.Size(82, 20);
+            this.lblUploadFile.TabIndex = 6;
+            this.lblUploadFile.Text = "Tải tệp lên";
+            // 
+            // pnUploadFolder
+            // 
+            this.pnUploadFolder.BackColor = System.Drawing.Color.White;
+            this.pnUploadFolder.Controls.Add(this.lblUploadFolder);
+            this.pnUploadFolder.Controls.Add(this.picUploadFolder);
+            this.pnUploadFolder.Location = new System.Drawing.Point(0, 84);
+            this.pnUploadFolder.Name = "pnUploadFolder";
+            this.pnUploadFolder.Size = new System.Drawing.Size(254, 42);
+            this.pnUploadFolder.TabIndex = 9;
+            // 
+            // lblUploadFolder
+            // 
+            this.lblUploadFolder.AutoSize = true;
+            this.lblUploadFolder.Location = new System.Drawing.Point(53, 11);
+            this.lblUploadFolder.Name = "lblUploadFolder";
+            this.lblUploadFolder.Size = new System.Drawing.Size(116, 20);
+            this.lblUploadFolder.TabIndex = 6;
+            this.lblUploadFolder.Text = "Tải thư mục lên";
+            // 
             // picSearching
             // 
             this.picSearching.Image = global::Drive.Properties.Resources.loupe__1_;
@@ -415,6 +503,39 @@
             this.picUser.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.picUser.TabIndex = 0;
             this.picUser.TabStop = false;
+            // 
+            // picUploadFolder
+            // 
+            this.picUploadFolder.BackColor = System.Drawing.Color.White;
+            this.picUploadFolder.Image = global::Drive.Properties.Resources.upload__1_;
+            this.picUploadFolder.Location = new System.Drawing.Point(18, 8);
+            this.picUploadFolder.Name = "picUploadFolder";
+            this.picUploadFolder.Size = new System.Drawing.Size(25, 25);
+            this.picUploadFolder.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.picUploadFolder.TabIndex = 5;
+            this.picUploadFolder.TabStop = false;
+            // 
+            // picUploadFile
+            // 
+            this.picUploadFile.BackColor = System.Drawing.Color.White;
+            this.picUploadFile.Image = global::Drive.Properties.Resources.upload;
+            this.picUploadFile.Location = new System.Drawing.Point(18, 8);
+            this.picUploadFile.Name = "picUploadFile";
+            this.picUploadFile.Size = new System.Drawing.Size(25, 25);
+            this.picUploadFile.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.picUploadFile.TabIndex = 5;
+            this.picUploadFile.TabStop = false;
+            // 
+            // picNewFolder
+            // 
+            this.picNewFolder.BackColor = System.Drawing.Color.White;
+            this.picNewFolder.Image = global::Drive.Properties.Resources.add_folder;
+            this.picNewFolder.Location = new System.Drawing.Point(18, 8);
+            this.picNewFolder.Name = "picNewFolder";
+            this.picNewFolder.Size = new System.Drawing.Size(25, 25);
+            this.picNewFolder.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.picNewFolder.TabIndex = 5;
+            this.picNewFolder.TabStop = false;
             // 
             // picMemory
             // 
@@ -516,16 +637,16 @@
             this.picHome.TabStop = false;
             this.picHome.Click += new System.EventHandler(this.picHome_Click);
             // 
-            // picNew
+            // picAdd
             // 
-            this.picNew.BackColor = System.Drawing.Color.White;
-            this.picNew.Image = global::Drive.Properties.Resources.plus;
-            this.picNew.Location = new System.Drawing.Point(30, 111);
-            this.picNew.Name = "picNew";
-            this.picNew.Size = new System.Drawing.Size(20, 20);
-            this.picNew.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.picNew.TabIndex = 3;
-            this.picNew.TabStop = false;
+            this.picAdd.BackColor = System.Drawing.Color.White;
+            this.picAdd.Image = global::Drive.Properties.Resources.plus;
+            this.picAdd.Location = new System.Drawing.Point(30, 111);
+            this.picAdd.Name = "picAdd";
+            this.picAdd.Size = new System.Drawing.Size(20, 20);
+            this.picAdd.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.picAdd.TabIndex = 3;
+            this.picAdd.TabStop = false;
             // 
             // picIcon
             // 
@@ -573,6 +694,13 @@
             this.pnTrash.PerformLayout();
             this.pnSpam.ResumeLayout(false);
             this.pnSpam.PerformLayout();
+            this.pnNew.ResumeLayout(false);
+            this.pnNewFolder.ResumeLayout(false);
+            this.pnNewFolder.PerformLayout();
+            this.pnUploadFile.ResumeLayout(false);
+            this.pnUploadFile.PerformLayout();
+            this.pnUploadFolder.ResumeLayout(false);
+            this.pnUploadFolder.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picSearching)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picAdvancedSetting)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picExternal)).EndInit();
@@ -580,6 +708,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.picSetting)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picGGApps)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picUser)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picUploadFolder)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picUploadFile)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picNewFolder)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picMemory)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picStart)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picTrash)).EndInit();
@@ -589,7 +720,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.picMyDrive)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picShared)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picHome)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picNew)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picAdd)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picIcon)).EndInit();
             this.ResumeLayout(false);
 
@@ -601,8 +732,8 @@
         private System.Windows.Forms.PictureBox picIcon;
         private System.Windows.Forms.Panel pnIndividual;
         private System.Windows.Forms.Label lblDrive;
-        private System.Windows.Forms.Button btnNew;
-        private System.Windows.Forms.PictureBox picNew;
+        private System.Windows.Forms.Button btnAdd;
+        private System.Windows.Forms.PictureBox picAdd;
         private System.Windows.Forms.Panel pnHome;
         private System.Windows.Forms.Label lblHome;
         private System.Windows.Forms.PictureBox picHome;
@@ -639,6 +770,16 @@
         private System.Windows.Forms.Panel pnShared;
         private System.Windows.Forms.Label lblShared;
         private System.Windows.Forms.PictureBox picShared;
+        private System.Windows.Forms.Panel pnNew;
+        private System.Windows.Forms.Panel pnNewFolder;
+        private System.Windows.Forms.Label lblNewFolder;
+        private System.Windows.Forms.PictureBox picNewFolder;
+        private System.Windows.Forms.Panel pnUploadFolder;
+        private System.Windows.Forms.Label lblUploadFolder;
+        private System.Windows.Forms.PictureBox picUploadFolder;
+        private System.Windows.Forms.Panel pnUploadFile;
+        private System.Windows.Forms.Label lblUploadFile;
+        private System.Windows.Forms.PictureBox picUploadFile;
     }
 }
 

@@ -63,6 +63,16 @@ namespace Drive.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap add_folder {
+            get {
+                object obj = ResourceManager.GetObject("add-folder", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap alert_sign {
             get {
                 object obj = ResourceManager.GetObject("alert-sign", resourceCulture);
@@ -296,6 +306,26 @@ namespace Drive.Properties {
         internal static System.Drawing.Bitmap tiles {
             get {
                 object obj = ResourceManager.GetObject("tiles", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap upload {
+            get {
+                object obj = ResourceManager.GetObject("upload", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap upload__1_ {
+            get {
+                object obj = ResourceManager.GetObject("upload (1)", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
