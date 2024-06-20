@@ -22,14 +22,15 @@ namespace Drive
         public static void loaddata()
         {
             //Load files & folders
-            dtFile.Columns.Add("IDfile", typeof(int));
+            dtFile.Columns.Add("IDfile", typeof(int)); //dtFile.Columns.Add("ID", typeof(int));
             dtFile.Columns.Add("IDowner", typeof(int));
             dtFile.Columns.Add("type", typeof(string));
             dtFile.Columns.Add("name", typeof(string));
             //dtFile.Columns.Add("time", typeof(string));
+            //dtFile.Columns.Add("IDfolderbelong", typeof(int));
             dtFile.Columns.Add("recent", typeof(bool));
             dtFile.Columns.Add("like", typeof(bool));
-            dtFile.Columns.Add("shared", typeof(List<int>));
+            dtFile.Columns.Add("shared", typeof(List<int>));        // List of others' userID can see this file/folder by sharing
 
             try
             {

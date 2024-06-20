@@ -110,6 +110,7 @@
             this.Name = "uctItemList";
             this.Size = new System.Drawing.Size(816, 42);
             this.Load += new System.EventHandler(this.uctItemList_Load);
+            this.DoubleClick += new System.EventHandler(this.uctItemList_DoubleClick);
             ((System.ComponentModel.ISupportInitialize)(this.picOption)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picOwner)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picType)).EndInit();

@@ -30,31 +30,31 @@
         {
             this.pnContentGrid = new System.Windows.Forms.FlowLayoutPanel();
             this.pnList = new System.Windows.Forms.Panel();
+            this.picList = new System.Windows.Forms.PictureBox();
             this.pnGrid = new System.Windows.Forms.Panel();
+            this.picGrid = new System.Windows.Forms.PictureBox();
             this.pnFolder = new System.Windows.Forms.Panel();
             this.lblFolder = new System.Windows.Forms.Label();
+            this.picFolder = new System.Windows.Forms.PictureBox();
             this.pnFile = new System.Windows.Forms.Panel();
             this.lblFile = new System.Windows.Forms.Label();
+            this.picFile = new System.Windows.Forms.PictureBox();
             this.lblRecommend = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.pnContentList = new System.Windows.Forms.FlowLayoutPanel();
             this.pnHeader = new System.Windows.Forms.Panel();
-            this.lblName = new System.Windows.Forms.Label();
-            this.lblReasonRecommend = new System.Windows.Forms.Label();
             this.lblOwner = new System.Windows.Forms.Label();
-            this.picList = new System.Windows.Forms.PictureBox();
-            this.picGrid = new System.Windows.Forms.PictureBox();
-            this.picFolder = new System.Windows.Forms.PictureBox();
-            this.picFile = new System.Windows.Forms.PictureBox();
+            this.lblReasonRecommend = new System.Windows.Forms.Label();
+            this.lblName = new System.Windows.Forms.Label();
             this.pnList.SuspendLayout();
-            this.pnGrid.SuspendLayout();
-            this.pnFolder.SuspendLayout();
-            this.pnFile.SuspendLayout();
-            this.pnHeader.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picList)).BeginInit();
+            this.pnGrid.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picGrid)).BeginInit();
+            this.pnFolder.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picFolder)).BeginInit();
+            this.pnFile.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picFile)).BeginInit();
+            this.pnHeader.SuspendLayout();
             this.SuspendLayout();
             // 
             // pnContentGrid
@@ -74,6 +74,17 @@
             this.pnList.Size = new System.Drawing.Size(59, 42);
             this.pnList.TabIndex = 16;
             // 
+            // picList
+            // 
+            this.picList.BackColor = System.Drawing.Color.White;
+            this.picList.Image = global::Drive.Properties.Resources.menu;
+            this.picList.Location = new System.Drawing.Point(17, 7);
+            this.picList.Name = "picList";
+            this.picList.Size = new System.Drawing.Size(25, 25);
+            this.picList.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.picList.TabIndex = 5;
+            this.picList.TabStop = false;
+            // 
             // pnGrid
             // 
             this.pnGrid.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
@@ -82,6 +93,17 @@
             this.pnGrid.Name = "pnGrid";
             this.pnGrid.Size = new System.Drawing.Size(59, 42);
             this.pnGrid.TabIndex = 15;
+            // 
+            // picGrid
+            // 
+            this.picGrid.BackColor = System.Drawing.Color.White;
+            this.picGrid.Image = global::Drive.Properties.Resources.tiles;
+            this.picGrid.Location = new System.Drawing.Point(17, 7);
+            this.picGrid.Name = "picGrid";
+            this.picGrid.Size = new System.Drawing.Size(25, 25);
+            this.picGrid.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.picGrid.TabIndex = 5;
+            this.picGrid.TabStop = false;
             // 
             // pnFolder
             // 
@@ -103,6 +125,17 @@
             this.lblFolder.TabIndex = 6;
             this.lblFolder.Text = "Thư mục";
             // 
+            // picFolder
+            // 
+            this.picFolder.BackColor = System.Drawing.Color.White;
+            this.picFolder.Image = global::Drive.Properties.Resources.folder;
+            this.picFolder.Location = new System.Drawing.Point(18, 8);
+            this.picFolder.Name = "picFolder";
+            this.picFolder.Size = new System.Drawing.Size(25, 25);
+            this.picFolder.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.picFolder.TabIndex = 5;
+            this.picFolder.TabStop = false;
+            // 
             // pnFile
             // 
             this.pnFile.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
@@ -122,6 +155,17 @@
             this.lblFile.Size = new System.Drawing.Size(39, 20);
             this.lblFile.TabIndex = 6;
             this.lblFile.Text = "Tệp";
+            // 
+            // picFile
+            // 
+            this.picFile.BackColor = System.Drawing.Color.White;
+            this.picFile.Image = global::Drive.Properties.Resources.tick;
+            this.picFile.Location = new System.Drawing.Point(35, 8);
+            this.picFile.Name = "picFile";
+            this.picFile.Size = new System.Drawing.Size(25, 25);
+            this.picFile.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.picFile.TabIndex = 5;
+            this.picFile.TabStop = false;
             // 
             // lblRecommend
             // 
@@ -161,15 +205,15 @@
             this.pnHeader.Size = new System.Drawing.Size(816, 42);
             this.pnHeader.TabIndex = 19;
             // 
-            // lblName
+            // lblOwner
             // 
-            this.lblName.AutoSize = true;
-            this.lblName.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblName.Location = new System.Drawing.Point(3, 10);
-            this.lblName.Name = "lblName";
-            this.lblName.Size = new System.Drawing.Size(39, 20);
-            this.lblName.TabIndex = 0;
-            this.lblName.Text = "Tên";
+            this.lblOwner.AutoSize = true;
+            this.lblOwner.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblOwner.Location = new System.Drawing.Point(628, 10);
+            this.lblOwner.Name = "lblOwner";
+            this.lblOwner.Size = new System.Drawing.Size(100, 20);
+            this.lblOwner.TabIndex = 2;
+            this.lblOwner.Text = "Chủ sở hữu";
             // 
             // lblReasonRecommend
             // 
@@ -181,59 +225,15 @@
             this.lblReasonRecommend.TabIndex = 1;
             this.lblReasonRecommend.Text = "Lý do tài liệu được đề xuất";
             // 
-            // lblOwner
+            // lblName
             // 
-            this.lblOwner.AutoSize = true;
-            this.lblOwner.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblOwner.Location = new System.Drawing.Point(628, 10);
-            this.lblOwner.Name = "lblOwner";
-            this.lblOwner.Size = new System.Drawing.Size(100, 20);
-            this.lblOwner.TabIndex = 2;
-            this.lblOwner.Text = "Chủ sở hữu";
-            // 
-            // picList
-            // 
-            this.picList.BackColor = System.Drawing.Color.White;
-            this.picList.Image = global::Drive.Properties.Resources.menu;
-            this.picList.Location = new System.Drawing.Point(17, 7);
-            this.picList.Name = "picList";
-            this.picList.Size = new System.Drawing.Size(25, 25);
-            this.picList.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.picList.TabIndex = 5;
-            this.picList.TabStop = false;
-            // 
-            // picGrid
-            // 
-            this.picGrid.BackColor = System.Drawing.Color.White;
-            this.picGrid.Image = global::Drive.Properties.Resources.tiles;
-            this.picGrid.Location = new System.Drawing.Point(17, 7);
-            this.picGrid.Name = "picGrid";
-            this.picGrid.Size = new System.Drawing.Size(25, 25);
-            this.picGrid.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.picGrid.TabIndex = 5;
-            this.picGrid.TabStop = false;
-            // 
-            // picFolder
-            // 
-            this.picFolder.BackColor = System.Drawing.Color.White;
-            this.picFolder.Image = global::Drive.Properties.Resources.folder;
-            this.picFolder.Location = new System.Drawing.Point(18, 8);
-            this.picFolder.Name = "picFolder";
-            this.picFolder.Size = new System.Drawing.Size(25, 25);
-            this.picFolder.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.picFolder.TabIndex = 5;
-            this.picFolder.TabStop = false;
-            // 
-            // picFile
-            // 
-            this.picFile.BackColor = System.Drawing.Color.White;
-            this.picFile.Image = global::Drive.Properties.Resources.tick;
-            this.picFile.Location = new System.Drawing.Point(35, 8);
-            this.picFile.Name = "picFile";
-            this.picFile.Size = new System.Drawing.Size(25, 25);
-            this.picFile.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.picFile.TabIndex = 5;
-            this.picFile.TabStop = false;
+            this.lblName.AutoSize = true;
+            this.lblName.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblName.Location = new System.Drawing.Point(3, 10);
+            this.lblName.Name = "lblName";
+            this.lblName.Size = new System.Drawing.Size(39, 20);
+            this.lblName.TabIndex = 0;
+            this.lblName.Text = "Tên";
             // 
             // uctHome
             // 
@@ -253,17 +253,17 @@
             this.Size = new System.Drawing.Size(840, 620);
             this.Load += new System.EventHandler(this.uctHome_Load);
             this.pnList.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.picList)).EndInit();
             this.pnGrid.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.picGrid)).EndInit();
             this.pnFolder.ResumeLayout(false);
             this.pnFolder.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picFolder)).EndInit();
             this.pnFile.ResumeLayout(false);
             this.pnFile.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picFile)).EndInit();
             this.pnHeader.ResumeLayout(false);
             this.pnHeader.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.picList)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picGrid)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picFolder)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picFile)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
