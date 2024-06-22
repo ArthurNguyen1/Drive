@@ -128,12 +128,12 @@ namespace Drive
         private void SignIn(object sender, EventArgs e)
         {
             bool isExist = false;
-            string[] files = Directory.GetFiles(Application.StartupPath + "//Contacts");
+            string[] files = Directory.GetFiles(Application.StartupPath + "//Users");
             for (int i = 0; i < files.Length; i++)
             {
                 using (var sr = new StreamReader(files[i]))
                 {
-                    sr.ReadLine(); string ava = sr.ReadLine(); string on = sr.ReadLine(); string name = sr.ReadLine(); string text = sr.ReadLine(); string email = sr.ReadLine();
+                    sr.ReadLine(); string email = sr.ReadLine(); string name = sr.ReadLine();
                     if (txbEmailLogin.Texts == email)
                     {
                         isExist = true;
@@ -163,9 +163,9 @@ namespace Drive
 
         private void SignUp(object sender, EventArgs e)
         {
-            string[] files = Directory.GetFiles(Application.StartupPath + "//Contacts");
+            string[] files = Directory.GetFiles(Application.StartupPath + "//Users");
 
-            StreamWriter sw = new StreamWriter(Application.StartupPath + "\\Contacts\\" + (files.Length + 1).ToString() + ".txt");
+            StreamWriter sw = new StreamWriter(Application.StartupPath + "//Users//" + (files.Length + 1).ToString() + ".txt");
             if (txbPwRegis.Texts == txbConfirmRegis.Texts)
             {
                 sw.WriteLine((files.Length + 1).ToString());
@@ -174,8 +174,10 @@ namespace Drive
                 //sw.WriteLine("F:\\Course in University\\C# Programing Languge\\Task\\ChatOnline\\ChatOnline\\Resources\\on.png");
                 //sw.WriteLine(txbName.Texts);
                 //sw.WriteLine("Newbie");
-                //sw.WriteLine(txbEmailRegis.Texts);
-                //sw.WriteLine(txbPassReg.Texts);
+                sw.WriteLine(txbEmailRegis.Texts);
+                sw.WriteLine(txbNameRegis.Texts);
+                sw.WriteLine(txbPwRegis.Texts);
+                
                 MessageBox.Show("Register Successfully", "Notification", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             else
@@ -213,13 +215,13 @@ namespace Drive
         {
             currentEmail = txbEmailReset.Texts;
             MailMessage mail = new MailMessage();
-            mail.From = new System.Net.Mail.MailAddress("Hoangminh1784@gmail.com");
+            mail.From = new System.Net.Mail.MailAddress("librarymanagementsystemhelps@gmail.com");
             SmtpClient smtp = new SmtpClient();
             smtp.Port = 587;
             smtp.EnableSsl = true;
             smtp.DeliveryMethod = SmtpDeliveryMethod.Network;
             smtp.UseDefaultCredentials = false;
-            smtp.Credentials = new NetworkCredential(mail.From.Address, "pjud rpxo elso bufy");
+            smtp.Credentials = new NetworkCredential(mail.From.Address, "hixm vlim izlu gptu");
             smtp.Host = "smtp.gmail.com";
 
             //recipient
@@ -228,7 +230,7 @@ namespace Drive
 
             mail.To.Add(new MailAddress(txbEmailReset.Texts.ToString()));
             mail.IsBodyHtml = true;
-            mail.Subject = "SKYPOCK - RESET PASSWORD";
+            mail.Subject = "Drive - RESET PASSWORD";
             mail.Body = OTP.ToString();
 
 
@@ -255,15 +257,15 @@ namespace Drive
             }
             else
             {
-                if (txbNewPass.Texts == txbOTP.Texts)
+                if (txbNewPass.Texts == txbConfirmNewPass.Texts)
                 {
                     string path = "";
-                    string[] files = Directory.GetFiles(Application.StartupPath + "//Contacts");
+                    string[] files = Directory.GetFiles(Application.StartupPath + "//Users");
                     for (int i = 0; i < files.Length; i++)
                     {
                         using (var sr = new StreamReader(files[i]))
                         {
-                            sr.ReadLine(); string ava = sr.ReadLine(); string on = sr.ReadLine(); string name = sr.ReadLine(); string text = sr.ReadLine(); string email = sr.ReadLine();
+                            sr.ReadLine(); string email = sr.ReadLine(); string name = sr.ReadLine(); 
                             if (txbEmailReset.Texts == email)
                             {
                                 path = files[i];
@@ -274,7 +276,7 @@ namespace Drive
                     }
                     if (path != "")
                     {
-                        ReplaceLastLine(path, txbOTP.Texts);
+                        ReplaceLastLine(path, txbConfirmNewPass.Texts);
                         MessageBox.Show("Change password successfully");
                         LoadLoginPage(sender, e);
                     }

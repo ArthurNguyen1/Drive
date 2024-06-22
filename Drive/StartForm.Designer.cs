@@ -57,7 +57,6 @@
             this.lblNewPass = new System.Windows.Forms.Label();
             this.lblConfirm = new System.Windows.Forms.Label();
             this.btnCancel = new System.Windows.Forms.Button();
-            this.txbEmailReset = new Drive.CustomControl.TextBoxCustom();
             this.txbConfirmNewPass = new Drive.CustomControl.TextBoxCustom();
             this.txbNewPass = new Drive.CustomControl.TextBoxCustom();
             this.txbOTP = new Drive.CustomControl.TextBoxCustom();
@@ -67,6 +66,7 @@
             this.txbConfirmRegis = new Drive.CustomControl.TextBoxCustom();
             this.txbPwRegis = new Drive.CustomControl.TextBoxCustom();
             this.txbEmailRegis = new Drive.CustomControl.TextBoxCustom();
+            this.txbEmailReset = new Drive.CustomControl.TextBoxCustom();
             this.pnLogin.SuspendLayout();
             this.pnRegister.SuspendLayout();
             this.pnReset1.SuspendLayout();
@@ -383,6 +383,7 @@
             this.lblNewPass.Size = new System.Drawing.Size(107, 28);
             this.lblNewPass.TabIndex = 31;
             this.lblNewPass.Text = "New Pass:";
+            this.lblNewPass.Visible = false;
             // 
             // lblConfirm
             // 
@@ -393,6 +394,7 @@
             this.lblConfirm.Size = new System.Drawing.Size(93, 28);
             this.lblConfirm.TabIndex = 33;
             this.lblConfirm.Text = "Confirm:";
+            this.lblConfirm.Visible = false;
             // 
             // btnCancel
             // 
@@ -406,31 +408,6 @@
             this.btnCancel.Text = "Cancel";
             this.btnCancel.UseVisualStyleBackColor = false;
             this.btnCancel.Click += new System.EventHandler(this.LoadLoginPage);
-            // 
-            // txbEmailReset
-            // 
-            this.txbEmailReset.BackColor = System.Drawing.SystemColors.Window;
-            this.txbEmailReset.BorderColor = System.Drawing.Color.LightSlateGray;
-            this.txbEmailReset.BorderFocusColor = System.Drawing.Color.Black;
-            this.txbEmailReset.BorderRadius = 0;
-            this.txbEmailReset.BorderSize = 2;
-            this.txbEmailReset.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txbEmailReset.ForeColor = System.Drawing.Color.DimGray;
-            this.txbEmailReset.Location = new System.Drawing.Point(149, 168);
-            this.txbEmailReset.Margin = new System.Windows.Forms.Padding(4);
-            this.txbEmailReset.Multiline = false;
-            this.txbEmailReset.Name = "txbEmailReset";
-            this.txbEmailReset.Padding = new System.Windows.Forms.Padding(7);
-            this.txbEmailReset.PasswordChar = false;
-            this.txbEmailReset.PlaceholderColor = System.Drawing.Color.DarkGray;
-            this.txbEmailReset.PlaceholderText = "";
-            this.txbEmailReset.ReadOnly = false;
-            this.txbEmailReset.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            this.txbEmailReset.SelectionColor = System.Drawing.Color.Yellow;
-            this.txbEmailReset.Size = new System.Drawing.Size(265, 35);
-            this.txbEmailReset.TabIndex = 29;
-            this.txbEmailReset.Texts = "";
-            this.txbEmailReset.UnderlinedStyle = false;
             // 
             // txbConfirmNewPass
             // 
@@ -456,6 +433,7 @@
             this.txbConfirmNewPass.TabIndex = 34;
             this.txbConfirmNewPass.Texts = "";
             this.txbConfirmNewPass.UnderlinedStyle = false;
+            this.txbConfirmNewPass.Visible = false;
             // 
             // txbNewPass
             // 
@@ -481,6 +459,7 @@
             this.txbNewPass.TabIndex = 32;
             this.txbNewPass.Texts = "";
             this.txbNewPass.UnderlinedStyle = false;
+            this.txbNewPass.Visible = false;
             // 
             // txbOTP
             // 
@@ -656,6 +635,31 @@
             this.txbEmailRegis.TabIndex = 29;
             this.txbEmailRegis.Texts = "";
             this.txbEmailRegis.UnderlinedStyle = false;
+            // 
+            // txbEmailReset
+            // 
+            this.txbEmailReset.BackColor = System.Drawing.SystemColors.Window;
+            this.txbEmailReset.BorderColor = System.Drawing.Color.LightSlateGray;
+            this.txbEmailReset.BorderFocusColor = System.Drawing.Color.Black;
+            this.txbEmailReset.BorderRadius = 0;
+            this.txbEmailReset.BorderSize = 2;
+            this.txbEmailReset.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txbEmailReset.ForeColor = System.Drawing.Color.DimGray;
+            this.txbEmailReset.Location = new System.Drawing.Point(149, 168);
+            this.txbEmailReset.Margin = new System.Windows.Forms.Padding(4);
+            this.txbEmailReset.Multiline = false;
+            this.txbEmailReset.Name = "txbEmailReset";
+            this.txbEmailReset.Padding = new System.Windows.Forms.Padding(7);
+            this.txbEmailReset.PasswordChar = false;
+            this.txbEmailReset.PlaceholderColor = System.Drawing.Color.DarkGray;
+            this.txbEmailReset.PlaceholderText = "";
+            this.txbEmailReset.ReadOnly = false;
+            this.txbEmailReset.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            this.txbEmailReset.SelectionColor = System.Drawing.Color.Yellow;
+            this.txbEmailReset.Size = new System.Drawing.Size(265, 35);
+            this.txbEmailReset.TabIndex = 29;
+            this.txbEmailReset.Texts = "";
+            this.txbEmailReset.UnderlinedStyle = false;
             // 
             // StartForm
             // 
