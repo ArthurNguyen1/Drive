@@ -236,6 +236,7 @@
             this.pnNewFolder.Name = "pnNewFolder";
             this.pnNewFolder.Size = new System.Drawing.Size(254, 42);
             this.pnNewFolder.TabIndex = 7;
+            this.pnNewFolder.Click += new System.EventHandler(this.pnNewFolder_Click);
             this.pnNewFolder.MouseEnter += new System.EventHandler(this.pnNewFolder_MouseEnter);
             this.pnNewFolder.MouseLeave += new System.EventHandler(this.pnNewFolder_MouseLeave);
             // 

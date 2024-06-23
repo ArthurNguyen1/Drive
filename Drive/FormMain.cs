@@ -126,7 +126,6 @@ namespace Drive
                     string pathDataFile = "DriveData\\data\\File.txt";
                     string fileName = fii.Name.Substring(0, fii.Name.Length - 5);
                     StreamWriter sw = new StreamWriter(pathDataFile, true);
-                    sw.WriteLine();
                     sw.WriteLine(ClassData.nextFileID.ToString() + "*" +
                              "1000" + "*" +
                              fii.Extension + "*" +
@@ -189,6 +188,29 @@ namespace Drive
         {
             pnUploadFolder.BackColor = Color.White;
             picUploadFolder.BackColor = Color.White;
+        }
+
+        private void pnNewFolder_Click(object sender, EventArgs e)
+        {
+            string pathDataFolder = "DriveData\\data\\Folder.txt";
+            StreamWriter sw = new StreamWriter(pathDataFolder, true);
+            sw.WriteLine(ClassData.nextFolderID.ToString() + "*" +
+                     "1000" + "*" +
+                     "folder" + "*" +
+                     "New Folder" + "*" +
+                     DateTime.Now.ToString("dd/MM/yyyy hh:mm:ss tt") + "*" +
+                     ClassData.currentFolderID.ToString() + "*" +
+                     "False" + "*" +
+                     "False");
+            sw.Close();
+
+            ClassData.nextFolderID++;
+
+            ClassData.reloaddata();
+            Home.FolderAdd();
+            Home.LoadDataFolder();
+
+            pnNew.Visible = false;
         }
     }
 }
