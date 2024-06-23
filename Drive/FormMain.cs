@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.Office.Interop.Word;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -36,7 +37,7 @@ namespace Drive
             //dtFiles = new DataTable();
 
             this.Controls.Add(Home);
-            Home.Location = new Point(187, 65);
+            Home.Location = new System.Drawing.Point(187, 65);
         }
 
         private void FormMain_Load(object sender, EventArgs e)
@@ -180,8 +181,8 @@ namespace Drive
 
         private void pnUploadFolder_MouseEnter(object sender, EventArgs e)
         {
-            pnUploadFolder.BackColor = Color.LightSkyBlue; ;
-            picUploadFolder.BackColor = Color.LightSkyBlue; ;
+            pnUploadFolder.BackColor = Color.LightSkyBlue; 
+            picUploadFolder.BackColor = Color.LightSkyBlue; 
         }
 
         private void pnUploadFolder_MouseLeave(object sender, EventArgs e)
@@ -210,6 +211,48 @@ namespace Drive
             Home.FolderAdd();
             Home.LoadDataFolder();
 
+            pnNew.Visible = false;
+        }
+
+        private void pnNewDoc_MouseEnter(object sender, EventArgs e)
+        {
+            pnNewDoc.BackColor = Color.LightSkyBlue;
+            picNewDoc.BackColor = Color.LightSkyBlue;
+        }
+
+        private void pnNewDoc_MouseLeave(object sender, EventArgs e)
+        {
+            pnNewDoc.BackColor = Color.White;
+            picNewDoc.BackColor = Color.White;
+        }
+
+        private void pnNewDoc_Click(object sender, EventArgs e)
+        {
+            string stringPath = "D:\\Drive\\Drive\\bin\\Debug\\DriveData\\sample\\New Document.docx";
+            FileInfo fi = new FileInfo(stringPath);
+            string s = "DriveData\\file\\" + Path.GetFileName("New Document.docx");
+            FileInfo fii = new FileInfo(s);
+            if (!fii.Exists)
+            {
+                fi.CopyTo(s);
+            }
+
+            string pathDataFile = "DriveData\\data\\File.txt";
+            StreamWriter sw = new StreamWriter(pathDataFile, true);
+            sw.WriteLine(ClassData.nextFileID.ToString() + "*" +
+                     "1000" + "*" +
+                     fii.Extension + "*" +
+                     "New Document" + "*" +
+                     DateTime.Now.ToString("dd/MM/yyyy hh:mm:ss tt") + "*" +
+                     ClassData.currentFolderID.ToString() + "*" +
+                     "False" + "*" +
+                     "False");
+            sw.Close();
+
+            ClassData.nextFileID++;
+
+            ClassData.reloaddata();
+            Home.LoadDataFile();
             pnNew.Visible = false;
         }
     }
