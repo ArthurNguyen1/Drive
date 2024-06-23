@@ -101,6 +101,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.White;
             this.Controls.Add(this.picOption);
             this.Controls.Add(this.picOwner);
             this.Controls.Add(this.picType);
@@ -110,7 +111,10 @@
             this.Name = "uctItemList";
             this.Size = new System.Drawing.Size(816, 42);
             this.Load += new System.EventHandler(this.uctItemList_Load);
+            this.Click += new System.EventHandler(this.uctItemList_Click);
             this.DoubleClick += new System.EventHandler(this.uctItemList_DoubleClick);
+            this.MouseEnter += new System.EventHandler(this.uctItemList_MouseEnter);
+            this.MouseLeave += new System.EventHandler(this.uctItemList_MouseLeave);
             ((System.ComponentModel.ISupportInitialize)(this.picOption)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picOwner)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picType)).EndInit();

@@ -10,6 +10,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Windows.Forms.VisualStyles;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace Drive
 {
@@ -45,8 +46,8 @@ namespace Drive
             pnNew.Visible = false;
 
             Home.Visible = true;
-            ClassData.dtInUse = ClassData.dtFile.AsEnumerable().Where(dr => dr.Field<string>("type") != "folder").CopyToDataTable();
-            Home.LoadDataDown(ClassData.dtInUse);
+            //ClassData.dtInUse = ClassData.dtFile.AsEnumerable().Where(dr => dr.Field<string>("type") != "folder").CopyToDataTable();
+            Home.LoadDataDown(ClassData.dtFile);
 
             pnHome.BackColor = Color.LightSkyBlue;
             picHome.BackColor = Color.LightSkyBlue;
@@ -112,61 +113,37 @@ namespace Drive
             if (f.ShowDialog() == DialogResult.OK)
             {
                 string[] st = f.FileNames;
-                if (st.Length % 2 == 0)
+                for (int i = 0; i < st.Length; i++)
                 {
-                    for (int i = 0; i < st.Length; i++)
+                    FileInfo fi = new FileInfo(st[i]);
+                    string s = "DriveData\\file\\" + Path.GetFileName(st[i]);
+                    FileInfo fii = new FileInfo(s);
+                    if (!fii.Exists)
                     {
-                        //UCpic ucpic = new UCpic();
-                        //ucpic.LoadDataPicOnly(st[i], 0);
-                        //ucpic.Location = new System.Drawing.Point(0, y_Chat);
-                        //ucpic.Size = new System.Drawing.Size(200, 180);
-                        //pnChat.Controls.Add(ucpic);
-                        ////x_Vid += 300;
-
-                        //FileInfo fi = new FileInfo(st[i]);
-                        //string s = "Chat\\photo\\" + Path.GetFileName(st[i]);
-                        //FileInfo fii = new FileInfo(s);
-                        //if (!fii.Exists)
-                        //{
-                        //    fi.CopyTo(s);
-                        //}
-                        //StreamWriter sw = new StreamWriter(pathDataChat, true);
-                        //sw.Write("*" + "Chat\\photo\\" + Path.GetFileName(st[i]) + "*" +
-                        //         ucpic.Location.X.ToString() + "*" +
-                        //         ucpic.Location.Y.ToString() + "*" +
-                        //         ucpic.Size.Width.ToString() + "*" +
-                        //         ucpic.Size.Height.ToString());
-                        //sw.Close();
+                        fi.CopyTo(s);
                     }
-                }
-                else
-                {
-                    for (int i = 0; i < st.Length; i++)
-                    {
-                        //UCpic ucpic = new UCpic();
-                        //ucpic.LoadDataPicOnly(st[i], 0);
-                        //ucpic.Location = new System.Drawing.Point(0, y_Chat);
-                        //ucpic.Size = new System.Drawing.Size(200, 180);
-                        //pnChat.Controls.Add(ucpic);
-                        ////x_Vid += 300;
 
-                        //FileInfo fi = new FileInfo(st[i]);
-                        //string s = "Chat\\photo\\" + Path.GetFileName(st[i]);
-                        //FileInfo fii = new FileInfo(s);
-                        //if (!fii.Exists)
-                        //{
-                        //    fi.CopyTo(s);
-                        //}
-                        //StreamWriter sw = new StreamWriter(pathDataChat, true);
-                        //sw.Write("*" + "Chat\\photo\\" + Path.GetFileName(st[i]) + "*" +
-                        //         ucpic.Location.X.ToString() + "*" +
-                        //         ucpic.Location.Y.ToString() + "*" +
-                        //         ucpic.Size.Width.ToString() + "*" +
-                        //         ucpic.Size.Height.ToString());
-                        //sw.Close();
-                    }
+                    string pathDataFile = "DriveData\\data\\File.txt";
+                    string fileName = fii.Name.Substring(0, fii.Name.Length - 5);
+                    StreamWriter sw = new StreamWriter(pathDataFile, true);
+                    sw.WriteLine();
+                    sw.WriteLine(ClassData.nextFileID.ToString() + "*" +
+                             "1000" + "*" +
+                             fii.Extension + "*" +
+                             fileName + "*" +
+                             DateTime.Now.ToString("dd/MM/yyyy hh:mm:ss tt") + "*" +
+                             ClassData.currentFolderID.ToString() + "*" +
+                             "False" + "*" +
+                             "False");
+                    sw.Close();
+
+                    ClassData.nextFileID++;
                 }
             }
+
+            ClassData.reloaddata();
+            Home.LoadDataFile();
+            pnNew.Visible = false;
         }
 
         private void DragWindow(object sender, MouseEventArgs e)
@@ -176,6 +153,42 @@ namespace Drive
                 ReleaseCapture();
                 SendMessage(Handle, WM_NCLBUTTONDOWN, HT_CAPTION, 0);
             }
+        }
+
+        private void pnUploadFile_MouseEnter(object sender, EventArgs e)
+        {
+            pnUploadFile.BackColor = Color.LightSkyBlue;
+            picUploadFile.BackColor = Color.LightSkyBlue;
+        }
+
+        private void pnUploadFile_MouseLeave(object sender, EventArgs e)
+        {
+            pnUploadFile.BackColor = Color.White;
+            picUploadFile.BackColor = Color.White;
+        }
+
+        private void pnNewFolder_MouseEnter(object sender, EventArgs e)
+        {
+            pnNewFolder.BackColor = Color.LightSkyBlue;
+            picNewFolder.BackColor = Color.LightSkyBlue;
+        }
+
+        private void pnNewFolder_MouseLeave(object sender, EventArgs e)
+        {
+            pnNewFolder.BackColor = Color.White;
+            picNewFolder.BackColor = Color.White;
+        }
+
+        private void pnUploadFolder_MouseEnter(object sender, EventArgs e)
+        {
+            pnUploadFolder.BackColor = Color.LightSkyBlue; ;
+            picUploadFolder.BackColor = Color.LightSkyBlue; ;
+        }
+
+        private void pnUploadFolder_MouseLeave(object sender, EventArgs e)
+        {
+            pnUploadFolder.BackColor = Color.White;
+            picUploadFolder.BackColor = Color.White;
         }
     }
 }

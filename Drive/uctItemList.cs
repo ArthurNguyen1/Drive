@@ -96,5 +96,27 @@ namespace Drive
             lblName.Text = name;
             lblReasonRecommend.Text = "Bạn đã mở : " + _time;
         }
+
+        private void uctItemList_MouseEnter(object sender, EventArgs e)
+        {
+            this.BackColor = System.Drawing.SystemColors.ControlDark;
+        }
+
+        private void uctItemList_MouseLeave(object sender, EventArgs e)
+        {
+            if(ClassData.chosenFileID == _ID)
+                this.BackColor = System.Drawing.Color.LightSkyBlue;
+            else
+                this.BackColor = System.Drawing.Color.White;
+        }
+
+        private void uctItemList_Click(object sender, EventArgs e)
+        {
+            ClassData.chosenFileID = _ID;
+            if (ClassData.chosenFileID == _ID)
+                this.BackColor = System.Drawing.Color.LightSkyBlue;
+            else
+                this.BackColor = System.Drawing.Color.White;
+        }
     }
 }

@@ -51,6 +51,15 @@ namespace Drive
             }
         }
 
+        public void LoadDataFile()
+        {
+            pnContentList.Controls.Clear();
+            foreach (DataRow dr in ClassData.dtFile.Rows)
+            {
+                AddFile((int)dr["ID"], (int)dr["IDowner"], dr["type"].ToString(), dr["name"].ToString(), dr["time"].ToString(), (int)dr["IDfolderbelong"], (bool)dr["recent"], (bool)dr["like"], (List<int>)dr["shared"]);
+            }
+        }
+
         private void Reset()
         {
             pnContentGrid.Visible = false;
@@ -74,8 +83,8 @@ namespace Drive
             pnContentList.Visible = true;
             pnHeader.Visible = true;
 
-            ClassData.dtInUse = ClassData.dtFile.AsEnumerable().Where(dr => dr.Field<string>("type") != "folder").CopyToDataTable();
-            LoadDataDown(ClassData.dtInUse);
+            //ClassData.dtInUse = ClassData.dtFile.AsEnumerable().Where(dr => dr.Field<string>("type") != "folder").CopyToDataTable();
+            LoadDataDown(ClassData.dtFile);
 
             pnFile.BackColor = Color.LightSkyBlue;
             picFile.BackColor = Color.LightSkyBlue;
@@ -87,8 +96,8 @@ namespace Drive
             pnContentList.Visible = true;
             pnHeader.Visible = true;
 
-            ClassData.dtInUse = ClassData.dtFile.AsEnumerable().Where(dr => dr.Field<string>("type") == "folder").CopyToDataTable();
-            LoadDataDown(ClassData.dtInUse);
+            //ClassData.dtInUse = ClassData.dtFile.AsEnumerable().Where(dr => dr.Field<string>("type") == "folder").CopyToDataTable();
+            LoadDataDown(ClassData.dtFolder);
 
             pnFolder.BackColor = Color.LightSkyBlue;
             picFolder.BackColor = Color.LightSkyBlue;
