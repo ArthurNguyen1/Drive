@@ -25,14 +25,14 @@ namespace Drive
         public static extern bool ReleaseCapture();
         #endregion
 
-        DataTable dtFiles = null;
+        //DataTable dtFiles = null;
 
         uctHome Home = new uctHome();
 
         public FormMain()
         {
             InitializeComponent();
-            dtFiles = new DataTable();
+            //dtFiles = new DataTable();
 
             this.Controls.Add(Home);
             Home.Location = new Point(187, 65);
@@ -45,9 +45,8 @@ namespace Drive
             pnNew.Visible = false;
 
             Home.Visible = true;
-
-            dtFiles = ClassData.dtFile.Copy();
-            Home.LoadDataDown(dtFiles);
+            ClassData.dtInUse = ClassData.dtFile.AsEnumerable().Where(dr => dr.Field<string>("type") != "folder").CopyToDataTable();
+            Home.LoadDataDown(ClassData.dtInUse);
 
             pnHome.BackColor = Color.LightSkyBlue;
             picHome.BackColor = Color.LightSkyBlue;

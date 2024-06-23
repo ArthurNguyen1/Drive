@@ -114,6 +114,7 @@
             this.pnFolder.Name = "pnFolder";
             this.pnFolder.Size = new System.Drawing.Size(141, 42);
             this.pnFolder.TabIndex = 14;
+            this.pnFolder.Click += new System.EventHandler(this.pnFolder_Click);
             // 
             // lblFolder
             // 
@@ -145,6 +146,7 @@
             this.pnFile.Name = "pnFile";
             this.pnFile.Size = new System.Drawing.Size(141, 42);
             this.pnFile.TabIndex = 12;
+            this.pnFile.Click += new System.EventHandler(this.pnFile_Click);
             // 
             // lblFile
             // 

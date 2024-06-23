@@ -14,8 +14,16 @@ namespace Drive
 {
     public partial class uctItemList : UserControl
     {
-        int IDfile, IDowner = 0;
-        string type;
+        int _ID = -1;
+        int _IDowner = -1;
+        string _type;      
+        string _name;
+        string _time;
+        int _IDfolderbelong = -1;
+        bool _recent;
+        bool _like;
+        List<int> _shared;
+        
         public uctItemList()
         {
             InitializeComponent();
@@ -72,14 +80,21 @@ namespace Drive
             //}
         }
 
-        public void LoadData(int idfile, int idowner, string type, string name)
+        public void LoadData(int id, int idowner, string type, string name, string time, int idfolderbelong, bool recent, bool like, List<int> shared)
         {
-            IDfile = idfile;
-            lblName.Text = name;
-            //lblReasonRecommend.Text = suggest;
-            IDowner = idowner;
+            _ID = id;
+            _IDowner = idowner;
+            _type = type;
+            _name = name;
+            _time = time;
+            _IDfolderbelong = idfolderbelong;
+            _recent = recent;
+            _like = like;
+            _shared = shared;
+
             picType.Image = Image.FromFile(PathImage + type + ".png");
-            this.type = type;
+            lblName.Text = name;
+            lblReasonRecommend.Text = "Bạn đã mở : " + _time;
         }
     }
 }
