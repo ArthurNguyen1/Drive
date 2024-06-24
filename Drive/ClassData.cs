@@ -27,6 +27,13 @@ namespace Drive
         public static int nextFileID = 101;
         public static int nextFolderID = 1;
 
+        public delegate void ClickEventHandler();
+        public static event ClickEventHandler OnClicked;
+        public static void Clicked()
+        {
+            if (OnClicked != null)
+                OnClicked();
+        }
         public static void loaddata()
         {
             //Load files

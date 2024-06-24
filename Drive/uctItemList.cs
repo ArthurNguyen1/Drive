@@ -117,6 +117,8 @@ namespace Drive
                 this.BackColor = System.Drawing.Color.LightSkyBlue;
             else
                 this.BackColor = System.Drawing.Color.White;
+
+            ClassData.Clicked();
         }
     }
 }

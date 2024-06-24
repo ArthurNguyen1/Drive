@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -15,6 +16,8 @@ namespace Drive
         public uctHome()
         {
             InitializeComponent();
+
+            ClassData.OnClicked += DisplayFunctionPanel;
         }
 
         private void uctHome_Load(object sender, EventArgs e)
@@ -28,6 +31,8 @@ namespace Drive
 
             pnFile.BackColor = Color.LightSkyBlue;
             picFile.BackColor = Color.LightSkyBlue;
+
+            HideFunctionPanel();
         }
 
         public void LoadForm()
@@ -92,6 +97,9 @@ namespace Drive
             pnContentList.Visible = true;
             pnHeader.Visible = true;
 
+            pnList.BackColor = Color.LightSkyBlue;
+            picList.BackColor = Color.LightSkyBlue;
+
             //ClassData.dtInUse = ClassData.dtFile.AsEnumerable().Where(dr => dr.Field<string>("type") != "folder").CopyToDataTable();
             LoadDataDown(ClassData.dtFile);
 
@@ -104,6 +112,9 @@ namespace Drive
             Reset();
             pnContentList.Visible = true;
             pnHeader.Visible = true;
+
+            pnList.BackColor = Color.LightSkyBlue;
+            picList.BackColor = Color.LightSkyBlue;
 
             //ClassData.dtInUse = ClassData.dtFile.AsEnumerable().Where(dr => dr.Field<string>("type") == "folder").CopyToDataTable();
             LoadDataDown(ClassData.dtFolder);
@@ -118,8 +129,106 @@ namespace Drive
             pnContentList.Visible = true;
             pnHeader.Visible = true;
 
+            pnList.BackColor = Color.LightSkyBlue;
+            picList.BackColor = Color.LightSkyBlue;
+
             pnFolder.BackColor = Color.LightSkyBlue;
             picFolder.BackColor = Color.LightSkyBlue;
+        }
+
+        public void DisplayFunctionPanel()
+        {
+            pnFunctions.Visible = true;
+            lblRecommend.Visible = false;
+            pnFile.Visible = false;
+            pnFolder.Visible = false;
+            pnList.Visible = false;
+            pnGrid.Visible = false;
+        }
+
+        public void HideFunctionPanel()
+        {
+            pnFunctions.Visible = false;
+            lblRecommend.Visible = true;
+            pnFile.Visible = true;
+            pnFolder.Visible = true;
+            pnList.Visible = true;
+            pnGrid.Visible = true;
+        }
+
+        private void picClose_Click(object sender, EventArgs e)
+        {
+            HideFunctionPanel();
+        }
+
+        private void picClose_MouseEnter(object sender, EventArgs e)
+        {
+            picClose.BackColor = Color.LightGray;
+        }
+
+        private void picClose_MouseLeave(object sender, EventArgs e)
+        {
+            picClose.BackColor = SystemColors.Control;
+        }
+
+        private void picShared_MouseEnter(object sender, EventArgs e)
+        {
+            picShared.BackColor = Color.LightGray;
+        }
+
+        private void picShared_MouseLeave(object sender, EventArgs e)
+        {
+            picShared.BackColor = SystemColors.Control;
+        }
+
+        private void picDownload_MouseEnter(object sender, EventArgs e)
+        {
+            picDownload.BackColor = Color.LightGray;
+        }
+
+        private void picDownload_MouseLeave(object sender, EventArgs e)
+        {
+            picDownload.BackColor = SystemColors.Control;
+        }
+
+        private void picMove_MouseEnter(object sender, EventArgs e)
+        {
+            picMove.BackColor = Color.LightGray;
+        }
+
+        private void picMove_MouseLeave(object sender, EventArgs e)
+        {
+            picMove.BackColor = SystemColors.Control;
+        }
+
+        private void picDelete_MouseEnter(object sender, EventArgs e)
+        {
+            picDelete.BackColor = Color.LightGray;
+        }
+
+        private void picDelete_MouseLeave(object sender, EventArgs e)
+        {
+            picDelete.BackColor = SystemColors.Control;
+        }
+
+        private void picCopyLink_MouseEnter(object sender, EventArgs e)
+        {
+            picCopyLink.BackColor = Color.LightGray;
+        }
+
+        private void picCopyLink_MouseLeave(object sender, EventArgs e)
+        {
+            picCopyLink.BackColor = SystemColors.Control;
+        }
+
+        private void picMore_MouseEnter(object sender, EventArgs e)
+        {
+            picMore.BackColor = Color.LightGray;
+        }
+
+        private void picMore_MouseLeave(object sender, EventArgs e)
+        {
+            picMore.BackColor = SystemColors.Control;
         }
     }
 }
