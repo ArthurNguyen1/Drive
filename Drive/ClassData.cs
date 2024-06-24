@@ -29,6 +29,8 @@ namespace Drive
         public static int nextFileID = 101;
         public static int nextFolderID = 1;
 
+        public static bool isDisplayFile = true; // true: File display, false: Folder display
+
         public delegate void ClickEventHandler();
         public static event ClickEventHandler OnClicked;
         public static void Clicked()

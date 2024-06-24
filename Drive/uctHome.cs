@@ -104,6 +104,7 @@ namespace Drive
 
             //ClassData.dtInUse = ClassData.dtFile.AsEnumerable().Where(dr => dr.Field<string>("type") != "folder").CopyToDataTable();
             LoadDataDown(ClassData.dtFile);
+            ClassData.isDisplayFile = true;
 
             pnFile.BackColor = Color.LightSkyBlue;
             picFile.BackColor = Color.LightSkyBlue;
@@ -120,6 +121,7 @@ namespace Drive
 
             //ClassData.dtInUse = ClassData.dtFile.AsEnumerable().Where(dr => dr.Field<string>("type") == "folder").CopyToDataTable();
             LoadDataDown(ClassData.dtFolder);
+            ClassData.isDisplayFile = false;
 
             pnFolder.BackColor = Color.LightSkyBlue;
             picFolder.BackColor = Color.LightSkyBlue;
@@ -278,6 +280,63 @@ namespace Drive
                 }
                 MessageBox.Show("Download successfully!");
             }
+        }
+
+        private void picDelete_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if(ClassData.isDisplayFile == true)
+                {
+                    foreach (DataRow dr in ClassData.dtFile.Rows)
+                    {
+                        if ((int)dr["ID"] == ClassData.chosenFileID)
+                        {
+                            dr.Delete();
+                            break;
+                        }
+                    }
+                    ClassData.dtFile.AcceptChanges();
+
+                    StreamWriter sw = new StreamWriter(ClassData.pathFile, false);
+                    foreach (DataRow dr in ClassData.dtFile.Rows)
+                    {
+                        if((List<int>)dr["shared"] == null)
+                        {
+                            sw.WriteLine(dr["ID"].ToString() + "*" +
+                                    dr["IDowner"].ToString() + "*" +
+                                    dr["type"] + "*" +
+                                    dr["name"] + "*" +
+                                    dr["time"] + "*" +
+                                    dr["IDfolderbelong"].ToString() + "*" +
+                                    dr["recent"].ToString() + "*" +
+                                    dr["like"].ToString());
+                        }
+                        else
+                        {
+                            sw.Write(dr["ID"].ToString() + "*" +
+                                    dr["IDowner"].ToString() + "*" +
+                                    dr["type"] + "*" +
+                                    dr["name"] + "*" +
+                                    dr["time"] + "*" +
+                                    dr["IDfolderbelong"].ToString() + "*" +
+                                    dr["recent"].ToString() + "*" +
+                                    dr["like"].ToString());
+                            foreach(int temp in (List<int>)dr["shared"])
+                            {
+                                sw.Write("*" + temp.ToString());
+                            }
+                            sw.WriteLine();
+                        }                        
+                    }
+                    sw.Close();
+
+                    ClassData.reloaddata();
+                    LoadDataDown(ClassData.dtFile);
+
+                }    
+            }
+            catch { }
         }
     }
 }

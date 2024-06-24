@@ -322,5 +322,46 @@ namespace Drive
             //pnLaptop.BackColor = Color.WhiteSmoke;
             //picLaptop.BackColor = Color.WhiteSmoke;
         }
+
+        private void txtSearching_KeyDown(object sender, KeyEventArgs e)
+        {   
+            if (e.KeyValue == 13)
+            {
+                if(txtSearching.Text == "")
+                {
+                    Home.LoadDataDown(ClassData.dtFile);
+                }
+                else
+                {
+                    if(ClassData.isDisplayFile == true)
+                    {
+                        DataRow[] dt_file = ClassData.dtFile.Select("name LIKE '%" + txtSearching.Text + "%'");
+                        if (dt_file.Length > 0)
+                        {
+                            Home.LoadDataDown(dt_file.CopyToDataTable());
+                        }
+                    }
+                    else
+                    {
+                        DataRow[] dt_folder = ClassData.dtFolder.Select("name LIKE '%" + txtSearching.Text + "%'");
+                        if (dt_folder.Length > 0)
+                        {
+                            Home.LoadDataDown(dt_folder.CopyToDataTable());
+                        }
+                    }
+
+                    txtSearching.Text = "";
+                }
+                
+            }
+        }
+
+        private void txtSearching_Click(object sender, EventArgs e)
+        {
+            if(txtSearching.Text == "Tìm trong Drive")
+            {
+                txtSearching.Text = "";
+            }
+        }
     }
 }

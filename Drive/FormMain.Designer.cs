@@ -678,6 +678,8 @@
             this.txtSearching.Size = new System.Drawing.Size(449, 23);
             this.txtSearching.TabIndex = 8;
             this.txtSearching.Text = "Tìm trong Drive";
+            this.txtSearching.Click += new System.EventHandler(this.txtSearching_Click);
+            this.txtSearching.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtSearching_KeyDown);
             // 
             // picSearching
             // 
