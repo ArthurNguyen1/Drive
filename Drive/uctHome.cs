@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
@@ -229,6 +231,53 @@ namespace Drive
         private void picMore_MouseLeave(object sender, EventArgs e)
         {
             picMore.BackColor = SystemColors.Control;
+        }
+
+        private void picDownload_Click(object sender, EventArgs e)
+        {
+            SaveFileDialog saveFileDialog = new SaveFileDialog();
+            saveFileDialog.Filter = "Word 97-2003|*.doc|Word Document|*.docx"; 
+            saveFileDialog.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
+            saveFileDialog.FileName = ClassData.chosenFildeName + ".docx";
+
+            if (saveFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                string currentTime = DateTime.Now.ToString("hh:mm tt, dd/MM/yyyy");
+                string filePath =  "DriveData\\file\\" + ClassData.chosenFildeName + ".docx";
+                string absolutePath = Path.GetFullPath(filePath);
+                File.Copy(absolutePath, saveFileDialog.FileName);
+
+                // Save download info to file
+                string data = $"{ClassData.chosenFileID}|{ClassData.chosenFildeName}|1000|.docx|{currentTime}";
+
+                bool isAlready = false;
+
+                try
+                {
+                    StreamReader sr = new StreamReader(ClassData.FileDownloadPath);
+                    string str;
+                    while ((str = sr.ReadLine()) != null)
+                    {
+                        string[] st = str.Split('|');
+                        if (int.Parse(st[0]) == ClassData.chosenFileID)
+                        {
+                            isAlready = true;
+                            break;
+                        }
+                    }
+                    sr.Close();
+                }
+                catch { }
+
+                if (!isAlready)
+                {
+                    using (StreamWriter sw = new StreamWriter(ClassData.FileDownloadPath, true))
+                    {
+                        sw.WriteLine(data);
+                    }
+                }
+                MessageBox.Show("Download successfully!");
+            }
         }
     }
 }

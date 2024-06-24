@@ -137,6 +137,12 @@
     <Compile Include="uctItemList.Designer.cs">
       <DependentUpon>uctItemList.cs</DependentUpon>
     </Compile>
+    <Compile Include="uctLaptop.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="uctLaptop.Designer.cs">
+      <DependentUpon>uctLaptop.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="CustomControl\TextBoxCustom.resx">
       <DependentUpon>TextBoxCustom.cs</DependentUpon>
     </EmbeddedResource>
@@ -161,6 +167,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="uctItemList.resx">
       <DependentUpon>uctItemList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="uctLaptop.resx">
+      <DependentUpon>uctLaptop.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">

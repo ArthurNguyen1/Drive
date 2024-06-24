@@ -113,6 +113,7 @@ namespace Drive
         private void uctItemList_Click(object sender, EventArgs e)
         {
             ClassData.chosenFileID = _ID;
+            ClassData.chosenFildeName = _name;
             if (ClassData.chosenFileID == _ID)
                 this.BackColor = System.Drawing.Color.LightSkyBlue;
             else

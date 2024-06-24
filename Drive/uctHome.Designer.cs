@@ -298,6 +298,7 @@
             this.picDownload.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.picDownload.TabIndex = 10;
             this.picDownload.TabStop = false;
+            this.picDownload.Click += new System.EventHandler(this.picDownload_Click);
             this.picDownload.MouseEnter += new System.EventHandler(this.picDownload_MouseEnter);
             this.picDownload.MouseLeave += new System.EventHandler(this.picDownload_MouseLeave);
             // 

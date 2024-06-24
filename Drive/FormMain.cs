@@ -30,6 +30,7 @@ namespace Drive
         //DataTable dtFiles = null;
 
         uctHome Home = new uctHome();
+        uctLaptop Laptop = new uctLaptop();
 
         public FormMain()
         {
@@ -38,6 +39,9 @@ namespace Drive
 
             this.Controls.Add(Home);
             Home.Location = new System.Drawing.Point(187, 65);
+
+            this.Controls.Add(Laptop);
+            Laptop.Location = new System.Drawing.Point(187, 65);
         }
 
         private void FormMain_Load(object sender, EventArgs e)
@@ -45,6 +49,7 @@ namespace Drive
             ClassData.loaddata();
             Reset();
             pnNew.Visible = false;
+            Laptop.Visible = false;
 
             Home.Visible = true;
             //ClassData.dtInUse = ClassData.dtFile.AsEnumerable().Where(dr => dr.Field<string>("type") != "folder").CopyToDataTable();
@@ -59,9 +64,15 @@ namespace Drive
             pnHome.BackColor = Color.WhiteSmoke;
             picHome.BackColor = Color.WhiteSmoke;
 
+            pnMyDrive.BackColor = Color.WhiteSmoke;
+            picMyDrive.BackColor = Color.WhiteSmoke;
+
+            pnLaptop.BackColor = Color.WhiteSmoke;
+            picLaptop.BackColor = Color.WhiteSmoke;
+
 
             Home.Visible = false;
-
+            Laptop.Visible = false;
             //dtLoves = ClassData.dtSong.Select("love=true").CopyToDataTable();
             //dtRecents = ClassData.dtSong.Select("play=true").CopyToDataTable();
             //dtMusics = ClassData.dtSong.Copy();
@@ -75,7 +86,7 @@ namespace Drive
             //{
             //    dtRecents = ClassData.dtSong.Select("play=true").CopyToDataTable();
             //}
-            //Recents.LoadDataDown(dtRecents);
+            Home.LoadDataDown(ClassData.dtFile);
             pnHome.BackColor = Color.LightSkyBlue;
             picHome.BackColor = Color.LightSkyBlue;
         }
@@ -254,6 +265,62 @@ namespace Drive
             ClassData.reloaddata();
             Home.LoadDataFile();
             pnNew.Visible = false;
+        }
+
+        private void pnHome_MouseEnter(object sender, EventArgs e)
+        {
+            //pnHome.BackColor = Color.LightGray;
+            //picHome.BackColor = Color.LightGray;
+        }
+
+        private void pnHome_MouseLeave(object sender, EventArgs e)
+        {
+            //pnHome.BackColor = Color.WhiteSmoke;
+            //picHome.BackColor = Color.WhiteSmoke;
+        }
+
+        private void pnMyDrive_Click(object sender, EventArgs e)
+        {
+            Reset();
+            Home.Visible = true;
+
+            //Recents.LoadDataDown(dtRecents);
+            pnMyDrive.BackColor = Color.LightSkyBlue;
+            picMyDrive.BackColor = Color.LightSkyBlue;
+        }
+
+        private void pnMyDrive_MouseEnter(object sender, EventArgs e)
+        {
+            //pnMyDrive.BackColor = Color.LightGray;
+            //picMyDrive.BackColor = Color.LightGray;
+        }
+
+        private void pnMyDrive_MouseLeave(object sender, EventArgs e)
+        {
+            //pnMyDrive.BackColor = Color.WhiteSmoke;
+            //picMyDrive.BackColor = Color.WhiteSmoke;
+        }
+
+        private void pnLaptop_Click(object sender, EventArgs e)
+        {
+            Reset();
+            Laptop.Visible = true;
+
+            Laptop.LoadDataDown(ClassData.dtDownload);
+            pnLaptop.BackColor = Color.LightSkyBlue;
+            picLaptop.BackColor = Color.LightSkyBlue;
+        }
+
+        private void pnLaptop_MouseEnter(object sender, EventArgs e)
+        {
+            //pnLaptop.BackColor = Color.LightGray;
+            //picLaptop.BackColor = Color.WhiteSmoke;
+        }
+
+        private void pnLaptop_MouseLeave(object sender, EventArgs e)
+        {
+            //pnLaptop.BackColor = Color.WhiteSmoke;
+            //picLaptop.BackColor = Color.WhiteSmoke;
         }
     }
 }

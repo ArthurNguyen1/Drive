@@ -13,6 +13,7 @@ namespace Drive
     {
         public static DataTable dtFile = new DataTable();
         public static DataTable dtFolder = new DataTable();
+        public static DataTable dtDownload = new DataTable();
         //public static DataTable dtList = new DataTable();
 
         //public static DataTable dtInUse = new DataTable();
@@ -23,6 +24,7 @@ namespace Drive
 
         public static int currentFolderID = 0; // folder root
         public static int chosenFileID = -1;
+        public static string chosenFildeName = "";
 
         public static int nextFileID = 101;
         public static int nextFolderID = 1;
@@ -129,6 +131,28 @@ namespace Drive
                                         sharedUserID);
                     }
                     nextFolderID++;
+                }
+                sr.Close();
+            }
+            catch { }
+
+            //Load download
+            dtDownload.Columns.Add("ID", typeof(int));                  // ID of folder (ID <= 100)
+            dtDownload.Columns.Add("IDowner", typeof(int));             // ID of user upload (ID >= 1000)
+            dtDownload.Columns.Add("type", typeof(string));             // type like .docx, .pdf, ...
+            dtDownload.Columns.Add("name", typeof(string));             // name of the file or folder
+            dtDownload.Columns.Add("time", typeof(string));             // time upload or read or update that file or folder
+            
+            try
+            {
+                StreamReader sr = new StreamReader(FileDownloadPath);
+                string str;
+                while ((str = sr.ReadLine()) != null)
+                {
+                    string[] st = str.Split('|');
+                    dtDownload.Rows.Add(int.Parse(st[0]),
+                                        int.Parse(st[1]),
+                                        st[2], st[3], st[4]);
                 }
                 sr.Close();
             }
