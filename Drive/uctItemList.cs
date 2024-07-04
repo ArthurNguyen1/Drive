@@ -119,7 +119,7 @@ namespace Drive
             else
                 this.BackColor = System.Drawing.Color.White;
 
-            ClassData.Clicked();
+            ClassData.ItemClicked();
         }
     }
 }

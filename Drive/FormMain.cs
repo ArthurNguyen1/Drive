@@ -31,6 +31,7 @@ namespace Drive
 
         uctHome Home = new uctHome();
         uctLaptop Laptop = new uctLaptop();
+        uctTrash Trash = new uctTrash();
 
         public FormMain()
         {
@@ -42,6 +43,9 @@ namespace Drive
 
             this.Controls.Add(Laptop);
             Laptop.Location = new System.Drawing.Point(187, 65);
+
+            this.Controls.Add(Trash);
+            Trash.Location = new System.Drawing.Point(187, 65);
         }
 
         private void FormMain_Load(object sender, EventArgs e)
@@ -50,6 +54,7 @@ namespace Drive
             Reset();
             pnNew.Visible = false;
             Laptop.Visible = false;
+            Trash.Visible = false;
 
             Home.Visible = true;
             //ClassData.dtInUse = ClassData.dtFile.AsEnumerable().Where(dr => dr.Field<string>("type") != "folder").CopyToDataTable();
@@ -70,12 +75,18 @@ namespace Drive
             pnLaptop.BackColor = Color.WhiteSmoke;
             picLaptop.BackColor = Color.WhiteSmoke;
 
+            pnTrash.BackColor = Color.WhiteSmoke;
+            picTrash.BackColor = Color.WhiteSmoke;
+
 
             Home.Visible = false;
             Laptop.Visible = false;
+            Trash.Visible = false;
             //dtLoves = ClassData.dtSong.Select("love=true").CopyToDataTable();
             //dtRecents = ClassData.dtSong.Select("play=true").CopyToDataTable();
             //dtMusics = ClassData.dtSong.Copy();
+
+            ClassData.PanelClosed();
         }
 
         private void pnHome_Click(object sender, EventArgs e)
@@ -362,6 +373,16 @@ namespace Drive
             {
                 txtSearching.Text = "";
             }
+        }
+
+        private void pnTrash_Click(object sender, EventArgs e)
+        {
+            Reset();
+            Trash.Visible = true;
+
+            Trash.LoadDataDown(ClassData.dtDelete);
+            pnTrash.BackColor = Color.LightSkyBlue;
+            picTrash.BackColor = Color.LightSkyBlue;
         }
     }
 }

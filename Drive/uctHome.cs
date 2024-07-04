@@ -19,7 +19,9 @@ namespace Drive
         {
             InitializeComponent();
 
-            ClassData.OnClicked += DisplayFunctionPanel;
+            ClassData.OnItemClicked += DisplayFunctionPanel;
+
+            ClassData.OnPanelClosed += HideFunctionPanel;
         }
 
         private void uctHome_Load(object sender, EventArgs e)
@@ -162,7 +164,7 @@ namespace Drive
 
         private void picClose_Click(object sender, EventArgs e)
         {
-            HideFunctionPanel();
+            ClassData.PanelClosed();
         }
 
         private void picClose_MouseEnter(object sender, EventArgs e)
@@ -288,6 +290,47 @@ namespace Drive
             {
                 if(ClassData.isDisplayFile == true)
                 {
+                    string currentTime = DateTime.Now.ToString("hh:mm tt, dd/MM/yyyy");
+
+                    //Add the deleted file to dtDelete
+                    StreamWriter sw = new StreamWriter(ClassData.FileDeletePath, true);
+                    foreach (DataRow dr in ClassData.dtFile.Rows)
+                    {
+                        if ((int)dr["ID"] == ClassData.chosenFileID)
+                        {
+                            if ((List<int>)dr["shared"] == null)
+                            {
+                                sw.WriteLine(dr["ID"].ToString() + "*" +
+                                        dr["IDowner"].ToString() + "*" +
+                                        dr["type"] + "*" +
+                                        dr["name"] + "*" +
+                                        currentTime + "*" +
+                                        dr["IDfolderbelong"].ToString() + "*" +
+                                        dr["recent"].ToString() + "*" +
+                                        dr["like"].ToString());
+                            }
+                            else
+                            {
+                                sw.Write(dr["ID"].ToString() + "*" +
+                                        dr["IDowner"].ToString() + "*" +
+                                        dr["type"] + "*" +
+                                        dr["name"] + "*" +
+                                        currentTime + "*" +
+                                        dr["IDfolderbelong"].ToString() + "*" +
+                                        dr["recent"].ToString() + "*" +
+                                        dr["like"].ToString());
+                                foreach (int temp in (List<int>)dr["shared"])
+                                {
+                                    sw.Write("*" + temp.ToString());
+                                }
+                                sw.WriteLine();
+                            }
+                            break;
+                        }
+                    }
+                    sw.Close();
+
+                    //Delete the chosen file in dtFile
                     foreach (DataRow dr in ClassData.dtFile.Rows)
                     {
                         if ((int)dr["ID"] == ClassData.chosenFileID)
@@ -298,7 +341,7 @@ namespace Drive
                     }
                     ClassData.dtFile.AcceptChanges();
 
-                    StreamWriter sw = new StreamWriter(ClassData.pathFile, false);
+                    sw = new StreamWriter(ClassData.pathFile, false);
                     foreach (DataRow dr in ClassData.dtFile.Rows)
                     {
                         if((List<int>)dr["shared"] == null)
@@ -333,7 +376,6 @@ namespace Drive
 
                     ClassData.reloaddata();
                     LoadDataDown(ClassData.dtFile);
-
                 }    
             }
             catch { }

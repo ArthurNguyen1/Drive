@@ -47,3 +47,5 @@ D:\Drive\Drive\obj\Debug\Drive.csproj.Up2Date
 D:\Drive\Drive\obj\Debug\Drive.CustomControl.TextBoxCustom.resources
 D:\Drive\Drive\obj\Debug\Drive.StartForm.resources
 D:\Drive\Drive\obj\Debug\Drive.uctLaptop.resources
+D:\Drive\Drive\obj\Debug\Drive.uctTrash.resources
+D:\Drive\Drive\obj\Debug\Drive.uctTrashItemList.resources

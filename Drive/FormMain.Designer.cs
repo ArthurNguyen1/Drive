@@ -373,6 +373,7 @@
             this.pnTrash.Name = "pnTrash";
             this.pnTrash.Size = new System.Drawing.Size(254, 42);
             this.pnTrash.TabIndex = 13;
+            this.pnTrash.Click += new System.EventHandler(this.pnTrash_Click);
             // 
             // lblTrash
             // 

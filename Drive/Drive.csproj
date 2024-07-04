@@ -137,11 +137,23 @@
     <Compile Include="uctItemList.Designer.cs">
       <DependentUpon>uctItemList.cs</DependentUpon>
     </Compile>
+    <Compile Include="uctTrashItemList.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="uctTrashItemList.Designer.cs">
+      <DependentUpon>uctTrashItemList.cs</DependentUpon>
+    </Compile>
     <Compile Include="uctLaptop.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="uctLaptop.Designer.cs">
       <DependentUpon>uctLaptop.cs</DependentUpon>
+    </Compile>
+    <Compile Include="uctTrash.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="uctTrash.Designer.cs">
+      <DependentUpon>uctTrash.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="CustomControl\TextBoxCustom.resx">
       <DependentUpon>TextBoxCustom.cs</DependentUpon>
@@ -168,8 +180,14 @@
     <EmbeddedResource Include="uctItemList.resx">
       <DependentUpon>uctItemList.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="uctTrashItemList.resx">
+      <DependentUpon>uctTrashItemList.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="uctLaptop.resx">
       <DependentUpon>uctLaptop.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="uctTrash.resx">
+      <DependentUpon>uctTrash.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -289,6 +307,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\link.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\recent.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\trash.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\HarfBuzzSharp.NativeAssets.macOS.7.3.0\build\net462\HarfBuzzSharp.NativeAssets.macOS.targets" Condition="Exists('..\packages\HarfBuzzSharp.NativeAssets.macOS.7.3.0\build\net462\HarfBuzzSharp.NativeAssets.macOS.targets')" />
