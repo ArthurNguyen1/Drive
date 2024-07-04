@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
@@ -36,7 +37,7 @@ namespace Drive
 
         private void uctItemList_DoubleClick(object sender, EventArgs e)
         {
-            string filePath = "D:\\Drive\\Drive\\bin\\Debug\\DriveData\\file\\" + lblName.Text + ".docx";
+            string filePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "DriveData\\file\\" + lblName.Text + ".docx");
             // The file format is detected automatically from the file extension: ".docx".
             DocumentCore dc = DocumentCore.Load(filePath);
 
@@ -120,6 +121,29 @@ namespace Drive
                 this.BackColor = System.Drawing.Color.White;
 
             ClassData.ItemClicked();
+        }
+
+        private void Rename(object sender, EventArgs e)
+        {
+            //string filePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "DriveData\\file\\" + lblName.Text + ".docx");
+            //// The file format is detected automatically from the file extension: ".docx".
+            //DocumentCore dc = DocumentCore.Load(filePath);
+
+            //if (dc != null)
+            //{
+            //    object readOnly = false;
+            //    object visible = true;
+            //    object save = false;
+            //    object fileName = filePath;
+            //    object newTemplate = false;
+            //    object docType = 0;
+            //    object missing = Type.Missing;
+            //    Microsoft.Office.Interop.Word.Document document;
+            //    Microsoft.Office.Interop.Word.Application application = new Microsoft.Office.Interop.Word.Application() { Visible = true };
+            //    document = application.Documents.Open(ref fileName, ref missing, ref readOnly, ref missing, ref missing, ref missing, ref missing,
+            //            ref missing, ref missing, ref missing, ref missing, ref visible, ref missing, ref missing, ref missing, ref missing);
+            //    document.ActiveWindow.Selection.WholeStory();
+            //}
         }
     }
 }
