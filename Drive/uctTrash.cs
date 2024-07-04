@@ -187,14 +187,24 @@ namespace Drive
 
         public void AddFile(int id, int idowner, string type, string name, string time, int idfolderbelong, bool recent, bool like, List<int> shared)
         {
-            uctTrashItemList uct = new uctTrashItemList();
-            uct.LoadData(id, idowner, type, name, time, idfolderbelong, recent, like, shared);
-            pnContentList.Controls.Add(uct);
+            if (ClassData.isListMode) // Display List Mode
+            {
+                uctTrashItemList uct = new uctTrashItemList();
+                uct.LoadData(id, idowner, type, name, time, idfolderbelong, recent, like, shared);
+                pnContentList.Controls.Add(uct);
+            }
+            else // Display Grid Mode
+            {
+                uctItemGrid uct = new uctItemGrid();
+                uct.LoadData(id, idowner, type, name, time, idfolderbelong, recent, like, shared);
+                pnContentGrid.Controls.Add(uct);
+            }
         }
 
         public void LoadDataDown(DataTable dt)
         {
             pnContentList.Controls.Clear();
+            pnContentGrid.Controls.Clear();
             foreach (DataRow dr in dt.Rows)
             {
                 AddFile((int)dr["ID"], (int)dr["IDowner"], dr["type"].ToString(), dr["name"].ToString(), dr["time"].ToString(), (int)dr["IDfolderbelong"], (bool)dr["recent"], (bool)dr["like"], (List<int>)dr["shared"]);
@@ -281,6 +291,33 @@ namespace Drive
         private void picDelete_MouseLeave(object sender, EventArgs e)
         {
             picDelete.BackColor = SystemColors.Control;
+        }
+
+        private void pnList_Click(object sender, EventArgs e)
+        {
+            Reset();
+            pnContentList.Visible = true;
+            pnHeader.Visible = true;
+
+            ClassData.isListMode = true;
+
+            pnList.BackColor = Color.LightSkyBlue;
+            picList.BackColor = Color.LightSkyBlue;
+
+            LoadDataDown(ClassData.dtDelete);
+        }
+
+        private void pnGrid_Click(object sender, EventArgs e)
+        {
+            Reset();
+            pnContentGrid.Visible = true;
+
+            ClassData.isListMode = false;
+
+            pnGrid.BackColor = Color.LightSkyBlue;
+            picGrid.BackColor = Color.LightSkyBlue;
+
+            LoadDataDown(ClassData.dtDelete);
         }
     }
 }

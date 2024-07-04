@@ -125,6 +125,7 @@
             this.pnGrid.Name = "pnGrid";
             this.pnGrid.Size = new System.Drawing.Size(59, 42);
             this.pnGrid.TabIndex = 24;
+            this.pnGrid.Click += new System.EventHandler(this.pnGrid_Click);
             // 
             // picGrid
             // 
@@ -150,9 +151,9 @@
             // pnContentGrid
             // 
             this.pnContentGrid.AutoScroll = true;
-            this.pnContentGrid.Location = new System.Drawing.Point(28, 94);
+            this.pnContentGrid.Location = new System.Drawing.Point(3, 94);
             this.pnContentGrid.Name = "pnContentGrid";
-            this.pnContentGrid.Size = new System.Drawing.Size(787, 493);
+            this.pnContentGrid.Size = new System.Drawing.Size(834, 493);
             this.pnContentGrid.TabIndex = 26;
             // 
             // pnList
@@ -163,6 +164,7 @@
             this.pnList.Name = "pnList";
             this.pnList.Size = new System.Drawing.Size(59, 42);
             this.pnList.TabIndex = 25;
+            this.pnList.Click += new System.EventHandler(this.pnList_Click);
             // 
             // picList
             // 

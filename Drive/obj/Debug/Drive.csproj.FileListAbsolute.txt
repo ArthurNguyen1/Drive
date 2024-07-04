@@ -49,3 +49,4 @@ D:\Drive\Drive\obj\Debug\Drive.StartForm.resources
 D:\Drive\Drive\obj\Debug\Drive.uctLaptop.resources
 D:\Drive\Drive\obj\Debug\Drive.uctTrash.resources
 D:\Drive\Drive\obj\Debug\Drive.uctTrashItemList.resources
+D:\Drive\Drive\obj\Debug\Drive.uctItemGrid.resources

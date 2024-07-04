@@ -33,6 +33,7 @@ namespace Drive
         public static int nextFolderID = 1;
 
         public static bool isDisplayFile = true; // true: File display, false: Folder display
+        public static bool isListMode = true; // true: Display in List mode, false: Display in Grid mode
 
         public delegate void ClickEventHandler();
         public static event ClickEventHandler OnItemClicked;

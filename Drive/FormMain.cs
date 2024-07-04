@@ -86,6 +86,8 @@ namespace Drive
             //dtRecents = ClassData.dtSong.Select("play=true").CopyToDataTable();
             //dtMusics = ClassData.dtSong.Copy();
 
+            ClassData.isListMode = true;
+            ClassData.isDisplayFile = true;
             ClassData.PanelClosed();
         }
 
