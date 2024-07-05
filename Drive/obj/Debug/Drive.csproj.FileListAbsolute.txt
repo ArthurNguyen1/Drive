@@ -109,3 +109,10 @@ C:\Users\Hoang\Desktop\Drive\Drive\bin\Debug\Syncfusion.OfficeChart.Base.dll
 C:\Users\Hoang\Desktop\Drive\Drive\bin\Debug\Syncfusion.Compression.Base.xml
 C:\Users\Hoang\Desktop\Drive\Drive\bin\Debug\Syncfusion.DocIO.Base.xml
 C:\Users\Hoang\Desktop\Drive\Drive\bin\Debug\Syncfusion.OfficeChart.Base.xml
+D:\Drive\Drive\bin\Debug\Syncfusion.Compression.Base.dll
+D:\Drive\Drive\bin\Debug\Syncfusion.DocIO.Base.dll
+D:\Drive\Drive\bin\Debug\Syncfusion.Licensing.dll
+D:\Drive\Drive\bin\Debug\Syncfusion.OfficeChart.Base.dll
+D:\Drive\Drive\bin\Debug\Syncfusion.Compression.Base.xml
+D:\Drive\Drive\bin\Debug\Syncfusion.DocIO.Base.xml
+D:\Drive\Drive\bin\Debug\Syncfusion.OfficeChart.Base.xml
