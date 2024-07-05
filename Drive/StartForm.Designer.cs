@@ -29,6 +29,8 @@
         private void InitializeComponent()
         {
             this.pnLogin = new System.Windows.Forms.Panel();
+            this.txbPwLogin = new Drive.CustomControl.TextBoxCustom();
+            this.txbEmailLogin = new Drive.CustomControl.TextBoxCustom();
             this.label3 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.btnSignIn = new System.Windows.Forms.Button();
@@ -37,36 +39,34 @@
             this.label2 = new System.Windows.Forms.Label();
             this.txbTitle = new System.Windows.Forms.Label();
             this.pnRegister = new System.Windows.Forms.Panel();
+            this.txbNameRegis = new Drive.CustomControl.TextBoxCustom();
+            this.label6 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
+            this.txbConfirmRegis = new Drive.CustomControl.TextBoxCustom();
             this.label12 = new System.Windows.Forms.Label();
+            this.txbPwRegis = new Drive.CustomControl.TextBoxCustom();
+            this.txbEmailRegis = new Drive.CustomControl.TextBoxCustom();
             this.btnRegis = new System.Windows.Forms.Button();
             this.label9 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
             this.pnReset1 = new System.Windows.Forms.Panel();
+            this.btnSend = new System.Windows.Forms.Button();
+            this.txbEmailReset = new Drive.CustomControl.TextBoxCustom();
             this.btnBack = new System.Windows.Forms.Button();
             this.label17 = new System.Windows.Forms.Label();
             this.a = new System.Windows.Forms.Label();
-            this.btnSend = new System.Windows.Forms.Button();
             this.pnReset2 = new System.Windows.Forms.Panel();
-            this.btnConfirm = new System.Windows.Forms.Button();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label14 = new System.Windows.Forms.Label();
-            this.lblNewPass = new System.Windows.Forms.Label();
-            this.lblConfirm = new System.Windows.Forms.Label();
             this.btnCancel = new System.Windows.Forms.Button();
             this.txbConfirmNewPass = new Drive.CustomControl.TextBoxCustom();
+            this.lblConfirm = new System.Windows.Forms.Label();
             this.txbNewPass = new Drive.CustomControl.TextBoxCustom();
+            this.lblNewPass = new System.Windows.Forms.Label();
+            this.btnConfirm = new System.Windows.Forms.Button();
             this.txbOTP = new Drive.CustomControl.TextBoxCustom();
-            this.txbPwLogin = new Drive.CustomControl.TextBoxCustom();
-            this.txbEmailLogin = new Drive.CustomControl.TextBoxCustom();
-            this.txbNameRegis = new Drive.CustomControl.TextBoxCustom();
-            this.txbConfirmRegis = new Drive.CustomControl.TextBoxCustom();
-            this.txbPwRegis = new Drive.CustomControl.TextBoxCustom();
-            this.txbEmailRegis = new Drive.CustomControl.TextBoxCustom();
-            this.txbEmailReset = new Drive.CustomControl.TextBoxCustom();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label14 = new System.Windows.Forms.Label();
             this.pnLogin.SuspendLayout();
             this.pnRegister.SuspendLayout();
             this.pnReset1.SuspendLayout();
@@ -88,6 +88,56 @@
             this.pnLogin.Name = "pnLogin";
             this.pnLogin.Size = new System.Drawing.Size(425, 481);
             this.pnLogin.TabIndex = 1;
+            // 
+            // txbPwLogin
+            // 
+            this.txbPwLogin.BackColor = System.Drawing.SystemColors.Window;
+            this.txbPwLogin.BorderColor = System.Drawing.Color.LightSlateGray;
+            this.txbPwLogin.BorderFocusColor = System.Drawing.Color.Black;
+            this.txbPwLogin.BorderRadius = 0;
+            this.txbPwLogin.BorderSize = 2;
+            this.txbPwLogin.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txbPwLogin.ForeColor = System.Drawing.Color.DimGray;
+            this.txbPwLogin.Location = new System.Drawing.Point(149, 245);
+            this.txbPwLogin.Margin = new System.Windows.Forms.Padding(4);
+            this.txbPwLogin.Multiline = false;
+            this.txbPwLogin.Name = "txbPwLogin";
+            this.txbPwLogin.Padding = new System.Windows.Forms.Padding(7);
+            this.txbPwLogin.PasswordChar = false;
+            this.txbPwLogin.PlaceholderColor = System.Drawing.Color.DarkGray;
+            this.txbPwLogin.PlaceholderText = "";
+            this.txbPwLogin.ReadOnly = false;
+            this.txbPwLogin.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            this.txbPwLogin.SelectionColor = System.Drawing.Color.Yellow;
+            this.txbPwLogin.Size = new System.Drawing.Size(265, 35);
+            this.txbPwLogin.TabIndex = 30;
+            this.txbPwLogin.Texts = "12";
+            this.txbPwLogin.UnderlinedStyle = false;
+            // 
+            // txbEmailLogin
+            // 
+            this.txbEmailLogin.BackColor = System.Drawing.SystemColors.Window;
+            this.txbEmailLogin.BorderColor = System.Drawing.Color.LightSlateGray;
+            this.txbEmailLogin.BorderFocusColor = System.Drawing.Color.Black;
+            this.txbEmailLogin.BorderRadius = 0;
+            this.txbEmailLogin.BorderSize = 2;
+            this.txbEmailLogin.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txbEmailLogin.ForeColor = System.Drawing.Color.DimGray;
+            this.txbEmailLogin.Location = new System.Drawing.Point(149, 168);
+            this.txbEmailLogin.Margin = new System.Windows.Forms.Padding(4);
+            this.txbEmailLogin.Multiline = false;
+            this.txbEmailLogin.Name = "txbEmailLogin";
+            this.txbEmailLogin.Padding = new System.Windows.Forms.Padding(7);
+            this.txbEmailLogin.PasswordChar = false;
+            this.txbEmailLogin.PlaceholderColor = System.Drawing.Color.DarkGray;
+            this.txbEmailLogin.PlaceholderText = "";
+            this.txbEmailLogin.ReadOnly = false;
+            this.txbEmailLogin.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            this.txbEmailLogin.SelectionColor = System.Drawing.Color.Yellow;
+            this.txbEmailLogin.Size = new System.Drawing.Size(265, 35);
+            this.txbEmailLogin.TabIndex = 29;
+            this.txbEmailLogin.Texts = "Hoangminh1784@gmail.com";
+            this.txbEmailLogin.UnderlinedStyle = false;
             // 
             // label3
             // 
@@ -183,359 +233,6 @@
             this.pnRegister.Size = new System.Drawing.Size(425, 481);
             this.pnRegister.TabIndex = 2;
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(345, 373);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(66, 23);
-            this.label1.TabIndex = 34;
-            this.label1.Text = "Sign in";
-            this.label1.Click += new System.EventHandler(this.LoadLoginPage);
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Font = new System.Drawing.Font("Segoe UI Semilight", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.Location = new System.Drawing.Point(150, 373);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(200, 23);
-            this.label13.TabIndex = 33;
-            this.label13.Text = "Already have an account?";
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.Location = new System.Drawing.Point(12, 303);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(93, 28);
-            this.label12.TabIndex = 31;
-            this.label12.Text = "Confirm:";
-            // 
-            // btnRegis
-            // 
-            this.btnRegis.BackColor = System.Drawing.SystemColors.Highlight;
-            this.btnRegis.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnRegis.ForeColor = System.Drawing.Color.White;
-            this.btnRegis.Location = new System.Drawing.Point(307, 418);
-            this.btnRegis.Name = "btnRegis";
-            this.btnRegis.Size = new System.Drawing.Size(107, 49);
-            this.btnRegis.TabIndex = 26;
-            this.btnRegis.Text = "Sign up";
-            this.btnRegis.UseVisualStyleBackColor = false;
-            this.btnRegis.Click += new System.EventHandler(this.SignUp);
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(13, 238);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(106, 28);
-            this.label9.TabIndex = 24;
-            this.label9.Text = "Password:";
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(13, 111);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(69, 28);
-            this.label10.TabIndex = 23;
-            this.label10.Text = "Email:";
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Font = new System.Drawing.Font("Showcard Gothic", 25.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(113, 3);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(191, 53);
-            this.label11.TabIndex = 13;
-            this.label11.Text = "Sign up";
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(13, 175);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(73, 28);
-            this.label6.TabIndex = 35;
-            this.label6.Text = "Name:";
-            // 
-            // pnReset1
-            // 
-            this.pnReset1.Controls.Add(this.btnSend);
-            this.pnReset1.Controls.Add(this.txbEmailReset);
-            this.pnReset1.Controls.Add(this.btnBack);
-            this.pnReset1.Controls.Add(this.label17);
-            this.pnReset1.Controls.Add(this.a);
-            this.pnReset1.Location = new System.Drawing.Point(35, 29);
-            this.pnReset1.Name = "pnReset1";
-            this.pnReset1.Size = new System.Drawing.Size(425, 481);
-            this.pnReset1.TabIndex = 3;
-            // 
-            // btnBack
-            // 
-            this.btnBack.BackColor = System.Drawing.SystemColors.Highlight;
-            this.btnBack.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnBack.ForeColor = System.Drawing.Color.White;
-            this.btnBack.Location = new System.Drawing.Point(196, 228);
-            this.btnBack.Name = "btnBack";
-            this.btnBack.Size = new System.Drawing.Size(107, 49);
-            this.btnBack.TabIndex = 26;
-            this.btnBack.Text = "Back";
-            this.btnBack.UseVisualStyleBackColor = false;
-            this.btnBack.Click += new System.EventHandler(this.LoadLoginPage);
-            // 
-            // label17
-            // 
-            this.label17.AutoSize = true;
-            this.label17.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label17.Location = new System.Drawing.Point(13, 168);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(69, 28);
-            this.label17.TabIndex = 23;
-            this.label17.Text = "Email:";
-            // 
-            // a
-            // 
-            this.a.AutoSize = true;
-            this.a.Font = new System.Drawing.Font("Showcard Gothic", 25.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.a.Location = new System.Drawing.Point(11, 6);
-            this.a.Name = "a";
-            this.a.Size = new System.Drawing.Size(404, 53);
-            this.a.TabIndex = 13;
-            this.a.Text = "Reset Password";
-            // 
-            // btnSend
-            // 
-            this.btnSend.BackColor = System.Drawing.SystemColors.Highlight;
-            this.btnSend.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSend.ForeColor = System.Drawing.Color.White;
-            this.btnSend.Location = new System.Drawing.Point(307, 228);
-            this.btnSend.Name = "btnSend";
-            this.btnSend.Size = new System.Drawing.Size(107, 49);
-            this.btnSend.TabIndex = 30;
-            this.btnSend.Text = "Send";
-            this.btnSend.UseVisualStyleBackColor = false;
-            this.btnSend.Click += new System.EventHandler(this.LoadConfirmPage);
-            // 
-            // pnReset2
-            // 
-            this.pnReset2.Controls.Add(this.btnCancel);
-            this.pnReset2.Controls.Add(this.txbConfirmNewPass);
-            this.pnReset2.Controls.Add(this.lblConfirm);
-            this.pnReset2.Controls.Add(this.txbNewPass);
-            this.pnReset2.Controls.Add(this.lblNewPass);
-            this.pnReset2.Controls.Add(this.btnConfirm);
-            this.pnReset2.Controls.Add(this.txbOTP);
-            this.pnReset2.Controls.Add(this.label7);
-            this.pnReset2.Controls.Add(this.label14);
-            this.pnReset2.Location = new System.Drawing.Point(35, 29);
-            this.pnReset2.Name = "pnReset2";
-            this.pnReset2.Size = new System.Drawing.Size(425, 481);
-            this.pnReset2.TabIndex = 31;
-            // 
-            // btnConfirm
-            // 
-            this.btnConfirm.BackColor = System.Drawing.SystemColors.Highlight;
-            this.btnConfirm.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnConfirm.ForeColor = System.Drawing.Color.White;
-            this.btnConfirm.Location = new System.Drawing.Point(308, 354);
-            this.btnConfirm.Name = "btnConfirm";
-            this.btnConfirm.Size = new System.Drawing.Size(107, 49);
-            this.btnConfirm.TabIndex = 30;
-            this.btnConfirm.Text = "Confirm";
-            this.btnConfirm.UseVisualStyleBackColor = false;
-            this.btnConfirm.Click += new System.EventHandler(this.ConfirmOTP);
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(13, 168);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(55, 28);
-            this.label7.TabIndex = 23;
-            this.label7.Text = "OTP:";
-            // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.Font = new System.Drawing.Font("Showcard Gothic", 25.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label14.Location = new System.Drawing.Point(11, 6);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(404, 53);
-            this.label14.TabIndex = 13;
-            this.label14.Text = "Reset Password";
-            // 
-            // lblNewPass
-            // 
-            this.lblNewPass.AutoSize = true;
-            this.lblNewPass.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNewPass.Location = new System.Drawing.Point(12, 223);
-            this.lblNewPass.Name = "lblNewPass";
-            this.lblNewPass.Size = new System.Drawing.Size(107, 28);
-            this.lblNewPass.TabIndex = 31;
-            this.lblNewPass.Text = "New Pass:";
-            this.lblNewPass.Visible = false;
-            // 
-            // lblConfirm
-            // 
-            this.lblConfirm.AutoSize = true;
-            this.lblConfirm.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblConfirm.Location = new System.Drawing.Point(11, 278);
-            this.lblConfirm.Name = "lblConfirm";
-            this.lblConfirm.Size = new System.Drawing.Size(93, 28);
-            this.lblConfirm.TabIndex = 33;
-            this.lblConfirm.Text = "Confirm:";
-            this.lblConfirm.Visible = false;
-            // 
-            // btnCancel
-            // 
-            this.btnCancel.BackColor = System.Drawing.SystemColors.Highlight;
-            this.btnCancel.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCancel.ForeColor = System.Drawing.Color.White;
-            this.btnCancel.Location = new System.Drawing.Point(197, 354);
-            this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(107, 49);
-            this.btnCancel.TabIndex = 35;
-            this.btnCancel.Text = "Cancel";
-            this.btnCancel.UseVisualStyleBackColor = false;
-            this.btnCancel.Click += new System.EventHandler(this.LoadLoginPage);
-            // 
-            // txbConfirmNewPass
-            // 
-            this.txbConfirmNewPass.BackColor = System.Drawing.SystemColors.Window;
-            this.txbConfirmNewPass.BorderColor = System.Drawing.Color.LightSlateGray;
-            this.txbConfirmNewPass.BorderFocusColor = System.Drawing.Color.Black;
-            this.txbConfirmNewPass.BorderRadius = 0;
-            this.txbConfirmNewPass.BorderSize = 2;
-            this.txbConfirmNewPass.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txbConfirmNewPass.ForeColor = System.Drawing.Color.DimGray;
-            this.txbConfirmNewPass.Location = new System.Drawing.Point(147, 278);
-            this.txbConfirmNewPass.Margin = new System.Windows.Forms.Padding(4);
-            this.txbConfirmNewPass.Multiline = false;
-            this.txbConfirmNewPass.Name = "txbConfirmNewPass";
-            this.txbConfirmNewPass.Padding = new System.Windows.Forms.Padding(7);
-            this.txbConfirmNewPass.PasswordChar = false;
-            this.txbConfirmNewPass.PlaceholderColor = System.Drawing.Color.DarkGray;
-            this.txbConfirmNewPass.PlaceholderText = "";
-            this.txbConfirmNewPass.ReadOnly = false;
-            this.txbConfirmNewPass.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            this.txbConfirmNewPass.SelectionColor = System.Drawing.Color.Yellow;
-            this.txbConfirmNewPass.Size = new System.Drawing.Size(265, 35);
-            this.txbConfirmNewPass.TabIndex = 34;
-            this.txbConfirmNewPass.Texts = "";
-            this.txbConfirmNewPass.UnderlinedStyle = false;
-            this.txbConfirmNewPass.Visible = false;
-            // 
-            // txbNewPass
-            // 
-            this.txbNewPass.BackColor = System.Drawing.SystemColors.Window;
-            this.txbNewPass.BorderColor = System.Drawing.Color.LightSlateGray;
-            this.txbNewPass.BorderFocusColor = System.Drawing.Color.Black;
-            this.txbNewPass.BorderRadius = 0;
-            this.txbNewPass.BorderSize = 2;
-            this.txbNewPass.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txbNewPass.ForeColor = System.Drawing.Color.DimGray;
-            this.txbNewPass.Location = new System.Drawing.Point(148, 223);
-            this.txbNewPass.Margin = new System.Windows.Forms.Padding(4);
-            this.txbNewPass.Multiline = false;
-            this.txbNewPass.Name = "txbNewPass";
-            this.txbNewPass.Padding = new System.Windows.Forms.Padding(7);
-            this.txbNewPass.PasswordChar = false;
-            this.txbNewPass.PlaceholderColor = System.Drawing.Color.DarkGray;
-            this.txbNewPass.PlaceholderText = "";
-            this.txbNewPass.ReadOnly = false;
-            this.txbNewPass.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            this.txbNewPass.SelectionColor = System.Drawing.Color.Yellow;
-            this.txbNewPass.Size = new System.Drawing.Size(265, 35);
-            this.txbNewPass.TabIndex = 32;
-            this.txbNewPass.Texts = "";
-            this.txbNewPass.UnderlinedStyle = false;
-            this.txbNewPass.Visible = false;
-            // 
-            // txbOTP
-            // 
-            this.txbOTP.BackColor = System.Drawing.SystemColors.Window;
-            this.txbOTP.BorderColor = System.Drawing.Color.LightSlateGray;
-            this.txbOTP.BorderFocusColor = System.Drawing.Color.Black;
-            this.txbOTP.BorderRadius = 0;
-            this.txbOTP.BorderSize = 2;
-            this.txbOTP.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txbOTP.ForeColor = System.Drawing.Color.DimGray;
-            this.txbOTP.Location = new System.Drawing.Point(149, 168);
-            this.txbOTP.Margin = new System.Windows.Forms.Padding(4);
-            this.txbOTP.Multiline = false;
-            this.txbOTP.Name = "txbOTP";
-            this.txbOTP.Padding = new System.Windows.Forms.Padding(7);
-            this.txbOTP.PasswordChar = false;
-            this.txbOTP.PlaceholderColor = System.Drawing.Color.DarkGray;
-            this.txbOTP.PlaceholderText = "";
-            this.txbOTP.ReadOnly = false;
-            this.txbOTP.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            this.txbOTP.SelectionColor = System.Drawing.Color.Yellow;
-            this.txbOTP.Size = new System.Drawing.Size(265, 35);
-            this.txbOTP.TabIndex = 29;
-            this.txbOTP.Texts = "";
-            this.txbOTP.UnderlinedStyle = false;
-            // 
-            // txbPwLogin
-            // 
-            this.txbPwLogin.BackColor = System.Drawing.SystemColors.Window;
-            this.txbPwLogin.BorderColor = System.Drawing.Color.LightSlateGray;
-            this.txbPwLogin.BorderFocusColor = System.Drawing.Color.Black;
-            this.txbPwLogin.BorderRadius = 0;
-            this.txbPwLogin.BorderSize = 2;
-            this.txbPwLogin.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txbPwLogin.ForeColor = System.Drawing.Color.DimGray;
-            this.txbPwLogin.Location = new System.Drawing.Point(149, 245);
-            this.txbPwLogin.Margin = new System.Windows.Forms.Padding(4);
-            this.txbPwLogin.Multiline = false;
-            this.txbPwLogin.Name = "txbPwLogin";
-            this.txbPwLogin.Padding = new System.Windows.Forms.Padding(7);
-            this.txbPwLogin.PasswordChar = false;
-            this.txbPwLogin.PlaceholderColor = System.Drawing.Color.DarkGray;
-            this.txbPwLogin.PlaceholderText = "";
-            this.txbPwLogin.ReadOnly = false;
-            this.txbPwLogin.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            this.txbPwLogin.SelectionColor = System.Drawing.Color.Yellow;
-            this.txbPwLogin.Size = new System.Drawing.Size(265, 35);
-            this.txbPwLogin.TabIndex = 30;
-            this.txbPwLogin.Texts = "";
-            this.txbPwLogin.UnderlinedStyle = false;
-            // 
-            // txbEmailLogin
-            // 
-            this.txbEmailLogin.BackColor = System.Drawing.SystemColors.Window;
-            this.txbEmailLogin.BorderColor = System.Drawing.Color.LightSlateGray;
-            this.txbEmailLogin.BorderFocusColor = System.Drawing.Color.Black;
-            this.txbEmailLogin.BorderRadius = 0;
-            this.txbEmailLogin.BorderSize = 2;
-            this.txbEmailLogin.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txbEmailLogin.ForeColor = System.Drawing.Color.DimGray;
-            this.txbEmailLogin.Location = new System.Drawing.Point(149, 168);
-            this.txbEmailLogin.Margin = new System.Windows.Forms.Padding(4);
-            this.txbEmailLogin.Multiline = false;
-            this.txbEmailLogin.Name = "txbEmailLogin";
-            this.txbEmailLogin.Padding = new System.Windows.Forms.Padding(7);
-            this.txbEmailLogin.PasswordChar = false;
-            this.txbEmailLogin.PlaceholderColor = System.Drawing.Color.DarkGray;
-            this.txbEmailLogin.PlaceholderText = "";
-            this.txbEmailLogin.ReadOnly = false;
-            this.txbEmailLogin.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            this.txbEmailLogin.SelectionColor = System.Drawing.Color.Yellow;
-            this.txbEmailLogin.Size = new System.Drawing.Size(265, 35);
-            this.txbEmailLogin.TabIndex = 29;
-            this.txbEmailLogin.Texts = "";
-            this.txbEmailLogin.UnderlinedStyle = false;
-            // 
             // txbNameRegis
             // 
             this.txbNameRegis.BackColor = System.Drawing.SystemColors.Window;
@@ -561,6 +258,37 @@
             this.txbNameRegis.Texts = "";
             this.txbNameRegis.UnderlinedStyle = false;
             // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(13, 175);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(73, 28);
+            this.label6.TabIndex = 35;
+            this.label6.Text = "Name:";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(345, 373);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(66, 23);
+            this.label1.TabIndex = 34;
+            this.label1.Text = "Sign in";
+            this.label1.Click += new System.EventHandler(this.LoadLoginPage);
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Font = new System.Drawing.Font("Segoe UI Semilight", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label13.Location = new System.Drawing.Point(150, 373);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(200, 23);
+            this.label13.TabIndex = 33;
+            this.label13.Text = "Already have an account?";
+            // 
             // txbConfirmRegis
             // 
             this.txbConfirmRegis.BackColor = System.Drawing.SystemColors.Window;
@@ -585,6 +313,16 @@
             this.txbConfirmRegis.TabIndex = 32;
             this.txbConfirmRegis.Texts = "";
             this.txbConfirmRegis.UnderlinedStyle = false;
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label12.Location = new System.Drawing.Point(12, 303);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(93, 28);
+            this.label12.TabIndex = 31;
+            this.label12.Text = "Confirm:";
             // 
             // txbPwRegis
             // 
@@ -636,6 +374,74 @@
             this.txbEmailRegis.Texts = "";
             this.txbEmailRegis.UnderlinedStyle = false;
             // 
+            // btnRegis
+            // 
+            this.btnRegis.BackColor = System.Drawing.SystemColors.Highlight;
+            this.btnRegis.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRegis.ForeColor = System.Drawing.Color.White;
+            this.btnRegis.Location = new System.Drawing.Point(307, 418);
+            this.btnRegis.Name = "btnRegis";
+            this.btnRegis.Size = new System.Drawing.Size(107, 49);
+            this.btnRegis.TabIndex = 26;
+            this.btnRegis.Text = "Sign up";
+            this.btnRegis.UseVisualStyleBackColor = false;
+            this.btnRegis.Click += new System.EventHandler(this.SignUp);
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.Location = new System.Drawing.Point(13, 238);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(106, 28);
+            this.label9.TabIndex = 24;
+            this.label9.Text = "Password:";
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.Location = new System.Drawing.Point(13, 111);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(69, 28);
+            this.label10.TabIndex = 23;
+            this.label10.Text = "Email:";
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Showcard Gothic", 25.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.Location = new System.Drawing.Point(113, 3);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(191, 53);
+            this.label11.TabIndex = 13;
+            this.label11.Text = "Sign up";
+            // 
+            // pnReset1
+            // 
+            this.pnReset1.Controls.Add(this.btnSend);
+            this.pnReset1.Controls.Add(this.txbEmailReset);
+            this.pnReset1.Controls.Add(this.btnBack);
+            this.pnReset1.Controls.Add(this.label17);
+            this.pnReset1.Controls.Add(this.a);
+            this.pnReset1.Location = new System.Drawing.Point(35, 29);
+            this.pnReset1.Name = "pnReset1";
+            this.pnReset1.Size = new System.Drawing.Size(425, 481);
+            this.pnReset1.TabIndex = 3;
+            // 
+            // btnSend
+            // 
+            this.btnSend.BackColor = System.Drawing.SystemColors.Highlight;
+            this.btnSend.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSend.ForeColor = System.Drawing.Color.White;
+            this.btnSend.Location = new System.Drawing.Point(307, 228);
+            this.btnSend.Name = "btnSend";
+            this.btnSend.Size = new System.Drawing.Size(107, 49);
+            this.btnSend.TabIndex = 30;
+            this.btnSend.Text = "Send";
+            this.btnSend.UseVisualStyleBackColor = false;
+            this.btnSend.Click += new System.EventHandler(this.LoadConfirmPage);
+            // 
             // txbEmailReset
             // 
             this.txbEmailReset.BackColor = System.Drawing.SystemColors.Window;
@@ -661,16 +467,210 @@
             this.txbEmailReset.Texts = "";
             this.txbEmailReset.UnderlinedStyle = false;
             // 
+            // btnBack
+            // 
+            this.btnBack.BackColor = System.Drawing.SystemColors.Highlight;
+            this.btnBack.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBack.ForeColor = System.Drawing.Color.White;
+            this.btnBack.Location = new System.Drawing.Point(196, 228);
+            this.btnBack.Name = "btnBack";
+            this.btnBack.Size = new System.Drawing.Size(107, 49);
+            this.btnBack.TabIndex = 26;
+            this.btnBack.Text = "Back";
+            this.btnBack.UseVisualStyleBackColor = false;
+            this.btnBack.Click += new System.EventHandler(this.LoadLoginPage);
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label17.Location = new System.Drawing.Point(13, 168);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(69, 28);
+            this.label17.TabIndex = 23;
+            this.label17.Text = "Email:";
+            // 
+            // a
+            // 
+            this.a.AutoSize = true;
+            this.a.Font = new System.Drawing.Font("Showcard Gothic", 25.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.a.Location = new System.Drawing.Point(11, 6);
+            this.a.Name = "a";
+            this.a.Size = new System.Drawing.Size(404, 53);
+            this.a.TabIndex = 13;
+            this.a.Text = "Reset Password";
+            // 
+            // pnReset2
+            // 
+            this.pnReset2.Controls.Add(this.btnCancel);
+            this.pnReset2.Controls.Add(this.txbConfirmNewPass);
+            this.pnReset2.Controls.Add(this.lblConfirm);
+            this.pnReset2.Controls.Add(this.txbNewPass);
+            this.pnReset2.Controls.Add(this.lblNewPass);
+            this.pnReset2.Controls.Add(this.btnConfirm);
+            this.pnReset2.Controls.Add(this.txbOTP);
+            this.pnReset2.Controls.Add(this.label7);
+            this.pnReset2.Controls.Add(this.label14);
+            this.pnReset2.Location = new System.Drawing.Point(35, 29);
+            this.pnReset2.Name = "pnReset2";
+            this.pnReset2.Size = new System.Drawing.Size(425, 481);
+            this.pnReset2.TabIndex = 31;
+            // 
+            // btnCancel
+            // 
+            this.btnCancel.BackColor = System.Drawing.SystemColors.Highlight;
+            this.btnCancel.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCancel.ForeColor = System.Drawing.Color.White;
+            this.btnCancel.Location = new System.Drawing.Point(197, 354);
+            this.btnCancel.Name = "btnCancel";
+            this.btnCancel.Size = new System.Drawing.Size(107, 49);
+            this.btnCancel.TabIndex = 35;
+            this.btnCancel.Text = "Cancel";
+            this.btnCancel.UseVisualStyleBackColor = false;
+            this.btnCancel.Click += new System.EventHandler(this.LoadLoginPage);
+            // 
+            // txbConfirmNewPass
+            // 
+            this.txbConfirmNewPass.BackColor = System.Drawing.SystemColors.Window;
+            this.txbConfirmNewPass.BorderColor = System.Drawing.Color.LightSlateGray;
+            this.txbConfirmNewPass.BorderFocusColor = System.Drawing.Color.Black;
+            this.txbConfirmNewPass.BorderRadius = 0;
+            this.txbConfirmNewPass.BorderSize = 2;
+            this.txbConfirmNewPass.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txbConfirmNewPass.ForeColor = System.Drawing.Color.DimGray;
+            this.txbConfirmNewPass.Location = new System.Drawing.Point(147, 278);
+            this.txbConfirmNewPass.Margin = new System.Windows.Forms.Padding(4);
+            this.txbConfirmNewPass.Multiline = false;
+            this.txbConfirmNewPass.Name = "txbConfirmNewPass";
+            this.txbConfirmNewPass.Padding = new System.Windows.Forms.Padding(7);
+            this.txbConfirmNewPass.PasswordChar = false;
+            this.txbConfirmNewPass.PlaceholderColor = System.Drawing.Color.DarkGray;
+            this.txbConfirmNewPass.PlaceholderText = "";
+            this.txbConfirmNewPass.ReadOnly = false;
+            this.txbConfirmNewPass.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            this.txbConfirmNewPass.SelectionColor = System.Drawing.Color.Yellow;
+            this.txbConfirmNewPass.Size = new System.Drawing.Size(265, 35);
+            this.txbConfirmNewPass.TabIndex = 34;
+            this.txbConfirmNewPass.Texts = "";
+            this.txbConfirmNewPass.UnderlinedStyle = false;
+            this.txbConfirmNewPass.Visible = false;
+            // 
+            // lblConfirm
+            // 
+            this.lblConfirm.AutoSize = true;
+            this.lblConfirm.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblConfirm.Location = new System.Drawing.Point(11, 278);
+            this.lblConfirm.Name = "lblConfirm";
+            this.lblConfirm.Size = new System.Drawing.Size(93, 28);
+            this.lblConfirm.TabIndex = 33;
+            this.lblConfirm.Text = "Confirm:";
+            this.lblConfirm.Visible = false;
+            // 
+            // txbNewPass
+            // 
+            this.txbNewPass.BackColor = System.Drawing.SystemColors.Window;
+            this.txbNewPass.BorderColor = System.Drawing.Color.LightSlateGray;
+            this.txbNewPass.BorderFocusColor = System.Drawing.Color.Black;
+            this.txbNewPass.BorderRadius = 0;
+            this.txbNewPass.BorderSize = 2;
+            this.txbNewPass.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txbNewPass.ForeColor = System.Drawing.Color.DimGray;
+            this.txbNewPass.Location = new System.Drawing.Point(148, 223);
+            this.txbNewPass.Margin = new System.Windows.Forms.Padding(4);
+            this.txbNewPass.Multiline = false;
+            this.txbNewPass.Name = "txbNewPass";
+            this.txbNewPass.Padding = new System.Windows.Forms.Padding(7);
+            this.txbNewPass.PasswordChar = false;
+            this.txbNewPass.PlaceholderColor = System.Drawing.Color.DarkGray;
+            this.txbNewPass.PlaceholderText = "";
+            this.txbNewPass.ReadOnly = false;
+            this.txbNewPass.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            this.txbNewPass.SelectionColor = System.Drawing.Color.Yellow;
+            this.txbNewPass.Size = new System.Drawing.Size(265, 35);
+            this.txbNewPass.TabIndex = 32;
+            this.txbNewPass.Texts = "";
+            this.txbNewPass.UnderlinedStyle = false;
+            this.txbNewPass.Visible = false;
+            // 
+            // lblNewPass
+            // 
+            this.lblNewPass.AutoSize = true;
+            this.lblNewPass.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNewPass.Location = new System.Drawing.Point(12, 223);
+            this.lblNewPass.Name = "lblNewPass";
+            this.lblNewPass.Size = new System.Drawing.Size(107, 28);
+            this.lblNewPass.TabIndex = 31;
+            this.lblNewPass.Text = "New Pass:";
+            this.lblNewPass.Visible = false;
+            // 
+            // btnConfirm
+            // 
+            this.btnConfirm.BackColor = System.Drawing.SystemColors.Highlight;
+            this.btnConfirm.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnConfirm.ForeColor = System.Drawing.Color.White;
+            this.btnConfirm.Location = new System.Drawing.Point(308, 354);
+            this.btnConfirm.Name = "btnConfirm";
+            this.btnConfirm.Size = new System.Drawing.Size(107, 49);
+            this.btnConfirm.TabIndex = 30;
+            this.btnConfirm.Text = "Confirm";
+            this.btnConfirm.UseVisualStyleBackColor = false;
+            this.btnConfirm.Click += new System.EventHandler(this.ConfirmOTP);
+            // 
+            // txbOTP
+            // 
+            this.txbOTP.BackColor = System.Drawing.SystemColors.Window;
+            this.txbOTP.BorderColor = System.Drawing.Color.LightSlateGray;
+            this.txbOTP.BorderFocusColor = System.Drawing.Color.Black;
+            this.txbOTP.BorderRadius = 0;
+            this.txbOTP.BorderSize = 2;
+            this.txbOTP.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txbOTP.ForeColor = System.Drawing.Color.DimGray;
+            this.txbOTP.Location = new System.Drawing.Point(149, 168);
+            this.txbOTP.Margin = new System.Windows.Forms.Padding(4);
+            this.txbOTP.Multiline = false;
+            this.txbOTP.Name = "txbOTP";
+            this.txbOTP.Padding = new System.Windows.Forms.Padding(7);
+            this.txbOTP.PasswordChar = false;
+            this.txbOTP.PlaceholderColor = System.Drawing.Color.DarkGray;
+            this.txbOTP.PlaceholderText = "";
+            this.txbOTP.ReadOnly = false;
+            this.txbOTP.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            this.txbOTP.SelectionColor = System.Drawing.Color.Yellow;
+            this.txbOTP.Size = new System.Drawing.Size(265, 35);
+            this.txbOTP.TabIndex = 29;
+            this.txbOTP.Texts = "";
+            this.txbOTP.UnderlinedStyle = false;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(13, 168);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(55, 28);
+            this.label7.TabIndex = 23;
+            this.label7.Text = "OTP:";
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Font = new System.Drawing.Font("Showcard Gothic", 25.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label14.Location = new System.Drawing.Point(11, 6);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(404, 53);
+            this.label14.TabIndex = 13;
+            this.label14.Text = "Reset Password";
+            // 
             // StartForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(505, 576);
-            this.Controls.Add(this.pnReset2);
             this.Controls.Add(this.pnLogin);
             this.Controls.Add(this.pnRegister);
             this.Controls.Add(this.pnReset1);
+            this.Controls.Add(this.pnReset2);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.ImeMode = System.Windows.Forms.ImeMode.Disable;
             this.Name = "StartForm";

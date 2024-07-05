@@ -12,6 +12,8 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Windows.Forms.VisualStyles;
 using static System.Net.Mime.MediaTypeNames;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.Tab;
+using Syncfusion.DocIO.DLS;
 
 namespace Drive
 {
@@ -148,8 +150,8 @@ namespace Drive
                         fi.CopyTo(s);
                     }
 
-                    string pathDataFile = "DriveData\\data\\File.txt";
-                    string fileName = fii.Name.Substring(0, fii.Name.Length - 5);
+                    string pathDataFile = "UserData\\file\\" + StartForm.userID.ToString() + "_file.txt";
+                    string fileName = Path.GetFileNameWithoutExtension(st[i]);
                     StreamWriter sw = new StreamWriter(pathDataFile, true);
                     sw.WriteLine(ClassData.nextFileID.ToString() + "*" +
                              "1000" + "*" +
@@ -217,25 +219,7 @@ namespace Drive
 
         private void pnNewFolder_Click(object sender, EventArgs e)
         {
-            string pathDataFolder = "DriveData\\data\\Folder.txt";
-            StreamWriter sw = new StreamWriter(pathDataFolder, true);
-            sw.WriteLine(ClassData.nextFolderID.ToString() + "*" +
-                     "1000" + "*" +
-                     "folder" + "*" +
-                     "New Folder" + "*" +
-                     DateTime.Now.ToString("dd/MM/yyyy hh:mm:ss tt") + "*" +
-                     ClassData.currentFolderID.ToString() + "*" +
-                     "False" + "*" +
-                     "False");
-            sw.Close();
 
-            ClassData.nextFolderID++;
-
-            ClassData.reloaddata();
-            Home.FolderAdd();
-            Home.LoadDataFolder();
-
-            pnNew.Visible = false;
         }
 
         private void pnNewDoc_MouseEnter(object sender, EventArgs e)
@@ -252,8 +236,40 @@ namespace Drive
 
         private void pnNewDoc_Click(object sender, EventArgs e)
         {
-            string stringPath = "D:\\Drive\\Drive\\bin\\Debug\\DriveData\\sample\\New Document.docx";
-            FileInfo fi = new FileInfo(stringPath);
+            // Đường dẫn đến thư mục chứa file "New Document" trong thư mục Debug của ứng dụng
+            string initialFilePath = Path.Combine(System.Windows.Forms.Application.StartupPath, "DriveData", "file", "New Document.docx");
+
+            // Create a new Word document instance
+            WordDocument document = new WordDocument();
+
+            // Adding a section to the document
+            IWSection section = document.AddSection();
+
+            // Adding a paragraph to the section
+            IWParagraph paragraph = section.AddParagraph();
+
+            // Adding text to the paragraph
+            paragraph.AppendText("Hello, this is a simple Word document created using Syncfusion DocIO!");
+
+            // Save the document to the initialFilePath
+            try
+            {
+                document.Save(initialFilePath);
+
+                Console.WriteLine($"Document saved successfully at: {initialFilePath}");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error saving document: {ex.Message}");
+                // Handle the exception as needed
+            }
+            finally
+            {
+                // Close the document instance
+                document.Close();
+            }
+
+            FileInfo fi = new FileInfo(initialFilePath);
             string s = "DriveData\\file\\" + Path.GetFileName("New Document.docx");
             FileInfo fii = new FileInfo(s);
             if (!fii.Exists)
@@ -261,8 +277,8 @@ namespace Drive
                 fi.CopyTo(s);
             }
 
-            string pathDataFile = "DriveData\\data\\File.txt";
-            StreamWriter sw = new StreamWriter(pathDataFile, true);
+            string userDataFilePath = Path.Combine(System.Windows.Forms.Application.StartupPath, "UserData", "file", StartForm.userID + "_file.txt");
+            StreamWriter sw = new StreamWriter(userDataFilePath, true);
             sw.WriteLine(ClassData.nextFileID.ToString() + "*" +
                      "1000" + "*" +
                      fii.Extension + "*" +

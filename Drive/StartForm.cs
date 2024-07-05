@@ -14,6 +14,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Xml.Linq;
+using Microsoft.Office.Interop.Excel;
 
 namespace Drive
 {
@@ -27,6 +28,7 @@ namespace Drive
         public static extern int SendMessage(IntPtr hWnd, int Msg, int wParam, int lParam);
         [DllImportAttribute("user32.dll")]
         public static extern bool ReleaseCapture();
+        public static int userID = 0;
         #endregion
         public StartForm()
         {
@@ -45,7 +47,7 @@ namespace Drive
                 SendMessage(Handle, WM_NCLBUTTONDOWN, HT_CAPTION, 0);
             }
         }
-       
+
         #region Sign In Button
         private void HoverSignInButton(object sender, EventArgs e)
         {
@@ -128,14 +130,15 @@ namespace Drive
         private void SignIn(object sender, EventArgs e)
         {
             bool isExist = false;
-            string[] files = Directory.GetFiles(Application.StartupPath + "//Users");
+            string[] files = Directory.GetFiles(System.Windows.Forms.Application.StartupPath + "//Users");
             for (int i = 0; i < files.Length; i++)
             {
                 using (var sr = new StreamReader(files[i]))
                 {
-                    sr.ReadLine(); string email = sr.ReadLine(); string name = sr.ReadLine();
+                    string id = sr.ReadLine(); string email = sr.ReadLine(); string name = sr.ReadLine();
                     if (txbEmailLogin.Texts == email)
                     {
+                        userID = Convert.ToInt32(id);
                         isExist = true;
                         if (txbPwLogin.Texts == sr.ReadLine())
                         {
@@ -163,21 +166,21 @@ namespace Drive
 
         private void SignUp(object sender, EventArgs e)
         {
-            string[] files = Directory.GetFiles(Application.StartupPath + "//Users");
+            string[] files = Directory.GetFiles(System.Windows.Forms.Application.StartupPath + "//Users");
+            Random rnd = new Random();
+            int userID = rnd.Next(1, 1000000000);
+            StreamWriter sw = new StreamWriter(System.Windows.Forms.Application.StartupPath + "//Users//" + userID.ToString() + ".txt");
+            File.Create(System.Windows.Forms.Application.StartupPath + "//UserData//file//" + userID.ToString() + "_file.txt").Close();
+            File.Create(System.Windows.Forms.Application.StartupPath + "//UserData//folder//" + userID.ToString() + "_folder.txt").Close();
+            File.Create(System.Windows.Forms.Application.StartupPath + "//UserData//download//" + userID.ToString() + "_download.txt").Close();
 
-            StreamWriter sw = new StreamWriter(Application.StartupPath + "//Users//" + (files.Length + 1).ToString() + ".txt");
             if (txbPwRegis.Texts == txbConfirmRegis.Texts)
             {
-                sw.WriteLine((files.Length + 1).ToString());
-
-                //sw.WriteLine("C:/Users/Hoang/Downloads/default.jpg");
-                //sw.WriteLine("F:\\Course in University\\C# Programing Languge\\Task\\ChatOnline\\ChatOnline\\Resources\\on.png");
-                //sw.WriteLine(txbName.Texts);
-                //sw.WriteLine("Newbie");
+                sw.WriteLine(userID.ToString());
                 sw.WriteLine(txbEmailRegis.Texts);
                 sw.WriteLine(txbNameRegis.Texts);
                 sw.WriteLine(txbPwRegis.Texts);
-                
+
                 MessageBox.Show("Register Successfully", "Notification", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             else
@@ -260,12 +263,12 @@ namespace Drive
                 if (txbNewPass.Texts == txbConfirmNewPass.Texts)
                 {
                     string path = "";
-                    string[] files = Directory.GetFiles(Application.StartupPath + "//Users");
+                    string[] files = Directory.GetFiles(System.Windows.Forms.Application.StartupPath + "//Users");
                     for (int i = 0; i < files.Length; i++)
                     {
                         using (var sr = new StreamReader(files[i]))
                         {
-                            sr.ReadLine(); string email = sr.ReadLine(); string name = sr.ReadLine(); 
+                            sr.ReadLine(); string email = sr.ReadLine(); string name = sr.ReadLine();
                             if (txbEmailReset.Texts == email)
                             {
                                 path = files[i];

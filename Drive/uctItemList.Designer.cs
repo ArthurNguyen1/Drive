@@ -43,9 +43,9 @@
             // 
             this.lblOwner.AutoSize = true;
             this.lblOwner.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblOwner.Location = new System.Drawing.Point(663, 10);
+            this.lblOwner.Location = new System.Drawing.Point(589, 8);
             this.lblOwner.Name = "lblOwner";
-            this.lblOwner.Size = new System.Drawing.Size(90, 20);
+            this.lblOwner.Size = new System.Drawing.Size(80, 17);
             this.lblOwner.TabIndex = 5;
             this.lblOwner.Text = "Chủ sở hữu";
             // 
@@ -53,9 +53,9 @@
             // 
             this.lblReasonRecommend.AutoSize = true;
             this.lblReasonRecommend.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblReasonRecommend.Location = new System.Drawing.Point(321, 10);
+            this.lblReasonRecommend.Location = new System.Drawing.Point(285, 8);
             this.lblReasonRecommend.Name = "lblReasonRecommend";
-            this.lblReasonRecommend.Size = new System.Drawing.Size(191, 20);
+            this.lblReasonRecommend.Size = new System.Drawing.Size(173, 17);
             this.lblReasonRecommend.TabIndex = 4;
             this.lblReasonRecommend.Text = "Lý do tài liệu được đề xuất";
             // 
@@ -63,43 +63,47 @@
             // 
             this.lblName.AutoSize = true;
             this.lblName.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblName.Location = new System.Drawing.Point(34, 10);
+            this.lblName.Location = new System.Drawing.Point(30, 8);
             this.lblName.Name = "lblName";
-            this.lblName.Size = new System.Drawing.Size(36, 20);
+            this.lblName.Size = new System.Drawing.Size(33, 17);
             this.lblName.TabIndex = 3;
             this.lblName.Text = "Tên";
             // 
             // picOption
             // 
             this.picOption.Image = global::Drive.Properties.Resources.three_dots__1_;
-            this.picOption.Location = new System.Drawing.Point(788, 10);
+            this.picOption.Location = new System.Drawing.Point(700, 8);
+            this.picOption.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.picOption.Name = "picOption";
-            this.picOption.Size = new System.Drawing.Size(25, 25);
+            this.picOption.Size = new System.Drawing.Size(22, 20);
             this.picOption.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.picOption.TabIndex = 8;
             this.picOption.TabStop = false;
+            this.picOption.Click += new System.EventHandler(this.Rename);
             // 
             // picOwner
             // 
-            this.picOwner.Location = new System.Drawing.Point(632, 10);
+            this.picOwner.Location = new System.Drawing.Point(562, 8);
+            this.picOwner.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.picOwner.Name = "picOwner";
-            this.picOwner.Size = new System.Drawing.Size(25, 25);
+            this.picOwner.Size = new System.Drawing.Size(22, 20);
             this.picOwner.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.picOwner.TabIndex = 7;
             this.picOwner.TabStop = false;
             // 
             // picType
             // 
-            this.picType.Location = new System.Drawing.Point(3, 6);
+            this.picType.Location = new System.Drawing.Point(3, 5);
+            this.picType.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.picType.Name = "picType";
-            this.picType.Size = new System.Drawing.Size(25, 25);
+            this.picType.Size = new System.Drawing.Size(22, 20);
             this.picType.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.picType.TabIndex = 6;
             this.picType.TabStop = false;
             // 
             // uctItemList
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.Controls.Add(this.picOption);
@@ -108,8 +112,9 @@
             this.Controls.Add(this.lblOwner);
             this.Controls.Add(this.lblReasonRecommend);
             this.Controls.Add(this.lblName);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "uctItemList";
-            this.Size = new System.Drawing.Size(816, 42);
+            this.Size = new System.Drawing.Size(725, 34);
             this.Load += new System.EventHandler(this.uctItemList_Load);
             this.Click += new System.EventHandler(this.uctItemList_Click);
             this.DoubleClick += new System.EventHandler(this.uctItemList_DoubleClick);

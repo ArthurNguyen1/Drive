@@ -20,9 +20,9 @@ namespace Drive
 
         //public static DataTable dtInUse = new DataTable();
 
-        public static string pathFolder = "DriveData\\data\\Folder.txt";
-        public static string pathFile = "DriveData\\data\\File.txt";
-        public static string FileDownloadPath = "DriveData\\data\\Download.txt";
+        public static string pathFolder = $"UserData\\folder\\{StartForm.userID}_folder.txt";
+        public static string pathFile = $"UserData\\file\\{StartForm.userID}_file.txt";
+        public static string FileDownloadPath = $"UserData\\download\\{StartForm.userID}_download.txt";
         public static string FileDeletePath = "DriveData\\data\\Delete.txt";
 
         public static int currentFolderID = 0; // folder root
@@ -63,7 +63,6 @@ namespace Drive
             dtFile.Columns.Add("recent", typeof(bool));             // if a file is opened, then turn this bool to true
             dtFile.Columns.Add("like", typeof(bool));               // if a file is marked as a favorite file, then turn this bool to true
             dtFile.Columns.Add("shared", typeof(List<int>));        // List of others' userID can see this file/folder by sharing
-
             try
             {
                 StreamReader sr = new StreamReader(pathFile);
@@ -71,19 +70,19 @@ namespace Drive
                 while ((str = sr.ReadLine()) != null)
                 {
                     string[] st = str.Split('*');
-                    if(st.Length < 8)
+                    if (st.Length < 8)
                     {
                         dtFile.Rows.Add(int.Parse(st[0]),
                                         int.Parse(st[1]),
                                         st[2], st[3], st[4],
                                         int.Parse(st[5]),
                                         bool.Parse(st[6]),
-                                        bool.Parse(st[7]), 
+                                        bool.Parse(st[7]),
                                         null);
                     }
                     else
                     {
-                        List<int> sharedUserID = new List<int> {};
+                        List<int> sharedUserID = new List<int> { };
                         for (int i = 8; i < st.Length; i++)
                         {
                             sharedUserID.Add(int.Parse(st[i]));
@@ -157,7 +156,7 @@ namespace Drive
             dtDownload.Columns.Add("type", typeof(string));             // type like .docx, .pdf, ...
             dtDownload.Columns.Add("name", typeof(string));             // name of the file or folder
             dtDownload.Columns.Add("time", typeof(string));             // time upload or read or update that file or folder
-            
+
             try
             {
                 StreamReader sr = new StreamReader(FileDownloadPath);
