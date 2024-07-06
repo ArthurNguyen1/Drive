@@ -1,4 +1,5 @@
-﻿using SautinSoft.Document;
+﻿using Drive.CustomControl;
+using SautinSoft.Document;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -24,10 +25,14 @@ namespace Drive
         bool _recent;
         bool _like;
         List<int> _shared;
-        
+        public static TransparentTxb currentFileName;
+        public static int currentFileID;
+        public static string currentFileType;
+
         public uctItemList()
         {
             InitializeComponent();
+            //lblName.BackColor = Color.
         }
         string PathImage = "DriveData\\image\\";
         private void uctItemList_Load(object sender, EventArgs e)
@@ -100,19 +105,30 @@ namespace Drive
 
         private void uctItemList_MouseEnter(object sender, EventArgs e)
         {
+            lblName.BackColor = System.Drawing.SystemColors.ControlDark;
             this.BackColor = System.Drawing.SystemColors.ControlDark;
         }
 
         private void uctItemList_MouseLeave(object sender, EventArgs e)
         {
             if(ClassData.chosenFileID == _ID)
+            {
                 this.BackColor = System.Drawing.Color.LightSkyBlue;
+                lblName.BackColor = System.Drawing.Color.LightSkyBlue;
+
+            }
             else
+            {
                 this.BackColor = System.Drawing.Color.White;
+                lblName.BackColor = System.Drawing.Color.White;
+            }
         }
 
         private void uctItemList_Click(object sender, EventArgs e)
         {
+            currentFileName = this.lblName;
+            currentFileID = ClassData.chosenFileID;
+            currentFileType = _type;
             ClassData.chosenFileID = _ID;
             ClassData.chosenFildeName = _name;
             if (ClassData.chosenFileID == _ID)
@@ -145,5 +161,6 @@ namespace Drive
             //    document.ActiveWindow.Selection.WholeStory();
             //}
         }
+
     }
 }

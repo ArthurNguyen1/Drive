@@ -124,6 +124,9 @@
     <Compile Include="CustomControl\TextBoxCustom.Designer.cs">
       <DependentUpon>TextBoxCustom.cs</DependentUpon>
     </Compile>
+    <Compile Include="CustomControl\TransparentTxb.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="FormMain.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -338,6 +341,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\imgdocx.PNG" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\edit.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\HarfBuzzSharp.NativeAssets.macOS.7.3.0\build\net462\HarfBuzzSharp.NativeAssets.macOS.targets" Condition="Exists('..\packages\HarfBuzzSharp.NativeAssets.macOS.7.3.0\build\net462\HarfBuzzSharp.NativeAssets.macOS.targets')" />
