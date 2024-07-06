@@ -45,9 +45,9 @@
             this.lblOwner.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblOwner.Location = new System.Drawing.Point(590, 10);
             this.lblOwner.Name = "lblOwner";
-            this.lblOwner.Size = new System.Drawing.Size(33, 17);
+            this.lblOwner.Size = new System.Drawing.Size(91, 17);
             this.lblOwner.TabIndex = 5;
-            this.lblOwner.Text = "You";
+            this.lblOwner.Text = "Nguyễn Minh";
             this.lblOwner.Click += new System.EventHandler(this.uctItemList_Click);
             this.lblOwner.DoubleClick += new System.EventHandler(this.uctItemList_DoubleClick);
             this.lblOwner.MouseEnter += new System.EventHandler(this.uctItemList_MouseEnter);
