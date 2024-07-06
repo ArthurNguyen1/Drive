@@ -15,6 +15,8 @@ namespace Drive
         public static DataTable dtFolder = new DataTable();
         public static DataTable dtDownload = new DataTable();
         public static DataTable dtDelete = new DataTable();
+        public static DataTable dtFileShared = new DataTable();
+        public static DataTable dtFileRecent = new DataTable();
 
         //public static DataTable dtList = new DataTable();
 
@@ -24,6 +26,8 @@ namespace Drive
         public static string pathFile = $"UserData\\file\\{StartForm.userID}_file.txt";
         public static string FileDownloadPath = $"UserData\\download\\{StartForm.userID}_download.txt";
         public static string FileDeletePath = "DriveData\\data\\Delete.txt";
+        public static string FileShared = $"UserData\\file_shared\\{StartForm.userID}_fileshared.txt";
+        public static string FileRecent = $"UserData\\file_recent\\{StartForm.userID}_filerecent.txt";
 
         public static int currentFolderID = 0; // folder root
         public static int chosenFileID = -1;
@@ -102,6 +106,99 @@ namespace Drive
             }
             catch { }
 
+            //Load files shared with me
+            dtFileShared.Columns.Add("ID", typeof(int));                  // ID of file (ID > 100)
+            dtFileShared.Columns.Add("IDowner", typeof(int));             // ID of user upload (ID >= 1000)
+            dtFileShared.Columns.Add("type", typeof(string));             // type like .docx, .pdf, ...
+            dtFileShared.Columns.Add("name", typeof(string));             // name of the file or folder
+            dtFileShared.Columns.Add("time", typeof(string));             // time upload or read or update that file or folder
+            dtFileShared.Columns.Add("IDfolderbelong", typeof(int));      // ID of folder contain that file, if file in the root folder, then IDfolderbelong = 0  
+            dtFileShared.Columns.Add("recent", typeof(bool));             // if a file is opened, then turn this bool to true
+            dtFileShared.Columns.Add("like", typeof(bool));               // if a file is marked as a favorite file, then turn this bool to true
+            dtFileShared.Columns.Add("shared", typeof(List<int>));        // List of others' userID can see this file/folder by sharing
+            try
+            {
+                StreamReader sr = new StreamReader(FileShared);
+                string str;
+                while ((str = sr.ReadLine()) != null)
+                {
+                    string[] st = str.Split('*');
+                    if (st.Length < 8)
+                    {
+                        dtFileShared.Rows.Add(int.Parse(st[0]),
+                                        int.Parse(st[1]),
+                                        st[2], st[3], st[4],
+                                        int.Parse(st[5]),
+                                        bool.Parse(st[6]),
+                                        bool.Parse(st[7]),
+                                        null);
+                    }
+                    else
+                    {
+                        List<int> sharedUserID = new List<int> { };
+                        for (int i = 8; i < st.Length; i++)
+                        {
+                            sharedUserID.Add(int.Parse(st[i]));
+                        }
+                        dtFileShared.Rows.Add(int.Parse(st[0]),
+                                        int.Parse(st[1]),
+                                        st[2], st[3], st[4],
+                                        int.Parse(st[5]),
+                                        bool.Parse(st[6]),
+                                        bool.Parse(st[7]),
+                                        sharedUserID);
+                    }
+                }
+                sr.Close();
+            }
+            catch { }
+
+            //Load files open recent
+            dtFileRecent.Columns.Add("ID", typeof(int));                  // ID of file (ID > 100)
+            dtFileRecent.Columns.Add("IDowner", typeof(int));             // ID of user upload (ID >= 1000)
+            dtFileRecent.Columns.Add("type", typeof(string));             // type like .docx, .pdf, ...
+            dtFileRecent.Columns.Add("name", typeof(string));             // name of the file or folder
+            dtFileRecent.Columns.Add("time", typeof(string));             // time upload or read or update that file or folder
+            dtFileRecent.Columns.Add("IDfolderbelong", typeof(int));      // ID of folder contain that file, if file in the root folder, then IDfolderbelong = 0  
+            dtFileRecent.Columns.Add("recent", typeof(bool));             // if a file is opened, then turn this bool to true
+            dtFileRecent.Columns.Add("like", typeof(bool));               // if a file is marked as a favorite file, then turn this bool to true
+            dtFileRecent.Columns.Add("shared", typeof(List<int>));        // List of others' userID can see this file/folder by sharing
+            try
+            {
+                StreamReader sr = new StreamReader(FileRecent);
+                string str;
+                while ((str = sr.ReadLine()) != null)
+                {
+                    string[] st = str.Split('*');
+                    if (st.Length < 8)
+                    {
+                        dtFileRecent.Rows.Add(int.Parse(st[0]),
+                                        int.Parse(st[1]),
+                                        st[2], st[3], st[4],
+                                        int.Parse(st[5]),
+                                        bool.Parse(st[6]),
+                                        bool.Parse(st[7]),
+                                        null);
+                    }
+                    else
+                    {
+                        List<int> sharedUserID = new List<int> { };
+                        for (int i = 8; i < st.Length; i++)
+                        {
+                            sharedUserID.Add(int.Parse(st[i]));
+                        }
+                        dtFileRecent.Rows.Add(int.Parse(st[0]),
+                                        int.Parse(st[1]),
+                                        st[2], st[3], st[4],
+                                        int.Parse(st[5]),
+                                        bool.Parse(st[6]),
+                                        bool.Parse(st[7]),
+                                        sharedUserID);
+                    }
+                }
+                sr.Close();
+            }
+            catch { }
             //Load folders
             dtFolder.Columns.Add("ID", typeof(int));                  // ID of folder (ID <= 100)
             dtFolder.Columns.Add("IDowner", typeof(int));             // ID of user upload (ID >= 1000)
@@ -231,6 +328,8 @@ namespace Drive
             dtFile.Clear();
             dtFolder.Clear();
             dtDelete.Clear();
+            dtFileRecent.Clear();
+            dtFileShared.Clear();
 
             //Load file again
             try
@@ -271,6 +370,85 @@ namespace Drive
             }
             catch { }
 
+
+            //Load file shared again
+            try
+            {
+                StreamReader sr = new StreamReader(FileShared);
+                string str;
+                while ((str = sr.ReadLine()) != null)
+                {
+                    string[] st = str.Split('*');
+                    if (st.Length < 8)
+                    {
+                        dtFileShared.Rows.Add(int.Parse(st[0]),
+                                        int.Parse(st[1]),
+                                        st[2], st[3], st[4],
+                                        int.Parse(st[5]),
+                                        bool.Parse(st[6]),
+                                        bool.Parse(st[7]),
+                                        null);
+                    }
+                    else
+                    {
+                        List<int> sharedUserID = new List<int> { };
+                        for (int i = 8; i < st.Length; i++)
+                        {
+                            sharedUserID.Add(int.Parse(st[i]));
+                        }
+                        dtFileShared.Rows.Add(int.Parse(st[0]),
+                                        int.Parse(st[1]),
+                                        st[2], st[3], st[4],
+                                        int.Parse(st[5]),
+                                        bool.Parse(st[6]),
+                                        bool.Parse(st[7]),
+                                        sharedUserID);
+                    }
+                }
+                sr.Close();
+            }
+
+            catch { }
+
+            //Load file recent again
+            try
+            {
+                StreamReader sr = new StreamReader(FileRecent);
+                string str;
+                while ((str = sr.ReadLine()) != null)
+                {
+                    string[] st = str.Split('*');
+                    if (st.Length < 8)
+                    {
+                        dtFileRecent.Rows.Add(int.Parse(st[0]),
+                                        int.Parse(st[1]),
+                                        st[2], st[3], st[4],
+                                        int.Parse(st[5]),
+                                        bool.Parse(st[6]),
+                                        bool.Parse(st[7]),
+                                        null);
+                    }
+                    else
+                    {
+                        List<int> sharedUserID = new List<int> { };
+                        for (int i = 8; i < st.Length; i++)
+                        {
+                            sharedUserID.Add(int.Parse(st[i]));
+                        }
+                        dtFileRecent.Rows.Add(int.Parse(st[0]),
+                                        int.Parse(st[1]),
+                                        st[2], st[3], st[4],
+                                        int.Parse(st[5]),
+                                        bool.Parse(st[6]),
+                                        bool.Parse(st[7]),
+                                        sharedUserID);
+                    }
+                }
+                sr.Close();
+            }
+
+
+            catch { }
             //Load folder again
             try
             {

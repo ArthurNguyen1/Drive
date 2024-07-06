@@ -80,6 +80,11 @@ namespace Drive
             pnTrash.BackColor = Color.WhiteSmoke;
             picTrash.BackColor = Color.WhiteSmoke;
 
+            pnShared.BackColor = Color.WhiteSmoke;
+            picShared.BackColor = Color.WhiteSmoke;
+
+            pnRecent.BackColor = Color.WhiteSmoke;
+            picRecent.BackColor = Color.WhiteSmoke;
 
             Home.Visible = false;
             Laptop.Visible = false;
@@ -401,6 +406,46 @@ namespace Drive
             Trash.LoadDataDown(ClassData.dtDelete);
             pnTrash.BackColor = Color.LightSkyBlue;
             picTrash.BackColor = Color.LightSkyBlue;
+        }
+
+        private void SharedWithMe(object sender, EventArgs e)
+        {
+            ClassData.reloaddata();
+
+            Reset();
+            Home.Visible = true;
+            foreach (uctItemList item in Home.Controls.OfType<UserControl>())
+            {
+                // Kiểm tra kiểu của control và xác định liệu nó có phải là loại A hay không
+                if (item.GetType() == typeof(uctItemList))
+                {
+                    Home.Controls.Remove(item);
+                    item.Dispose(); // Giải phóng tài nguyên của control nếu cần thiết
+                }
+            }
+            Home.LoadDataDown(ClassData.dtFileShared);
+            //Recents.LoadDataDown(dtRecents);
+            pnShared.BackColor = Color.LightSkyBlue;
+            picShared.BackColor = Color.LightSkyBlue;
+        }
+
+        private void OpenRecentFile(object sender, EventArgs e)
+        {
+            ClassData.reloaddata();
+            Reset();
+            Home.Visible = true;
+            foreach (uctItemList item in Home.Controls.OfType<UserControl>())
+            {
+                // Kiểm tra kiểu của control và xác định liệu nó có phải là loại A hay không
+                if (item.GetType() == typeof(uctItemList))
+                {
+                    Home.Controls.Remove(item);
+                    item.Dispose(); // Giải phóng tài nguyên của control nếu cần thiết
+                }
+            }
+            Home.LoadDataDown(ClassData.dtFileRecent);
+            pnRecent.BackColor = Color.LightSkyBlue;
+            picRecent.BackColor = Color.LightSkyBlue;
         }
     }
 }

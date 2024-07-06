@@ -116,3 +116,4 @@ C:\Users\Hoang\Desktop\Drive\Drive\bin\Debug\libSkiaSharp.dylib
 C:\Users\Hoang\Desktop\Drive\Drive\bin\Debug\x86\libSkiaSharp.dll
 C:\Users\Hoang\Desktop\Drive\Drive\bin\Debug\x64\libSkiaSharp.dll
 C:\Users\Hoang\Desktop\Drive\Drive\bin\Debug\arm64\libSkiaSharp.dll
+C:\Users\Hoang\Desktop\Drive\Drive\obj\Debug\Drive.CustomControl.UserSelectionForm.resources

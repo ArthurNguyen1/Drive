@@ -42,6 +42,18 @@ namespace Drive
 
         private void uctItemList_DoubleClick(object sender, EventArgs e)
         {
+            string pathDataFile = "UserData\\file_recent\\" + StartForm.userID.ToString() + "_filerecent.txt";
+            StreamWriter sw = new StreamWriter(pathDataFile, true);
+            sw.WriteLine(ClassData.chosenFileID + "*" +
+                     "1000" + "*" +
+                     uctItemList.currentFileType + "*" +
+                     ClassData.chosenFildeName + "*" +
+                     DateTime.Now.ToString("dd/MM/yyyy hh:mm:ss tt") + "*" +
+                     ClassData.currentFolderID.ToString() + "*" +
+                     "False" + "*" +
+                     "False");
+            sw.Close();
+
             string filePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "DriveData\\file\\" + lblName.Text + ".docx");
             // The file format is detected automatically from the file extension: ".docx".
             DocumentCore dc = DocumentCore.Load(filePath);

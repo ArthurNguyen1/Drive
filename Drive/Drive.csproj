@@ -127,6 +127,12 @@
     <Compile Include="CustomControl\TransparentTxb.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="CustomControl\UserSelectionForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CustomControl\UserSelectionForm.Designer.cs">
+      <DependentUpon>UserSelectionForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormMain.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -179,6 +185,9 @@
     </Compile>
     <EmbeddedResource Include="CustomControl\TextBoxCustom.resx">
       <DependentUpon>TextBoxCustom.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CustomControl\UserSelectionForm.resx">
+      <DependentUpon>UserSelectionForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormMain.resx">
       <DependentUpon>FormMain.cs</DependentUpon>
