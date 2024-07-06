@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Drive.CustomControl;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -562,5 +563,46 @@ namespace Drive
 
             }
         }
+        public static string userSharedEmail;
+        private void picShared_Click(object sender, EventArgs e)
+        {
+            UserSelectionForm userSelectionForm = new UserSelectionForm();
+            userSelectionForm.ShowDialog();
+            string ID = FindUserIDByMail(uctHome.userSharedEmail);
+
+            string pathDataFile = $"UserData\\file_shared\\{ID}_fileshared.txt";
+            string fileName = ClassData.chosenFildeName;
+            string fileType = uctItemList.currentFileType;
+
+            StreamWriter sw = new StreamWriter(pathDataFile, true);
+            sw.WriteLine(ClassData.chosenFileID + "*" +
+                     "1000" + "*" +
+                     fileType + "*" +
+                     fileName + "*" +
+                     DateTime.Now.ToString("dd/MM/yyyy hh:mm:ss tt") + "*" +
+                     ClassData.currentFolderID.ToString() + "*" +
+                     "False" + "*" +
+                     "False");
+            sw.Close();
+        }
+
+        public string FindUserIDByMail(string mail)
+        {
+            string[] userFiles = Directory.GetFiles(System.Windows.Forms.Application.StartupPath + "//Users");
+            for (int i = 0; i < userFiles.Length; i++)
+            {
+                using (var sr = new StreamReader(userFiles[i]))
+                {
+                    string id = sr.ReadLine(); string email = sr.ReadLine(); string name = sr.ReadLine();
+                    if (uctHome.userSharedEmail == email)
+                    {
+                        return id;
+                    }
+                }
+            }
+
+            return null;
+        }
+
     }
 }

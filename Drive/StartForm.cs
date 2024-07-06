@@ -173,6 +173,8 @@ namespace Drive
             File.Create(System.Windows.Forms.Application.StartupPath + "//UserData//file//" + userID.ToString() + "_file.txt").Close();
             File.Create(System.Windows.Forms.Application.StartupPath + "//UserData//folder//" + userID.ToString() + "_folder.txt").Close();
             File.Create(System.Windows.Forms.Application.StartupPath + "//UserData//download//" + userID.ToString() + "_download.txt").Close();
+            File.Create(System.Windows.Forms.Application.StartupPath + "//UserData//file_shared//" + userID.ToString() + "_fileshared.txt").Close();
+            File.Create(System.Windows.Forms.Application.StartupPath + "//UserData//file_recent//" + userID.ToString() + "_filerecent.txt").Close();
 
             if (txbPwRegis.Texts == txbConfirmRegis.Texts)
             {
