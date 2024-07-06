@@ -465,5 +465,102 @@ namespace Drive
                 picFolder.BackColor = Color.LightSkyBlue;
             }
         }
+
+        private bool isEdited = false;
+        private void Edit(object sender, EventArgs e)
+        {
+            if(isEdited){
+
+                uctItemList.currentFileName.ReadOnly = true;
+                string nameFile = ClassData.chosenFildeName;
+                string newNameFile = uctItemList.currentFileName.Text;
+                string sourceFile = $"DriveData\\file\\{nameFile}" + uctItemList.currentFileType;
+                string destinationFile = $"DriveData\\file\\{newNameFile}" + uctItemList.currentFileType;
+
+                CopyAndRenameFile(sourceFile, destinationFile);
+                ReplaceFile(ClassData.chosenFileID, newNameFile);
+    }
+            else{
+                uctItemList.currentFileName.ReadOnly = false;
+            }
+            isEdited = !isEdited;
+
+        }
+
+        public void ReplaceFile(int fileID, string fileName)
+        {
+            string filePath = $"UserData\\file\\{StartForm.userID}_file.txt";
+            string tempFilePath = $"{filePath}.tmp"; // Tạo một tệp tạm để lưu nội dung mới
+
+            try
+            {
+                // Mở tệp nguồn để đọc
+                using (StreamReader sr = new StreamReader(filePath))
+                {
+                    // Tạo một StringBuilder để xây dựng nội dung mới
+                    StringBuilder sb = new StringBuilder();
+                    string line;
+
+                    // Đọc từng dòng từ tệp nguồn
+                    while ((line = sr.ReadLine()) != null)
+                    {
+                        string[] contents = line.Split('*');
+
+                        // Kiểm tra nếu dòng hiện tại chứa fileID cần thay đổi
+                        if (contents.Length > 3 && contents[0] == fileID.ToString())
+                        {
+                            // Thực hiện thay đổi nội dung chỉ một lần
+                            contents[3] = fileName;
+                            line = string.Join("*", contents); // Tạo lại dòng với nội dung đã thay đổi
+                        }
+
+                        // Thêm dòng đã xử lý vào StringBuilder
+                        sb.AppendLine(line);
+                    }
+
+                    // Ghi nội dung mới vào tệp tạm
+                    File.WriteAllText(tempFilePath, sb.ToString());
+                }
+
+                // Xóa tệp nguồn và đổi tên tệp tạm thành tên tệp nguồn
+                File.Delete(filePath);
+                File.Move(tempFilePath, filePath);
+
+                Console.WriteLine("Thay thế nội dung thành công.");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Lỗi: {ex.Message}");
+            }
+        }
+
+        public void CopyAndRenameFile(string sourceFileName, string destinationFileName)
+        {
+            MessageBox.Show(sourceFileName);
+            try
+            {
+                // Kiểm tra xem tệp nguồn có tồn tại không
+                if (File.Exists(sourceFileName))
+                {
+                    // Kiểm tra xem tệp đích đã tồn tại chưa, nếu có thì xóa đi
+                    if (File.Exists(destinationFileName))
+                    {
+                        File.Delete(destinationFileName);
+                    }
+
+                    // Sao chép tệp nguồn vào đích và đổi tên
+                    File.Copy(sourceFileName, destinationFileName);
+                }
+                else
+                {
+                    Console.WriteLine("Không tìm thấy tệp nguồn.");
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Lỗi: {ex.Message}");
+
+            }
+        }
     }
 }

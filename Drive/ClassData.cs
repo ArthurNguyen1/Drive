@@ -28,6 +28,7 @@ namespace Drive
         public static int currentFolderID = 0; // folder root
         public static int chosenFileID = -1;
         public static string chosenFildeName = "";
+        public static string chosenFileType = "";
 
         public static int nextFileID = 101;
         public static int nextFolderID = 1;

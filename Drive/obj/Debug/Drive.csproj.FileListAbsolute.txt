@@ -94,14 +94,6 @@ C:\Users\Hoang\Desktop\Drive\Drive\obj\Debug\Drive.csproj.CoreCompileInputs.cach
 C:\Users\Hoang\Desktop\Drive\Drive\obj\Debug\Drive.csproj.Up2Date
 C:\Users\Hoang\Desktop\Drive\Drive\obj\Debug\Drive.exe
 C:\Users\Hoang\Desktop\Drive\Drive\obj\Debug\Drive.pdb
-C:\Users\Hoang\Desktop\Drive\Drive\bin\Debug\libHarfBuzzSharp.dylib
-C:\Users\Hoang\Desktop\Drive\Drive\bin\Debug\x86\libHarfBuzzSharp.dll
-C:\Users\Hoang\Desktop\Drive\Drive\bin\Debug\x64\libHarfBuzzSharp.dll
-C:\Users\Hoang\Desktop\Drive\Drive\bin\Debug\arm64\libHarfBuzzSharp.dll
-C:\Users\Hoang\Desktop\Drive\Drive\bin\Debug\libSkiaSharp.dylib
-C:\Users\Hoang\Desktop\Drive\Drive\bin\Debug\x86\libSkiaSharp.dll
-C:\Users\Hoang\Desktop\Drive\Drive\bin\Debug\x64\libSkiaSharp.dll
-C:\Users\Hoang\Desktop\Drive\Drive\bin\Debug\arm64\libSkiaSharp.dll
 C:\Users\Hoang\Desktop\Drive\Drive\bin\Debug\Syncfusion.Compression.Base.dll
 C:\Users\Hoang\Desktop\Drive\Drive\bin\Debug\Syncfusion.DocIO.Base.dll
 C:\Users\Hoang\Desktop\Drive\Drive\bin\Debug\Syncfusion.Licensing.dll
@@ -116,3 +108,11 @@ D:\Drive\Drive\bin\Debug\Syncfusion.OfficeChart.Base.dll
 D:\Drive\Drive\bin\Debug\Syncfusion.Compression.Base.xml
 D:\Drive\Drive\bin\Debug\Syncfusion.DocIO.Base.xml
 D:\Drive\Drive\bin\Debug\Syncfusion.OfficeChart.Base.xml
+C:\Users\Hoang\Desktop\Drive\Drive\bin\Debug\libHarfBuzzSharp.dylib
+C:\Users\Hoang\Desktop\Drive\Drive\bin\Debug\x86\libHarfBuzzSharp.dll
+C:\Users\Hoang\Desktop\Drive\Drive\bin\Debug\x64\libHarfBuzzSharp.dll
+C:\Users\Hoang\Desktop\Drive\Drive\bin\Debug\arm64\libHarfBuzzSharp.dll
+C:\Users\Hoang\Desktop\Drive\Drive\bin\Debug\libSkiaSharp.dylib
+C:\Users\Hoang\Desktop\Drive\Drive\bin\Debug\x86\libSkiaSharp.dll
+C:\Users\Hoang\Desktop\Drive\Drive\bin\Debug\x64\libSkiaSharp.dll
+C:\Users\Hoang\Desktop\Drive\Drive\bin\Debug\arm64\libSkiaSharp.dll
