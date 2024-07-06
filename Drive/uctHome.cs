@@ -61,13 +61,29 @@ namespace Drive
             }
         }
 
+        public void AddFile_2(int id, int idowner, string type, string name, string time, int idfolderbelong, bool recent, bool like, string owner, List<int> shared)
+        {
+            if (ClassData.isListMode) // Display List Mode
+            {
+                uctItemList uct = new uctItemList();
+                uct.LoadData_2(id, idowner, type, name, time, idfolderbelong, recent, like, shared, owner);
+                pnContentList.Controls.Add(uct);
+            }
+            else // Display Grid Mode
+            {
+                uctItemGrid uct = new uctItemGrid();
+                uct.LoadData_2(id, idowner, type, name, time, idfolderbelong, recent, like, shared, owner);
+                pnContentGrid.Controls.Add(uct);
+            }
+
+        }
         public void LoadDataDown(DataTable dt)
         {
             pnContentList.Controls.Clear();
             pnContentGrid.Controls.Clear();
             foreach (DataRow dr in dt.Rows)
             {
-                AddFile((int)dr["ID"], (int)dr["IDowner"], dr["type"].ToString(), dr["name"].ToString(), dr["time"].ToString(), (int)dr["IDfolderbelong"], (bool)dr["recent"], (bool)dr["like"], (List<int>)dr["shared"]);
+                AddFile_2((int)dr["ID"], (int)dr["IDowner"], dr["type"].ToString(), dr["name"].ToString(), dr["time"].ToString(), (int)dr["IDfolderbelong"], (bool)dr["recent"], (bool)dr["like"], (string)dr["owner"], (List<int>)dr["shared"]);
             }
         }
 
@@ -582,7 +598,7 @@ namespace Drive
                      DateTime.Now.ToString("dd/MM/yyyy hh:mm:ss tt") + "*" +
                      ClassData.currentFolderID.ToString() + "*" +
                      "False" + "*" +
-                     "False");
+                     "False" + "*" + StartForm.userName);
             sw.Close();
         }
 

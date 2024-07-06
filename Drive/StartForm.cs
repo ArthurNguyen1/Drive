@@ -15,6 +15,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Xml.Linq;
 using Microsoft.Office.Interop.Excel;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
 namespace Drive
 {
@@ -29,6 +30,8 @@ namespace Drive
         [DllImportAttribute("user32.dll")]
         public static extern bool ReleaseCapture();
         public static int userID = 0;
+        public static string userName;
+
         #endregion
         public StartForm()
         {
@@ -139,6 +142,7 @@ namespace Drive
                     if (txbEmailLogin.Texts == email)
                     {
                         userID = Convert.ToInt32(id);
+                        userName = name;
                         isExist = true;
                         if (txbPwLogin.Texts == sr.ReadLine())
                         {

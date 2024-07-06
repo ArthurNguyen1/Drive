@@ -22,6 +22,7 @@ namespace Drive
         bool _recent;
         bool _like;
         List<int> _shared;
+        string _owner;
         public uctItemGrid()
         {
             InitializeComponent();
@@ -73,6 +74,23 @@ namespace Drive
             lblReasonRecommend.Text = "Bạn đã mở : " + _time;
         }
 
+        public void LoadData_2(int id, int idowner, string type, string name, string time, int idfolderbelong, bool recent, bool like, List<int> shared, string owner)
+        {
+            _ID = id;
+            _IDowner = idowner;
+            _type = type;
+            _name = name;
+            _time = time;
+            _IDfolderbelong = idfolderbelong;
+            _recent = recent;
+            _like = like;
+            _shared = shared;
+            _owner = owner;
+            picType.Image = Image.FromFile(PathImage + type + ".png");
+            lblName.Text = name;
+            
+            lblReasonRecommend.Text = "Bạn đã mở : " + _time;
+        }
         private void uctItemGrid_MouseEnter(object sender, EventArgs e)
         {
             this.BackColor = System.Drawing.SystemColors.ControlDark;

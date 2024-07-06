@@ -165,7 +165,7 @@ namespace Drive
                              DateTime.Now.ToString("dd/MM/yyyy hh:mm:ss tt") + "*" +
                              ClassData.currentFolderID.ToString() + "*" +
                              "False" + "*" +
-                             "False");
+                             "False" + "*" + StartForm.userName);
                     sw.Close();
 
                     ClassData.nextFileID++;
@@ -291,7 +291,7 @@ namespace Drive
                      DateTime.Now.ToString("dd/MM/yyyy hh:mm:ss tt") + "*" +
                      ClassData.currentFolderID.ToString() + "*" +
                      "False" + "*" +
-                     "False");
+                     "False" + "*" + StartForm.userName);
             sw.Close();
 
             ClassData.nextFileID++;
@@ -424,7 +424,6 @@ namespace Drive
                 }
             }
             Home.LoadDataDown(ClassData.dtFileShared);
-            //Recents.LoadDataDown(dtRecents);
             pnShared.BackColor = Color.LightSkyBlue;
             picShared.BackColor = Color.LightSkyBlue;
         }

@@ -67,7 +67,9 @@ namespace Drive
             dtFile.Columns.Add("IDfolderbelong", typeof(int));      // ID of folder contain that file, if file in the root folder, then IDfolderbelong = 0  
             dtFile.Columns.Add("recent", typeof(bool));             // if a file is opened, then turn this bool to true
             dtFile.Columns.Add("like", typeof(bool));               // if a file is marked as a favorite file, then turn this bool to true
+            dtFile.Columns.Add("owner", typeof(string));            // owner
             dtFile.Columns.Add("shared", typeof(List<int>));        // List of others' userID can see this file/folder by sharing
+
             try
             {
                 StreamReader sr = new StreamReader(pathFile);
@@ -75,7 +77,7 @@ namespace Drive
                 while ((str = sr.ReadLine()) != null)
                 {
                     string[] st = str.Split('*');
-                    if (st.Length < 8)
+                    if (st.Length < 9)
                     {
                         dtFile.Rows.Add(int.Parse(st[0]),
                                         int.Parse(st[1]),
@@ -83,12 +85,13 @@ namespace Drive
                                         int.Parse(st[5]),
                                         bool.Parse(st[6]),
                                         bool.Parse(st[7]),
+                                        st[8],
                                         null);
                     }
                     else
                     {
                         List<int> sharedUserID = new List<int> { };
-                        for (int i = 8; i < st.Length; i++)
+                        for (int i = 9; i < st.Length; i++)
                         {
                             sharedUserID.Add(int.Parse(st[i]));
                         }
@@ -98,6 +101,7 @@ namespace Drive
                                         int.Parse(st[5]),
                                         bool.Parse(st[6]),
                                         bool.Parse(st[7]),
+                                        st[8],
                                         sharedUserID);
                     }
                     nextFileID++;
@@ -115,7 +119,9 @@ namespace Drive
             dtFileShared.Columns.Add("IDfolderbelong", typeof(int));      // ID of folder contain that file, if file in the root folder, then IDfolderbelong = 0  
             dtFileShared.Columns.Add("recent", typeof(bool));             // if a file is opened, then turn this bool to true
             dtFileShared.Columns.Add("like", typeof(bool));               // if a file is marked as a favorite file, then turn this bool to true
+            dtFileShared.Columns.Add("owner", typeof(string));        // owner
             dtFileShared.Columns.Add("shared", typeof(List<int>));        // List of others' userID can see this file/folder by sharing
+
             try
             {
                 StreamReader sr = new StreamReader(FileShared);
@@ -123,7 +129,7 @@ namespace Drive
                 while ((str = sr.ReadLine()) != null)
                 {
                     string[] st = str.Split('*');
-                    if (st.Length < 8)
+                    if (st.Length < 9)
                     {
                         dtFileShared.Rows.Add(int.Parse(st[0]),
                                         int.Parse(st[1]),
@@ -131,12 +137,13 @@ namespace Drive
                                         int.Parse(st[5]),
                                         bool.Parse(st[6]),
                                         bool.Parse(st[7]),
+                                        st[8],
                                         null);
                     }
                     else
                     {
                         List<int> sharedUserID = new List<int> { };
-                        for (int i = 8; i < st.Length; i++)
+                        for (int i = 9; i < st.Length; i++)
                         {
                             sharedUserID.Add(int.Parse(st[i]));
                         }
@@ -146,6 +153,7 @@ namespace Drive
                                         int.Parse(st[5]),
                                         bool.Parse(st[6]),
                                         bool.Parse(st[7]),
+                                        st[8],
                                         sharedUserID);
                     }
                 }
@@ -162,7 +170,9 @@ namespace Drive
             dtFileRecent.Columns.Add("IDfolderbelong", typeof(int));      // ID of folder contain that file, if file in the root folder, then IDfolderbelong = 0  
             dtFileRecent.Columns.Add("recent", typeof(bool));             // if a file is opened, then turn this bool to true
             dtFileRecent.Columns.Add("like", typeof(bool));               // if a file is marked as a favorite file, then turn this bool to true
+            dtFileRecent.Columns.Add("owner", typeof(string));            // owner
             dtFileRecent.Columns.Add("shared", typeof(List<int>));        // List of others' userID can see this file/folder by sharing
+
             try
             {
                 StreamReader sr = new StreamReader(FileRecent);
@@ -170,7 +180,7 @@ namespace Drive
                 while ((str = sr.ReadLine()) != null)
                 {
                     string[] st = str.Split('*');
-                    if (st.Length < 8)
+                    if (st.Length < 9)
                     {
                         dtFileRecent.Rows.Add(int.Parse(st[0]),
                                         int.Parse(st[1]),
@@ -178,12 +188,13 @@ namespace Drive
                                         int.Parse(st[5]),
                                         bool.Parse(st[6]),
                                         bool.Parse(st[7]),
+                                        st[8],
                                         null);
                     }
                     else
                     {
                         List<int> sharedUserID = new List<int> { };
-                        for (int i = 8; i < st.Length; i++)
+                        for (int i = 9; i < st.Length; i++)
                         {
                             sharedUserID.Add(int.Parse(st[i]));
                         }
@@ -193,6 +204,7 @@ namespace Drive
                                         int.Parse(st[5]),
                                         bool.Parse(st[6]),
                                         bool.Parse(st[7]),
+                                        st[8],
                                         sharedUserID);
                     }
                 }
@@ -339,7 +351,7 @@ namespace Drive
                 while ((str = sr.ReadLine()) != null)
                 {
                     string[] st = str.Split('*');
-                    if (st.Length < 8)
+                    if (st.Length < 9)
                     {
                         dtFile.Rows.Add(int.Parse(st[0]),
                                         int.Parse(st[1]),
@@ -347,12 +359,13 @@ namespace Drive
                                         int.Parse(st[5]),
                                         bool.Parse(st[6]),
                                         bool.Parse(st[7]),
+                                        st[8],
                                         null);
                     }
                     else
                     {
                         List<int> sharedUserID = new List<int> { };
-                        for (int i = 8; i < st.Length; i++)
+                        for (int i = 9; i < st.Length; i++)
                         {
                             sharedUserID.Add(int.Parse(st[i]));
                         }
@@ -362,6 +375,7 @@ namespace Drive
                                         int.Parse(st[5]),
                                         bool.Parse(st[6]),
                                         bool.Parse(st[7]),
+                                        st[8],
                                         sharedUserID);
                     }
                     nextFileID++;
@@ -379,7 +393,7 @@ namespace Drive
                 while ((str = sr.ReadLine()) != null)
                 {
                     string[] st = str.Split('*');
-                    if (st.Length < 8)
+                    if (st.Length < 9)
                     {
                         dtFileShared.Rows.Add(int.Parse(st[0]),
                                         int.Parse(st[1]),
@@ -387,12 +401,13 @@ namespace Drive
                                         int.Parse(st[5]),
                                         bool.Parse(st[6]),
                                         bool.Parse(st[7]),
+                                        st[8],
                                         null);
                     }
                     else
                     {
                         List<int> sharedUserID = new List<int> { };
-                        for (int i = 8; i < st.Length; i++)
+                        for (int i = 9; i < st.Length; i++)
                         {
                             sharedUserID.Add(int.Parse(st[i]));
                         }
@@ -402,6 +417,7 @@ namespace Drive
                                         int.Parse(st[5]),
                                         bool.Parse(st[6]),
                                         bool.Parse(st[7]),
+                                        st[8],
                                         sharedUserID);
                     }
                 }
@@ -418,7 +434,7 @@ namespace Drive
                 while ((str = sr.ReadLine()) != null)
                 {
                     string[] st = str.Split('*');
-                    if (st.Length < 8)
+                    if (st.Length < 9)
                     {
                         dtFileRecent.Rows.Add(int.Parse(st[0]),
                                         int.Parse(st[1]),
@@ -426,12 +442,13 @@ namespace Drive
                                         int.Parse(st[5]),
                                         bool.Parse(st[6]),
                                         bool.Parse(st[7]),
+                                        st[8],
                                         null);
                     }
                     else
                     {
                         List<int> sharedUserID = new List<int> { };
-                        for (int i = 8; i < st.Length; i++)
+                        for (int i = 9; i < st.Length; i++)
                         {
                             sharedUserID.Add(int.Parse(st[i]));
                         }
@@ -441,6 +458,7 @@ namespace Drive
                                         int.Parse(st[5]),
                                         bool.Parse(st[6]),
                                         bool.Parse(st[7]),
+                                        st[8],
                                         sharedUserID);
                     }
                 }

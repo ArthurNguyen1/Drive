@@ -40,19 +40,47 @@ namespace Drive
 
         }
 
+        public void WriteToFileStack(string filePath, string lineToAdd)
+        {
+            try
+            {
+                List<string> lines = new List<string>();
+
+                // Đọc nội dung hiện tại của file nếu có
+                if (File.Exists(filePath))
+                {
+                    lines = File.ReadAllLines(filePath).ToList();
+                }
+
+                // Thêm dòng mới vào đầu danh sách (định dạng stack)
+                lines.Insert(0, lineToAdd);
+
+                // Nếu số dòng vượt quá 10, xóa các dòng cũ nhất
+                if (lines.Count > 10)
+                {
+                    lines = lines.Take(10).ToList(); // Lấy ra chỉ 10 dòng mới nhất
+                }
+
+                // Ghi lại toàn bộ nội dung mới vào file
+                File.WriteAllLines(filePath, lines);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Lỗi: {ex.Message}");
+            }
+        }
         private void uctItemList_DoubleClick(object sender, EventArgs e)
         {
             string pathDataFile = "UserData\\file_recent\\" + StartForm.userID.ToString() + "_filerecent.txt";
-            StreamWriter sw = new StreamWriter(pathDataFile, true);
-            sw.WriteLine(ClassData.chosenFileID + "*" +
+            WriteToFileStack(pathDataFile, ClassData.chosenFileID + "*" +
                      "1000" + "*" +
                      uctItemList.currentFileType + "*" +
                      ClassData.chosenFildeName + "*" +
                      DateTime.Now.ToString("dd/MM/yyyy hh:mm:ss tt") + "*" +
                      ClassData.currentFolderID.ToString() + "*" +
                      "False" + "*" +
-                     "False");
-            sw.Close();
+                     "False" + "*" + StartForm.userName);
+
 
             string filePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "DriveData\\file\\" + lblName.Text + ".docx");
             // The file format is detected automatically from the file extension: ".docx".
@@ -112,6 +140,24 @@ namespace Drive
 
             picType.Image = Image.FromFile(PathImage + type + ".png");
             lblName.Text = name;
+            lblOwner.Text = "Chủ sở hữu";
+            lblReasonRecommend.Text = "Bạn đã mở : " + _time;
+        }
+
+        public void LoadData_2(int id, int idowner, string type, string name, string time, int idfolderbelong, bool recent, bool like, List<int> shared, string owner)
+        {
+            _ID = id;
+            _IDowner = idowner;
+            _type = type;
+            _name = name;
+            _time = time;
+            _IDfolderbelong = idfolderbelong;
+            _recent = recent;
+            _like = like;
+            _shared = shared;
+            picType.Image = Image.FromFile(PathImage + type + ".png");
+            lblName.Text = name;
+            lblOwner.Text = owner;
             lblReasonRecommend.Text = "Bạn đã mở : " + _time;
         }
 
