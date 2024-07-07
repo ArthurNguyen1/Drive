@@ -446,5 +446,13 @@ namespace Drive
             pnRecent.BackColor = Color.LightSkyBlue;
             picRecent.BackColor = Color.LightSkyBlue;
         }
+
+        private void Logout(object sender, EventArgs e)
+        {
+            this.Close();
+
+            StartForm startForm = new StartForm();
+            startForm.ShowDialog();
+        }
     }
 }

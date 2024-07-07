@@ -514,7 +514,7 @@ namespace Drive
                 while ((str = sr.ReadLine()) != null)
                 {
                     string[] st = str.Split('*');
-                    if (st.Length < 8)
+                    if (st.Length < 9)
                     {
                         dtDelete.Rows.Add(int.Parse(st[0]),
                                         int.Parse(st[1]),
@@ -522,12 +522,13 @@ namespace Drive
                                         int.Parse(st[5]),
                                         bool.Parse(st[6]),
                                         bool.Parse(st[7]),
+                                        st[8],
                                         null);
                     }
                     else
                     {
                         List<int> sharedUserID = new List<int> { };
-                        for (int i = 8; i < st.Length; i++)
+                        for (int i = 9; i < st.Length; i++)
                         {
                             sharedUserID.Add(int.Parse(st[i]));
                         }
