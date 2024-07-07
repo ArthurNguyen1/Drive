@@ -340,9 +340,9 @@ namespace Drive
                 if(ClassData.isDisplayFile == true)
                 {
                     string currentTime = DateTime.Now.ToString("hh:mm tt, dd/MM/yyyy");
-
                     //Add the deleted file to dtDelete
-                    StreamWriter sw = new StreamWriter(ClassData.FileDeletePath, true);
+                    StreamWriter sw = new StreamWriter("DriveData\\data\\Delete.txt", true);
+
                     foreach (DataRow dr in ClassData.dtFile.Rows)
                     {
                         if ((int)dr["ID"] == ClassData.chosenFileID)
@@ -356,7 +356,8 @@ namespace Drive
                                         currentTime + "*" +
                                         dr["IDfolderbelong"].ToString() + "*" +
                                         dr["recent"].ToString() + "*" +
-                                        dr["like"].ToString());
+                                        dr["like"].ToString() + "*" + 
+                                        dr["owner"]);
                             }
                             else
                             {
@@ -367,7 +368,8 @@ namespace Drive
                                         currentTime + "*" +
                                         dr["IDfolderbelong"].ToString() + "*" +
                                         dr["recent"].ToString() + "*" +
-                                        dr["like"].ToString());
+                                        dr["like"].ToString() + "*" + 
+                                        dr["owner"]);
                                 foreach (int temp in (List<int>)dr["shared"])
                                 {
                                     sw.Write("*" + temp.ToString());
@@ -402,7 +404,7 @@ namespace Drive
                                     dr["time"] + "*" +
                                     dr["IDfolderbelong"].ToString() + "*" +
                                     dr["recent"].ToString() + "*" +
-                                    dr["like"].ToString());
+                                    dr["like"].ToString() + "*" + dr["owner"]);
                         }
                         else
                         {
@@ -413,7 +415,7 @@ namespace Drive
                                     dr["time"] + "*" +
                                     dr["IDfolderbelong"].ToString() + "*" +
                                     dr["recent"].ToString() + "*" +
-                                    dr["like"].ToString());
+                                    dr["like"].ToString() + "*" + dr["owner"]);
                             foreach(int temp in (List<int>)dr["shared"])
                             {
                                 sw.Write("*" + temp.ToString());
