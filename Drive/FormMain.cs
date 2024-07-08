@@ -310,6 +310,12 @@ namespace Drive
             Home.FolderAdd();
             Home.LoadDataFolder();
 
+            MyDrive.FolderAdd();
+            MyDrive.LoadDataFolder();
+
+            history.Peek().FolderAdd();
+            history.Peek().LoadDataFolder();
+
             pnNew.Visible = false;
         }
 

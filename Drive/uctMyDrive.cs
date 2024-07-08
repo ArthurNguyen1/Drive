@@ -90,7 +90,25 @@ namespace Drive
             pnContentList.Controls.Clear();
             pnContentGridFile.Controls.Clear();
             pnContentGridFolder.Controls.Clear();
-            foreach (DataRow dr in ClassData.dtFolder.Rows)
+            
+
+            //Merge 2 tables
+            DataTable dt1 = ClassData.dtFolder.Copy();
+            DataTable dt2 = ClassData.dtFile.Copy();
+
+            DataTable dtAll = dt1.Copy();
+            dtAll.Merge(dt2);
+
+            if (dtAll.AsEnumerable().Where(dr => dr.Field<int>("IDfolderbelong") == ClassData.currentFolderID).Count() == 0)
+            {
+                dtAll.Rows.Clear();
+                dtAll.Rows.Add();
+                dtAll.Rows[0]["ID"] = -1;
+            }
+            else
+                dtAll = dtAll.AsEnumerable().Where(dr => dr.Field<int>("IDfolderbelong") == ClassData.currentFolderID).CopyToDataTable();
+
+            foreach (DataRow dr in dtAll.Rows)
             {
                 AddFile((int)dr["ID"], (int)dr["IDowner"], dr["type"].ToString(), dr["name"].ToString(), dr["time"].ToString(), (int)dr["IDfolderbelong"], (bool)dr["recent"], (bool)dr["like"], (List<int>)dr["shared"]);
             }
@@ -115,8 +133,10 @@ namespace Drive
         public void FolderAdd()
         {
             Reset();
-            pnContentList.Visible = true;
-            pnHeader.Visible = true;
+            pnContentGridFile.Visible = true;
+            pnContentGridFolder.Visible = true;
+            lblFile.Visible = true;
+            lblFolder.Visible = true;
 
             pnList.BackColor = Color.LightSkyBlue;
             picList.BackColor = Color.LightSkyBlue;
