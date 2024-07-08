@@ -93,7 +93,7 @@ namespace Drive
             pnContentGrid.Controls.Clear();
             foreach (DataRow dr in ClassData.dtFile.Rows)
             {
-                AddFile((int)dr["ID"], (int)dr["IDowner"], dr["type"].ToString(), dr["name"].ToString(), dr["time"].ToString(), (int)dr["IDfolderbelong"], (bool)dr["recent"], (bool)dr["like"], (List<int>)dr["shared"]);
+                AddFile_2((int)dr["ID"], (int)dr["IDowner"], dr["type"].ToString(), dr["name"].ToString(), dr["time"].ToString(), (int)dr["IDfolderbelong"], (bool)dr["recent"], (bool)dr["like"], (string)dr["owner"], (List<int>)dr["shared"]);
             }
         }
 
@@ -103,7 +103,7 @@ namespace Drive
             pnContentGrid.Controls.Clear();
             foreach (DataRow dr in ClassData.dtFolder.Rows)
             {
-                AddFile((int)dr["ID"], (int)dr["IDowner"], dr["type"].ToString(), dr["name"].ToString(), dr["time"].ToString(), (int)dr["IDfolderbelong"], (bool)dr["recent"], (bool)dr["like"], (List<int>)dr["shared"]);
+                AddFile_2((int)dr["ID"], (int)dr["IDowner"], dr["type"].ToString(), dr["name"].ToString(), dr["time"].ToString(), (int)dr["IDfolderbelong"], (bool)dr["recent"], (bool)dr["like"], (string)dr["owner"], (List<int>)dr["shared"]);
             }
         }
 

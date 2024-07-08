@@ -25,7 +25,7 @@ namespace Drive
         public static string pathFolder = $"UserData\\folder\\{StartForm.userID}_folder.txt";
         public static string pathFile = $"UserData\\file\\{StartForm.userID}_file.txt";
         public static string FileDownloadPath = $"UserData\\download\\{StartForm.userID}_download.txt";
-        public static string FileDeletePath = "DriveData\\data\\Delete.txt";
+        public static string FileDeletePath = $"UserData\\delete\\{StartForm.userID}_delete.txt";
         public static string FileShared = $"UserData\\file_shared\\{StartForm.userID}_fileshared.txt";
         public static string FileRecent = $"UserData\\file_recent\\{StartForm.userID}_filerecent.txt";
 
@@ -40,9 +40,14 @@ namespace Drive
         public static bool isDisplayFile = true; // true: File display, false: Folder display
         public static bool isListMode = true; // true: Display in List mode, false: Display in Grid mode
 
+        public static string FolderName;
+
         public delegate void ClickEventHandler();
         public static event ClickEventHandler OnItemClicked;
         public static event ClickEventHandler OnPanelClosed;
+        public static event ClickEventHandler OnFolderClicked;
+        public static event ClickEventHandler OnFolderBacked;
+
 
         public static void ItemClicked()
         {
@@ -54,6 +59,16 @@ namespace Drive
         {
             if (OnPanelClosed != null)
                 OnPanelClosed();
+        }
+        public static void FolderClicked()
+        {
+            if (OnFolderClicked != null)
+                OnFolderClicked();
+        }
+        public static void FolderBacked()
+        {
+            if (OnFolderBacked != null)
+                OnFolderBacked();
         }
 
         public static void loaddata()
@@ -220,6 +235,7 @@ namespace Drive
             dtFolder.Columns.Add("IDfolderbelong", typeof(int));      // ID of folder contain that file, if file in the root folder, then IDfolderbelong = 0  
             dtFolder.Columns.Add("recent", typeof(bool));             // if a file is opened, then turn this bool to true
             dtFolder.Columns.Add("like", typeof(bool));               // if a file is marked as a favorite file, then turn this bool to true
+            dtFolder.Columns.Add("owner", typeof(string));
             dtFolder.Columns.Add("shared", typeof(List<int>));        // List of others' userID can see this file/folder by sharing
 
             try
@@ -229,7 +245,7 @@ namespace Drive
                 while ((str = sr.ReadLine()) != null)
                 {
                     string[] st = str.Split('*');
-                    if (st.Length < 8)
+                    if (st.Length < 9)
                     {
                         dtFolder.Rows.Add(int.Parse(st[0]),
                                         int.Parse(st[1]),
@@ -237,12 +253,13 @@ namespace Drive
                                         int.Parse(st[5]),
                                         bool.Parse(st[6]),
                                         bool.Parse(st[7]),
+                                        st[8],
                                         null);
                     }
                     else
                     {
                         List<int> sharedUserID = new List<int> { };
-                        for (int i = 8; i < st.Length; i++)
+                        for (int i = 9; i < st.Length; i++)
                         {
                             sharedUserID.Add(int.Parse(st[i]));
                         }
@@ -252,6 +269,7 @@ namespace Drive
                                         int.Parse(st[5]),
                                         bool.Parse(st[6]),
                                         bool.Parse(st[7]),
+                                        st[8],
                                         sharedUserID);
                     }
                     nextFolderID++;
@@ -308,6 +326,7 @@ namespace Drive
                                         int.Parse(st[5]),
                                         bool.Parse(st[6]),
                                         bool.Parse(st[7]),
+                                        st[8],
                                         null);
                     }
                     else
@@ -323,6 +342,7 @@ namespace Drive
                                         int.Parse(st[5]),
                                         bool.Parse(st[6]),
                                         bool.Parse(st[7]),
+                                        st[8],
                                         sharedUserID);
                     }
                     nextFileID++;
@@ -475,7 +495,7 @@ namespace Drive
                 while ((str = sr.ReadLine()) != null)
                 {
                     string[] st = str.Split('*');
-                    if (st.Length < 8)
+                    if (st.Length < 9)
                     {
                         dtFolder.Rows.Add(int.Parse(st[0]),
                                         int.Parse(st[1]),
@@ -483,12 +503,13 @@ namespace Drive
                                         int.Parse(st[5]),
                                         bool.Parse(st[6]),
                                         bool.Parse(st[7]),
+                                        st[8],
                                         null);
                     }
                     else
                     {
                         List<int> sharedUserID = new List<int> { };
-                        for (int i = 8; i < st.Length; i++)
+                        for (int i = 9; i < st.Length; i++)
                         {
                             sharedUserID.Add(int.Parse(st[i]));
                         }
@@ -498,6 +519,7 @@ namespace Drive
                                         int.Parse(st[5]),
                                         bool.Parse(st[6]),
                                         bool.Parse(st[7]),
+                                        st[8],
                                         sharedUserID);
                     }
                     nextFolderID++;
@@ -538,6 +560,7 @@ namespace Drive
                                         int.Parse(st[5]),
                                         bool.Parse(st[6]),
                                         bool.Parse(st[7]),
+                                        st[8],
                                         sharedUserID);
                     }
                 }
