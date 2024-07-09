@@ -619,5 +619,11 @@ namespace Drive
             return null;
         }
 
+        private void picMove_Click(object sender, EventArgs e)
+        {
+            MoveForm moveForm = new MoveForm();
+            moveForm.LoadDataDown(ClassData.dtFolder);
+            moveForm.ShowDialog();
+        }
     }
 }

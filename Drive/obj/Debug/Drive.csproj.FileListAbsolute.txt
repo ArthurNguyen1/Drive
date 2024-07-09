@@ -178,3 +178,5 @@ D:\Drive\Drive\obj\Debug\Drive.uctMyDrive.resources
 D:\Drive\Drive\obj\Debug\Drive.ucFolder.resources
 D:\Drive\Drive\obj\Debug\Drive.ucInsideFolder.resources
 D:\Drive\Drive\obj\Debug\Drive.CustomControl.UserSelectionForm.resources
+D:\Drive\Drive\obj\Debug\Drive.MoveForm.resources
+D:\Drive\Drive\obj\Debug\Drive.uctMoveFolder.resources

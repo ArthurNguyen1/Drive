@@ -41,6 +41,7 @@ namespace Drive
             InitializeComponent();
             ClassData.OnFolderClicked += AddInsideFolderUI;
             ClassData.OnFolderBacked += RemoveInsideFolderUI;
+            ClassData.OnItemMoved += ReloadAfterMoveItem;
 
             this.Controls.Add(Home);
             Home.Location = new System.Drawing.Point(187, 65);
@@ -54,7 +55,6 @@ namespace Drive
             this.Controls.Add(MyDrive);
             MyDrive.Location = new System.Drawing.Point(187, 65);
         }
-
         private Stack<ucInsideFolder> history = new Stack<ucInsideFolder>();
 
         public void Save(ucInsideFolder memento)
@@ -106,7 +106,20 @@ namespace Drive
             ucInsideFolder insideFolder = Undo();
             this.Controls.Remove(insideFolder);
         }
+        public void ReloadAfterMoveItem()
+        {
+            Home.LoadDataDown(ClassData.dtFile/*.AsEnumerable().Where(dr => dr.Field<int>("IDfolderbelong") == ClassData.currentFolderID).CopyToDataTable()*/);
+            //Merge 2 tables
+            System.Data.DataTable dt1 = ClassData.dtFolder.Copy();
+            System.Data.DataTable dt2 = ClassData.dtFile.Copy();
 
+            System.Data.DataTable dtAll = dt1.Copy();
+            dtAll.Merge(dt2);
+
+            MyDrive.LoadDataDown(dtAll.AsEnumerable().Where(dr => dr.Field<int>("IDfolderbelong") == ClassData.currentFolderID).CopyToDataTable());
+            Trash.LoadDataDown(ClassData.dtDelete);
+            Laptop.LoadDataDown(ClassData.dtDownload);
+        }
         private void FormMain_Load(object sender, EventArgs e)
         {
             ClassData.loaddata();
@@ -158,8 +171,8 @@ namespace Drive
                 this.Controls.Remove(insideFolder);
             }
 
-            ClassData.isListMode = true;
-            ClassData.isDisplayFile = true;
+            //ClassData.isListMode = true;
+            //ClassData.isDisplayFile = true;
             ClassData.currentFolderID = 0;
 
             ClassData.PanelClosed();
@@ -418,6 +431,7 @@ namespace Drive
             dtAll.Merge(dt2);
 
             MyDrive.LoadDataDown(dtAll.AsEnumerable().Where(dr => dr.Field<int>("IDfolderbelong") == ClassData.currentFolderID).CopyToDataTable());
+
             pnMyDrive.BackColor = Color.LightSkyBlue;
             picMyDrive.BackColor = Color.LightSkyBlue;
         }

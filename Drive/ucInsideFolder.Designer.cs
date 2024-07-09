@@ -169,6 +169,7 @@
             this.picMove.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.picMove.TabIndex = 11;
             this.picMove.TabStop = false;
+            this.picMove.Click += new System.EventHandler(this.picMove_Click);
             // 
             // picDownload
             // 

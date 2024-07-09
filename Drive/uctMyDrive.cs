@@ -251,7 +251,9 @@ namespace Drive
 
         private void picMove_Click(object sender, EventArgs e)
         {
-
+            MoveForm moveForm = new MoveForm();
+            moveForm.LoadDataDown(ClassData.dtFolder);
+            moveForm.ShowDialog();
         }
 
         private void picMove_MouseEnter(object sender, EventArgs e)
@@ -287,7 +289,8 @@ namespace Drive
                                         currentTime + "*" +
                                         dr["IDfolderbelong"].ToString() + "*" +
                                         dr["recent"].ToString() + "*" +
-                                        dr["like"].ToString());
+                                        dr["like"].ToString() + "*" +
+                                        dr["owner"]);
                             }
                             else
                             {
@@ -298,7 +301,8 @@ namespace Drive
                                         currentTime + "*" +
                                         dr["IDfolderbelong"].ToString() + "*" +
                                         dr["recent"].ToString() + "*" +
-                                        dr["like"].ToString());
+                                        dr["like"].ToString() + "*" +
+                                        dr["owner"]);
                                 foreach (int temp in (List<int>)dr["shared"])
                                 {
                                     sw.Write("*" + temp.ToString());
@@ -333,7 +337,8 @@ namespace Drive
                                     dr["time"] + "*" +
                                     dr["IDfolderbelong"].ToString() + "*" +
                                     dr["recent"].ToString() + "*" +
-                                    dr["like"].ToString());
+                                    dr["like"].ToString() + "*" +
+                                    dr["owner"]);
                         }
                         else
                         {
@@ -344,7 +349,8 @@ namespace Drive
                                     dr["time"] + "*" +
                                     dr["IDfolderbelong"].ToString() + "*" +
                                     dr["recent"].ToString() + "*" +
-                                    dr["like"].ToString());
+                                    dr["like"].ToString() + "*" +
+                                    dr["owner"]);
                             foreach (int temp in (List<int>)dr["shared"])
                             {
                                 sw.Write("*" + temp.ToString());

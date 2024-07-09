@@ -30,15 +30,11 @@
         {
             this.pnContentGrid = new System.Windows.Forms.FlowLayoutPanel();
             this.pnList = new System.Windows.Forms.Panel();
-            this.picList = new System.Windows.Forms.PictureBox();
             this.pnGrid = new System.Windows.Forms.Panel();
-            this.picGrid = new System.Windows.Forms.PictureBox();
             this.pnFolder = new System.Windows.Forms.Panel();
             this.lblFolder = new System.Windows.Forms.Label();
-            this.picFolder = new System.Windows.Forms.PictureBox();
             this.pnFile = new System.Windows.Forms.Panel();
             this.lblFile = new System.Windows.Forms.Label();
-            this.picFile = new System.Windows.Forms.PictureBox();
             this.lblRecommend = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.pnContentList = new System.Windows.Forms.FlowLayoutPanel();
@@ -47,6 +43,7 @@
             this.lblReasonRecommend = new System.Windows.Forms.Label();
             this.lblName = new System.Windows.Forms.Label();
             this.pnFunctions = new System.Windows.Forms.Panel();
+            this.lblNotice = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.picMore = new System.Windows.Forms.PictureBox();
             this.picDelete = new System.Windows.Forms.PictureBox();
@@ -54,16 +51,15 @@
             this.picMove = new System.Windows.Forms.PictureBox();
             this.picDownload = new System.Windows.Forms.PictureBox();
             this.picShared = new System.Windows.Forms.PictureBox();
-            this.lblNotice = new System.Windows.Forms.Label();
             this.picClose = new System.Windows.Forms.PictureBox();
+            this.picList = new System.Windows.Forms.PictureBox();
+            this.picGrid = new System.Windows.Forms.PictureBox();
+            this.picFolder = new System.Windows.Forms.PictureBox();
+            this.picFile = new System.Windows.Forms.PictureBox();
             this.pnList.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.picList)).BeginInit();
             this.pnGrid.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.picGrid)).BeginInit();
             this.pnFolder.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.picFolder)).BeginInit();
             this.pnFile.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.picFile)).BeginInit();
             this.pnHeader.SuspendLayout();
             this.pnFunctions.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -74,6 +70,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.picDownload)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picShared)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picClose)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picList)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picGrid)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picFolder)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picFile)).BeginInit();
             this.SuspendLayout();
             // 
             // pnContentGrid
@@ -96,18 +96,6 @@
             this.pnList.TabIndex = 16;
             this.pnList.Click += new System.EventHandler(this.pnList_Click);
             // 
-            // picList
-            // 
-            this.picList.BackColor = System.Drawing.Color.White;
-            this.picList.Image = global::Drive.Properties.Resources.menu;
-            this.picList.Location = new System.Drawing.Point(17, 8);
-            this.picList.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.picList.Name = "picList";
-            this.picList.Size = new System.Drawing.Size(25, 25);
-            this.picList.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.picList.TabIndex = 5;
-            this.picList.TabStop = false;
-            // 
             // pnGrid
             // 
             this.pnGrid.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
@@ -118,18 +106,6 @@
             this.pnGrid.Size = new System.Drawing.Size(59, 42);
             this.pnGrid.TabIndex = 15;
             this.pnGrid.Click += new System.EventHandler(this.pnGrid_Click);
-            // 
-            // picGrid
-            // 
-            this.picGrid.BackColor = System.Drawing.Color.White;
-            this.picGrid.Image = global::Drive.Properties.Resources.tiles;
-            this.picGrid.Location = new System.Drawing.Point(17, 8);
-            this.picGrid.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.picGrid.Name = "picGrid";
-            this.picGrid.Size = new System.Drawing.Size(25, 25);
-            this.picGrid.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.picGrid.TabIndex = 5;
-            this.picGrid.TabStop = false;
             // 
             // pnFolder
             // 
@@ -153,18 +129,6 @@
             this.lblFolder.TabIndex = 6;
             this.lblFolder.Text = "Thư mục";
             // 
-            // picFolder
-            // 
-            this.picFolder.BackColor = System.Drawing.Color.White;
-            this.picFolder.Image = global::Drive.Properties.Resources.folder;
-            this.picFolder.Location = new System.Drawing.Point(18, 8);
-            this.picFolder.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.picFolder.Name = "picFolder";
-            this.picFolder.Size = new System.Drawing.Size(25, 25);
-            this.picFolder.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.picFolder.TabIndex = 5;
-            this.picFolder.TabStop = false;
-            // 
             // pnFile
             // 
             this.pnFile.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
@@ -186,18 +150,6 @@
             this.lblFile.Size = new System.Drawing.Size(39, 20);
             this.lblFile.TabIndex = 6;
             this.lblFile.Text = "Tệp";
-            // 
-            // picFile
-            // 
-            this.picFile.BackColor = System.Drawing.Color.White;
-            this.picFile.Image = global::Drive.Properties.Resources.tick;
-            this.picFile.Location = new System.Drawing.Point(35, 8);
-            this.picFile.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.picFile.Name = "picFile";
-            this.picFile.Size = new System.Drawing.Size(25, 25);
-            this.picFile.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.picFile.TabIndex = 5;
-            this.picFile.TabStop = false;
             // 
             // lblRecommend
             // 
@@ -287,6 +239,16 @@
             this.pnFunctions.Size = new System.Drawing.Size(812, 42);
             this.pnFunctions.TabIndex = 20;
             // 
+            // lblNotice
+            // 
+            this.lblNotice.AutoSize = true;
+            this.lblNotice.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNotice.Location = new System.Drawing.Point(38, 10);
+            this.lblNotice.Name = "lblNotice";
+            this.lblNotice.Size = new System.Drawing.Size(116, 20);
+            this.lblNotice.TabIndex = 8;
+            this.lblNotice.Text = "Đã chọn 1 mục";
+            // 
             // pictureBox1
             // 
             this.pictureBox1.BackColor = System.Drawing.SystemColors.Control;
@@ -354,6 +316,7 @@
             this.picMove.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.picMove.TabIndex = 11;
             this.picMove.TabStop = false;
+            this.picMove.Click += new System.EventHandler(this.picMove_Click);
             this.picMove.MouseEnter += new System.EventHandler(this.picMove_MouseEnter);
             this.picMove.MouseLeave += new System.EventHandler(this.picMove_MouseLeave);
             // 
@@ -387,16 +350,6 @@
             this.picShared.MouseEnter += new System.EventHandler(this.picShared_MouseEnter);
             this.picShared.MouseLeave += new System.EventHandler(this.picShared_MouseLeave);
             // 
-            // lblNotice
-            // 
-            this.lblNotice.AutoSize = true;
-            this.lblNotice.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNotice.Location = new System.Drawing.Point(38, 10);
-            this.lblNotice.Name = "lblNotice";
-            this.lblNotice.Size = new System.Drawing.Size(116, 20);
-            this.lblNotice.TabIndex = 8;
-            this.lblNotice.Text = "Đã chọn 1 mục";
-            // 
             // picClose
             // 
             this.picClose.BackColor = System.Drawing.SystemColors.Control;
@@ -411,6 +364,54 @@
             this.picClose.Click += new System.EventHandler(this.picClose_Click);
             this.picClose.MouseEnter += new System.EventHandler(this.picClose_MouseEnter);
             this.picClose.MouseLeave += new System.EventHandler(this.picClose_MouseLeave);
+            // 
+            // picList
+            // 
+            this.picList.BackColor = System.Drawing.Color.White;
+            this.picList.Image = global::Drive.Properties.Resources.menu;
+            this.picList.Location = new System.Drawing.Point(17, 8);
+            this.picList.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.picList.Name = "picList";
+            this.picList.Size = new System.Drawing.Size(25, 25);
+            this.picList.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.picList.TabIndex = 5;
+            this.picList.TabStop = false;
+            // 
+            // picGrid
+            // 
+            this.picGrid.BackColor = System.Drawing.Color.White;
+            this.picGrid.Image = global::Drive.Properties.Resources.tiles;
+            this.picGrid.Location = new System.Drawing.Point(17, 8);
+            this.picGrid.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.picGrid.Name = "picGrid";
+            this.picGrid.Size = new System.Drawing.Size(25, 25);
+            this.picGrid.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.picGrid.TabIndex = 5;
+            this.picGrid.TabStop = false;
+            // 
+            // picFolder
+            // 
+            this.picFolder.BackColor = System.Drawing.Color.White;
+            this.picFolder.Image = global::Drive.Properties.Resources.folder;
+            this.picFolder.Location = new System.Drawing.Point(18, 8);
+            this.picFolder.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.picFolder.Name = "picFolder";
+            this.picFolder.Size = new System.Drawing.Size(25, 25);
+            this.picFolder.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.picFolder.TabIndex = 5;
+            this.picFolder.TabStop = false;
+            // 
+            // picFile
+            // 
+            this.picFile.BackColor = System.Drawing.Color.White;
+            this.picFile.Image = global::Drive.Properties.Resources.tick;
+            this.picFile.Location = new System.Drawing.Point(35, 8);
+            this.picFile.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.picFile.Name = "picFile";
+            this.picFile.Size = new System.Drawing.Size(25, 25);
+            this.picFile.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.picFile.TabIndex = 5;
+            this.picFile.TabStop = false;
             // 
             // uctHome
             // 
@@ -432,15 +433,11 @@
             this.Size = new System.Drawing.Size(840, 620);
             this.Load += new System.EventHandler(this.uctHome_Load);
             this.pnList.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.picList)).EndInit();
             this.pnGrid.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.picGrid)).EndInit();
             this.pnFolder.ResumeLayout(false);
             this.pnFolder.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.picFolder)).EndInit();
             this.pnFile.ResumeLayout(false);
             this.pnFile.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.picFile)).EndInit();
             this.pnHeader.ResumeLayout(false);
             this.pnHeader.PerformLayout();
             this.pnFunctions.ResumeLayout(false);
@@ -453,6 +450,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.picDownload)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picShared)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picClose)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picList)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picGrid)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picFolder)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picFile)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

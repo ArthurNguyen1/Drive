@@ -47,6 +47,7 @@ namespace Drive
         public static event ClickEventHandler OnPanelClosed;
         public static event ClickEventHandler OnFolderClicked;
         public static event ClickEventHandler OnFolderBacked;
+        public static event ClickEventHandler OnItemMoved;
 
 
         public static void ItemClicked()
@@ -70,6 +71,12 @@ namespace Drive
             if (OnFolderBacked != null)
                 OnFolderBacked();
         }
+        public static void ItemMoved()
+        {
+            if (OnItemMoved != null)
+                OnItemMoved();
+        }
+
 
         public static void loaddata()
         {
@@ -309,6 +316,7 @@ namespace Drive
             dtDelete.Columns.Add("IDfolderbelong", typeof(int));      // ID of folder contain that file, if file in the root folder, then IDfolderbelong = 0  
             dtDelete.Columns.Add("recent", typeof(bool));             // if a file is opened, then turn this bool to true
             dtDelete.Columns.Add("like", typeof(bool));               // if a file is marked as a favorite file, then turn this bool to true
+            dtDelete.Columns.Add("owner", typeof(string));
             dtDelete.Columns.Add("shared", typeof(List<int>));        // List of others' userID can see this file/folder by sharing
 
             try
@@ -318,7 +326,7 @@ namespace Drive
                 while ((str = sr.ReadLine()) != null)
                 {
                     string[] st = str.Split('*');
-                    if (st.Length < 8)
+                    if (st.Length < 9)
                     {
                         dtDelete.Rows.Add(int.Parse(st[0]),
                                         int.Parse(st[1]),
@@ -332,7 +340,7 @@ namespace Drive
                     else
                     {
                         List<int> sharedUserID = new List<int> { };
-                        for (int i = 8; i < st.Length; i++)
+                        for (int i = 9; i < st.Length; i++)
                         {
                             sharedUserID.Add(int.Parse(st[i]));
                         }
